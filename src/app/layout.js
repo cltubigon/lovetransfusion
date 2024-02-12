@@ -25,6 +25,7 @@ export default function RootLayout({ children }) {
               <Link href={'/login'}><Text>Login</Text></Link>
               <Link href={'/register'}><Text>Register</Text></Link>
               <Link href={'/forgot-password'}><Text>Forgot Password</Text></Link>
+              <Link href={'/gallery'}><Text>Gallery</Text></Link>
             </Flex>
           </header>
           {children}

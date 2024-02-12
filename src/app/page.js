@@ -1,6 +1,7 @@
 import { Button, Flex, Heading, Text } from "@chakra-ui/react"
 
 export default function Home() {
+  
   console.log('Hi CLient')
   return (
     <Flex
