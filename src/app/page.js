@@ -1,30 +1,28 @@
-import { Button, Flex, Heading, Text } from "@chakra-ui/react"
+import { Box, Button, Flex, Heading, Text } from "@chakra-ui/react"
+import { homepageStyle } from "./homepageStyle"
+import { products } from "./products"
+import AddToCart from "./cart/(add-to-cart)/AddToCart"
+import CartPage from "./cart/page"
 
 export default function Home() {
-  
-  console.log('Hi CLient')
   return (
-    <Flex
-      flexDirection={"column"}
-      alignItems={"center"}
-      py={10}
-      bgColor={"gray.100"}
-      boxShadow={"md"}
-    >
-      <Heading
-        fontSize={"xx-large"}
-        fontWeight={"bold"}
-        bgColor={"rgba(255,255,255, 0.6)"}
-        borderRadius={'lg'}
-        p={10}
-        m={2}
-        boxShadow={"sm"}
-        zIndex={1}
-      >
-        Welcome to NextJS Testing
-      </Heading>
-      <Text>This testing is from the source videos in YouTube</Text>
-      <Button colorScheme={'twitter'}>Hello World</Button>
-    </Flex>
+    <Box>
+      <Flex sx={homepageStyle.mainContainer}>
+        {products.map((product, index) => {
+          return (
+            <Flex key={index} flexDirection={"column"} alignItems={"center"}>
+              <Flex sx={homepageStyle.titleContainer}>
+                <Heading sx={homepageStyle.heading}>
+                  {product.productName}
+                </Heading>
+                <Text sx={homepageStyle.price}>${product.price}</Text>
+              </Flex>
+              <AddToCart product={product} />
+            </Flex>
+          )
+        })}
+      </Flex>
+      <CartPage />
+    </Box>
   )
 }
