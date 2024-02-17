@@ -1,5 +1,5 @@
 "use client"
-import { Box, Button, Flex, Heading, Text } from "@chakra-ui/react"
+import { Flex, Heading, Text } from "@chakra-ui/react"
 import React from "react"
 import CartButtons from "./(components)/CartButtons"
 import { useStore } from "zustand"
@@ -28,7 +28,6 @@ const CartPage = () => {
         )
       })}
       <TotalCosts />
-      <Button colorScheme={'green'}>Buy Now</Button>
     </Flex>
   )
 }
