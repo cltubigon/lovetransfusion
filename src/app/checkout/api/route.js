@@ -24,7 +24,7 @@ export const POST = async (request) => {
           product?.productName?.toLowerCase()
       )
 
-      if (stripeProduct == undefined) {
+      if (stripeProduct === undefined) {
         const prod = await stripe.products.create({
           name: product.productName,
           default_price_data: {
@@ -66,15 +66,11 @@ export const POST = async (request) => {
     cancel_url: "http://localhost:3000",
     billing_address_collection: "required",
     allow_promotion_codes: true,
-    payment_intent_data: {
-      capture_method: 'automatic_async'
-    }
   })
   console.log({ session })
   const currentSession = await stripe.checkout.sessions.retrieve(session.id)
-  console.log('currentSession', currentSession)
+  console.log("currentSession", currentSession)
 
   return NextResponse.json({ url: session.url })
   // return NextResponse.json('')
-
 }

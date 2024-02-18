@@ -18,9 +18,9 @@ const balanceTransaction = await stripe.balanceTransactions.retrieve(
 );
 
   console.log('session', session.payment_intent)
-  // console.log('paymentIntent', paymentIntent.latest_charge)
-  // console.log('charge', charge.balance_transaction)
-  // console.log('balanceTransaction', (balanceTransaction.fee ))
+  console.log('paymentIntent', paymentIntent.latest_charge)
+  console.log('charge', charge.balance_transaction)
+  console.log('balanceTransaction', (balanceTransaction.fee ))
   return (
     <Box>
       <Text>Success Page</Text>

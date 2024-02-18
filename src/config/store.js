@@ -9,6 +9,12 @@ const immerPersist = (config) =>
 
 const utilityStore = create(
   immerPersist((set, get) => ({
+    isLoaded: false,
+    setLoaded: (value) => {
+      set((state) => {
+        state.isLoaded = value
+      })
+    },
     schools: {
       grade: {
         section: {
@@ -20,16 +26,15 @@ const utilityStore = create(
     totalCart: 0,
     calculateTotal: () => {
       set((state) => {
-        console.log("calculateTotal started")
         const currentTotal = get().totalCart
         const currentProducts = get().selectedProducts
         const total =
           currentProducts.length > 0 &&
           currentProducts.reduce((acc, product) => {
-            const innerTotal = parseFloat(product.price * product.quantity) + acc
+            const innerTotal =
+              parseFloat(product.price * product.quantity) + acc
             return innerTotal
           }, 0)
-        console.log({ currentTotal, currentProducts, total })
 
         state.totalCart = total
       })

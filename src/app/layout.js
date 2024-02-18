@@ -19,6 +19,7 @@ export default function RootLayout({ children }) {
         <ChakraProvider>
           <Flex justifyContent={'center'} gap={10} p={4} >
             <Link href={'/'}><Text>Home</Text></Link>
+            <Link href={'/shop'}><Text>Shop</Text></Link>
             <Link href={'/cart'}><Text>Cart</Text></Link>
             <Link href={'/checkout'}><Text>Checkout</Text></Link>
           </Flex>

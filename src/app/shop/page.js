@@ -1,4 +1,3 @@
-"use client"
 import { Flex, Heading, Text } from "@chakra-ui/react"
 import React from "react"
 import AddToCart from "../cart/(add-to-cart)/AddToCart"
