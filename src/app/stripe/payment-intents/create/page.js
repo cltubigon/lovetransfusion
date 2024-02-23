@@ -7,21 +7,14 @@ import React from "react"
 import { useStore } from "zustand"
 
 const CreatePaymentIntent = () => {
-  const { isLoaded, setLoaded } = useStore(utilityStore)
+  const { isLoaded, setLoaded, selectedProducts } = useStore(utilityStore)
   const handleButtonClick = async () => {
-    setLoaded(true)    
-    const data = {
-      amount: 2000,
-      currency: "usd",
-      automatic_payment_methods: {
-        enabled: true,
-      },
-    }
+    setLoaded(true)
     try {
       const response = await axios.post(
         "http://localhost:3000/stripe/payment-intents/create/api",
         {
-          data,
+          data: selectedProducts,
         },
         {
           headers: {

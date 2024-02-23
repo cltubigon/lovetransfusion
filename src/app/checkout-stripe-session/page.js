@@ -7,7 +7,7 @@ import React from "react"
 import { useStore } from "zustand"
 import ZustandLoader from "../CustomLoader"
 
-const CheckoutPage = () => {
+const CheckoutWithStripeSessions = () => {
   const { isLoaded, setLoaded, selectedProducts } = useStore(utilityStore)
   const router = useRouter()
 
@@ -15,7 +15,7 @@ const CheckoutPage = () => {
     setLoaded(true)
     try {
       const response = await axios.post(
-        "http://localhost:3000/checkout/api",
+        "http://localhost:3000/checkout-stripe-session/api",
         {
           products: selectedProducts,
         },
@@ -43,11 +43,11 @@ const CheckoutPage = () => {
   return (
     <Flex flexBasis={"100%"}>
       <Button onClick={handleCheckout} w={"100%"} colorScheme={"green"}>
-        Buy Now
+        Checkout with Stripe Sessions
       </Button>
       {isLoaded && <ZustandLoader />}
     </Flex>
   )
 }
 
-export default CheckoutPage
+export default CheckoutWithStripeSessions

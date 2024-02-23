@@ -6,19 +6,29 @@ import axios from "axios"
 import React from "react"
 import { useStore } from "zustand"
 
-const RetrieveAccount = () => {
+const CreateSetupIntents = () => {
   const { isLoaded, setLoaded } = useStore(utilityStore)
   const handleButtonClick = async () => {
-    setLoaded(true)
-    console.log("create Account started")
+    // setLoaded(true)
+    const data = {
+      type: 'card'
+    }
     try {
-      const response = await axios.get(
-        "http://localhost:3000/stripe/account/retrieve/api"
+      const response = await axios.post(
+        "http://localhost:3000/stripe/setup-intents/create/api",
+        {
+          data,
+        },
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
       )
 
       if (response) {
         console.log({ response })
-        setLoaded(false)
+        // setLoaded(false)
       }
     } catch (error) {
       console.error("Error during checkout:", error)
@@ -28,15 +38,15 @@ const RetrieveAccount = () => {
     <div>
       <Button
         w={"100%"}
-        colorScheme={"yellow"}
+        colorScheme={"blue"}
         px={4}
         onClick={handleButtonClick}
       >
-        Retrieve Account
+        CreateSetupIntents
       </Button>
       {isLoaded && <ZustandLoader />}
     </div>
   )
 }
 
-export default RetrieveAccount
+export default CreateSetupIntents

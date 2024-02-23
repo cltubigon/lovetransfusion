@@ -41,7 +41,6 @@ const CancelPaymentIntent = ({ id: data }) => {
       >
         Cancel
       </Button>
-      {isLoaded && <ZustandLoader />}
     </div>
   )
 }

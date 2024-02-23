@@ -6,32 +6,18 @@ import axios from "axios"
 import React from "react"
 import { useStore } from "zustand"
 
-const UpdatePaymentIntent = () => {
+const RetrieveAccount = () => {
   const { isLoaded, setLoaded } = useStore(utilityStore)
   const handleButtonClick = async () => {
     setLoaded(true)
-
-    const data = {
-      id: "pi_3Ol3X3E714z6NjCo1YsURAjk",
-      metadata: {
-        order_id: "6732",
-      },
-    }
+    console.log("create Account started")
     try {
-      const response = await axios.post(
-        "http://localhost:3000/stripe/payment-intents/update/api",
-        {
-          data,
-        },
-        {
-          headers: {
-            "Content-Type": "application/json",
-          },
-        }
+      const response = await axios.get(
+        "http://localhost:3000/stripe/account/list-all/api"
       )
 
       if (response) {
-          console.log({ response })
+        console.log({ response })
         setLoaded(false)
       }
     } catch (error) {
@@ -42,15 +28,15 @@ const UpdatePaymentIntent = () => {
     <div>
       <Button
         w={"100%"}
-        colorScheme={"green"}
+        colorScheme={"yellow"}
         px={4}
         onClick={handleButtonClick}
       >
-        UpdatePaymentIntent
+        Retrieve Account
       </Button>
       {isLoaded && <ZustandLoader />}
     </div>
   )
 }
 
-export default UpdatePaymentIntent
+export default RetrieveAccount

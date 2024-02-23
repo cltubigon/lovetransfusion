@@ -1,6 +1,6 @@
 "use client"
 import utilityStore from "@/config/store"
-import { Flex, Text } from "@chakra-ui/react"
+import { Flex, Heading } from "@chakra-ui/react"
 import React, { useEffect } from "react"
 import { useStore } from "zustand"
 
@@ -12,7 +12,7 @@ const TotalCosts = () => {
   }, [selectedProducts])
   return (
     <Flex>
-      <Text>Total: {totalCart ? totalCart : "0"}</Text>
+      <Heading fontSize={'xx-large'}>Total: {totalCart ? totalCart : "0"}</Heading>
     </Flex>
   )
 }

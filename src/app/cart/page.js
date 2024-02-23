@@ -1,14 +1,24 @@
 "use client"
-import { Flex, Heading, Text } from "@chakra-ui/react"
+import { Button, Flex, Heading, Text } from "@chakra-ui/react"
 import React from "react"
 import CartButtons from "./(components)/CartButtons"
 import { useStore } from "zustand"
 import utilityStore from "@/config/store"
 import TotalCosts from "./(components)/TotalCosts"
+import { useRouter } from "next/navigation"
+import CheckoutWithStripeSessions from "../checkout-stripe-session/page"
+import CheckoutWithStripeSessions2 from "../checkout-embedded/page"
 
 const CartPage = () => {
-  const { selectedProducts, removedProduct } = useStore(utilityStore)
+  const router = useRouter()
+  const { selectedProducts } = useStore(utilityStore)
   const sortedProducts = [...selectedProducts].sort((a, b) => a.id - b.id)
+  const checkoutEmbedded = () => {
+    router.push("/checkout-embedded")
+  }
+  const checkoutCustomFlow = () => {
+    router.push("/checkout-custom-flow")
+  }
   return (
     <Flex p={10} gap={4} flexDir={"column"}>
       <Heading textAlign={"center"} mb={10}>
@@ -28,6 +38,23 @@ const CartPage = () => {
         )
       })}
       <TotalCosts />
+      <Flex gap={4}>
+        <CheckoutWithStripeSessions2 />
+        <Button
+          flexBasis={"100%"}
+          colorScheme={"green"}
+          onClick={checkoutEmbedded}
+        >
+          Checkout Embedded
+        </Button>
+        <Button
+          flexBasis={"100%"}
+          colorScheme={"twitter"}
+          onClick={checkoutCustomFlow}
+        >
+          Checkout with Custom Flow
+        </Button>
+      </Flex>
     </Flex>
   )
 }
