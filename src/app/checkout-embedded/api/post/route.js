@@ -9,7 +9,6 @@ const getActiveProducts = async () => {
   return availableProducts
 }
 
-
 export const POST = async (request) => {
   const { products } = await request.json()
   const data = products
@@ -63,7 +62,9 @@ export const POST = async (request) => {
     ui_mode: "embedded",
     line_items: stripeItems,
     mode: "payment",
-    return_url: `${request.headers.get('origin')}/checkout-embedded/return?session_id={CHECKOUT_SESSION_ID}`,
+    return_url: `${request.headers.get(
+      "origin"
+    )}/checkout-embedded/return?session_id={CHECKOUT_SESSION_ID}`,
     billing_address_collection: "required",
     allow_promotion_codes: true,
   })

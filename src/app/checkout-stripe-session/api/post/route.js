@@ -62,15 +62,12 @@ export const POST = async (request) => {
   const session = await stripe.checkout.sessions.create({
     line_items: stripeItems,
     mode: "payment",
-    success_url: "http://localhost:3000",
-    cancel_url: "http://localhost:3000",
+    success_url: `${request.headers.get('origin')}/checkout-stripe-session/success?session_id={CHECKOUT_SESSION_ID}`,
+    cancel_url: `${request.headers.get('origin')}`,
     billing_address_collection: "required",
     allow_promotion_codes: true,
   })
   console.log({ session })
-  const currentSession = await stripe.checkout.sessions.retrieve(session.id)
-  console.log("currentSession", currentSession)
 
   return NextResponse.json({ url: session.url })
-  // return NextResponse.json('')
 }

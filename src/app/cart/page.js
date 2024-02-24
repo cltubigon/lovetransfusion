@@ -38,8 +38,8 @@ const CartPage = () => {
         )
       })}
       <TotalCosts />
-      <Flex gap={4}>
-        <CheckoutWithStripeSessions2 />
+      <Flex gap={4} flexWrap={'wrap'} >
+        <CheckoutWithStripeSessions />
         <Button
           flexBasis={"100%"}
           colorScheme={"green"}

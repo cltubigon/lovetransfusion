@@ -12,10 +12,9 @@ const CheckoutWithStripeSessions = () => {
   const router = useRouter()
 
   const handleCheckout = async () => {
-    setLoaded(true)
     try {
       const response = await axios.post(
-        "http://localhost:3000/checkout-stripe-session/api",
+        "http://localhost:3000/checkout-stripe-session/api/post",
         {
           products: selectedProducts,
         },
@@ -32,7 +31,6 @@ const CheckoutWithStripeSessions = () => {
       if (response.data.url) {
         // Redirect to the provided URL
         router.push(response.data.url)
-        setLoaded(false)
         console.log("response.url", response.data.url)
       }
     } catch (error) {
@@ -42,7 +40,7 @@ const CheckoutWithStripeSessions = () => {
 
   return (
     <Flex flexBasis={"100%"}>
-      <Button onClick={handleCheckout} w={"100%"} colorScheme={"green"}>
+      <Button onClick={handleCheckout} w={"100%"} colorScheme={"orange"}>
         Checkout with Stripe Sessions
       </Button>
       {isLoaded && <ZustandLoader />}

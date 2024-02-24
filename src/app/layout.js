@@ -21,7 +21,6 @@ export default function RootLayout({ children }) {
             <Link href={'/'}><Text>Home</Text></Link>
             <Link href={'/shop'}><Text>Shop</Text></Link>
             <Link href={'/cart'}><Text>Cart</Text></Link>
-            <Link href={'/checkout-custom-flow'}><Text>Custom Checkout</Text></Link>
             <Link href={'/stripe'}><Text>Stripe APIs</Text></Link>
           </Flex>
           {children}

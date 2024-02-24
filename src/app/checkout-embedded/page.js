@@ -11,8 +11,8 @@ import {
 import { loadStripe } from "@stripe/stripe-js"
 const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY)
 
-const CheckoutWithStripeSessions2 = () => {
-  const { isLoaded, setLoaded, selectedProducts } = useStore(utilityStore)
+const CheckoutEmbedded = () => {
+  const { selectedProducts } = useStore(utilityStore)
   const [clientSecret, setclientSecret] = useState("")
   console.log({ selectedProducts })
 
@@ -23,7 +23,7 @@ const CheckoutWithStripeSessions2 = () => {
         // setLoaded(true)
         try {
           const response = await axios.post(
-            "http://localhost:3000/checkout-embedded/api",
+            "http://localhost:3000/checkout-embedded/api/post",
             {
               products: selectedProducts,
             },
@@ -49,7 +49,7 @@ const CheckoutWithStripeSessions2 = () => {
   }, [selectedProducts])
 
   return (
-    <Box bgColor={"blue.300"}>
+    <Box>
       {clientSecret && (
         <EmbeddedCheckoutProvider
           stripe={stripePromise}
@@ -62,4 +62,4 @@ const CheckoutWithStripeSessions2 = () => {
   )
 }
 
-export default CheckoutWithStripeSessions2
+export default CheckoutEmbedded

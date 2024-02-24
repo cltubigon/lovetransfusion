@@ -4,23 +4,23 @@ import { redirect, useParams } from "next/navigation"
 import axios from "axios"
 import { Flex, Heading, Text } from "@chakra-ui/react"
 
-const SuccessPage = ()=> {
+const SuccessPageOfCustomFlow = ()=> {
   const [status, setStatus] = useState(null)
   const [customerEmail, setCustomerEmail] = useState("")
-  const parameters = useParams()
-  console.log({ parameters })
+  
+  console.log({ status, customerEmail })
   useEffect(() => {
     const queryString = window.location.search
     const urlParams = new URLSearchParams(queryString)
-    const sessionId = urlParams.get("session_id")
-    console.log({ queryString, urlParams, sessionId })
+    const intentId = urlParams.get("payment_intent")
+    console.log({ queryString, urlParams, intentId })
     
     const initiateGet = async () => {
       try {
         const response = await axios.post(
-          "http://localhost:3000/checkout-stripe-session/api/get",
+          "http://localhost:3000/checkout-custom-flow/api",
           {
-            sessionId,
+            intentId,
           },
           {
             headers: {
@@ -30,6 +30,7 @@ const SuccessPage = ()=> {
         )
 
         if (response) {
+          console.log({ response })
           setStatus(response.data.status)
           setCustomerEmail(response.data.customer_email)
         }
@@ -44,12 +45,12 @@ const SuccessPage = ()=> {
     return redirect("/")
   }
 
-  if (status === "complete") {
+  if (status === "succeeded") {
     return (
       <Flex justifyContent={"center"} >
         <Flex maxW={"920px"} textAlign={'center'} >
           <Text>
-            We appreciate your business! A confirmation email will be sent to{" "}
+            We appreciate your business! A receipt email will be sent to{" "}
             {customerEmail}. If you have any questions, please email{" "}
             <a href="mailto:orders@example.com">orders@example.com</a>.
           </Text>
@@ -61,4 +62,4 @@ const SuccessPage = ()=> {
   return null
 }
 
-export default SuccessPage
+export default SuccessPageOfCustomFlow

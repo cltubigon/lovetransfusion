@@ -34,6 +34,7 @@ export const POST = async (request) => {
       automatic_payment_methods: {
         enabled: true,
       },
+      receipt_email: 'cltubigon@gmail.com',
     },
     {
       idempotencyKey: empotencyKey,
