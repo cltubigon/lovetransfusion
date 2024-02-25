@@ -1,11 +1,11 @@
 "use client"
+import ZustandLoader from "@/app/CustomLoader"
 import utilityStore from "@/config/store"
 import { Button, Flex } from "@chakra-ui/react"
 import axios from "axios"
 import { useRouter } from "next/navigation"
 import React from "react"
 import { useStore } from "zustand"
-import ZustandLoader from "../CustomLoader"
 
 const CheckoutWithStripeSessions = () => {
   const { isLoaded, setLoaded, selectedProducts } = useStore(utilityStore)
