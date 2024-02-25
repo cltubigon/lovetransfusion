@@ -1,8 +1,7 @@
-import { Inter } from "next/font/google"
-import { ChakraProvider, Flex, Text } from "@chakra-ui/react"
-import Link from "next/link"
+import { ChakraProvider } from "@chakra-ui/react"
+import { theme } from "@/config/theme"
+import { franklinGothicBookItalic, franklinGothicBook, franklinGothicDemiCond, franklinGothicMediumCond, inter, openSans } from "./fonts"
 
-const inter = Inter({ subsets: ["latin"] })
 
 export const metadata = {
   title: {
@@ -14,17 +13,9 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
-      <body className={inter.className}>
-        <ChakraProvider>
-          <Flex justifyContent={'center'} gap={10} p={4} >
-            <Link href={'/'}><Text>Home</Text></Link>
-            <Link href={'/shop'}><Text>Shop</Text></Link>
-            <Link href={'/cart'}><Text>Cart</Text></Link>
-            <Link href={'/stripe'}><Text>Stripe APIs</Text></Link>
-          </Flex>
-          {children}
-        </ChakraProvider>
+    <html lang="en" className={`${openSans.variable} ${inter.variable} ${franklinGothicBookItalic.variable} ${franklinGothicDemiCond.variable} ${franklinGothicMediumCond.variable} ${franklinGothicBook.variable}`}>
+      <body>
+        <ChakraProvider theme={theme}>{children}</ChakraProvider>
       </body>
     </html>
   )
