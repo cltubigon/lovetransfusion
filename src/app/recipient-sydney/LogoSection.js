@@ -9,9 +9,8 @@ const LogoSection = () => {
       sx={containerPadding}
       bgColor={"#2F8EDD"}
       py={5}
-      borderBottom={"3px solid #ABDCFF"}
     >
-      <Flex sx={containerInner} justifyContent={'space-between'} >
+      <Flex sx={containerInner} justifyContent={'space-between'} flexWrap={{ phs: 'wrap', tll: 'nowrap' }} >
         <Flex>
           <Image
             src={"/images/lt-logo-white.png"}
