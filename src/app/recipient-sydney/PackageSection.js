@@ -1,4 +1,4 @@
-import { Flex, Text } from "@chakra-ui/react"
+import { Box, Flex, Text } from "@chakra-ui/react"
 import React from "react"
 import {
   ArialNarrowBold,
@@ -39,7 +39,7 @@ const PackageSection = () => {
   }
   return (
     <Flex sx={containerPadding} pt={"47"}>
-      <Flex sx={containerInner} flexDir={"column"}>
+      <Flex sx={containerInner} flexDir={"column"} alignItems={'center'}>
         <Flex justifyContent={"center"}>
           <Text
             fontFamily={franklinMedium}
@@ -47,8 +47,8 @@ const PackageSection = () => {
             color={lightBlue}
           >{`Will You Help Us Send {Name} A Care Package As Well?`}</Text>
         </Flex>
-        <Flex pt={"30px"}>
-          <Flex flexDir={"column"} gap={4} maxW={"627px"} zIndex={1}>
+        <Flex pt={"30px"} justifyContent={'center'} >
+          <Flex flexDir={"column"} gap={4} flexBasis={"607px"} zIndex={1}>
             <Text
               fontFamily={franklinMedium}
               fontSize={"25px"}
@@ -68,7 +68,7 @@ const PackageSection = () => {
               a hurry. Please consider becoming a sponsor through a donation of
               any amount….
             </Text>
-            <Flex gap={4} mx={"auto"}>
+            <Flex gap={4} mx={"auto"} mt={'12px'}>
               <Flex
                 bgColor={lightBlue}
                 borderRadius={"10px"}
@@ -92,7 +92,7 @@ const PackageSection = () => {
               </Flex>
             </Flex>
             <Flex flexDir={"column"} alignItems={"center"}>
-              <Text fontFamily={ArialNarrowBold} mt={"9px"} mb={"14px"}>
+              <Text fontFamily={ArialNarrowBold} mt={"9px"} mb={"14px"} fontSize={'15px'} >
                 TIME REMAINING TO CONTRIBUTE:
               </Text>
               <Flex gap={5} justifyItems={"center"} alignItems={"flex-start"}>
@@ -122,12 +122,30 @@ const PackageSection = () => {
                 </Flex>
               </Flex>
             </Flex>
+            <Text
+              mt={"17px"}
+              lineHeight={"22px"}
+              fontSize={"16px"}
+            >{`* Donations are tax-deductible. Love Transfusion Inc is a 501(c)(3) nonprofit organization.`}</Text>
           </Flex>
-          <Flex flexDir={"column"}>
-            <Flex ml={"-35px"} pt={"33px"}>
+          <Flex  maxW={'273px'} flexDir={"column"} pos={'relative'}>
+            <Box w={'100%'} h={'12px'} ></Box>
+            <Flex ml={'-24px'} pt={"21px"} minW={'380px'} minH={'460px'} >
               <Image src={PackageImage} alt="package image" />
             </Flex>
           </Flex>
+        </Flex>
+        <Flex>
+          <Text
+            fontFamily={franklinMedium}
+            lineHeight={"33px"}
+            fontSize={"18px"}
+            color={lightBlue}
+            mt={'40px'}
+          >
+            ITEMS IN CARE PACKAGES SERVE AS TANGIBLE REMINDERS OF LOVE AND
+            SUPPORT
+          </Text>
         </Flex>
       </Flex>
     </Flex>

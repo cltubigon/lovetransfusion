@@ -13,27 +13,27 @@ export const openSans = Open_Sans({
 })
 
 export const ArialNarrowBold = localFont({
-  src: "./(fonts)/Arial-Narrow-Bold.ttf",
+  src: "../utilities/(fonts)/Arial-Narrow-Bold.ttf",
   display: "swap",
   variable: "--ArialNarrowBold",
 })
 export const franklinGothicBook = localFont({
-  src: "./(fonts)/Franklin-Gothic-Book-Regular.ttf",
+  src: "../utilities/(fonts)/Franklin-Gothic-Book-Regular.ttf",
   display: "swap",
   variable: "--franklinGothicBook",
 })
 export const franklinGothicBookItalic = localFont({
-  src: "./(fonts)/Franklin-Gothic-Book-Italic.ttf",
+  src: "../utilities/(fonts)/Franklin-Gothic-Book-Italic.ttf",
   display: "swap",
   variable: "--franklinGothicBookItalic",
 })
 export const franklinGothicDemiCond = localFont({
-  src: "./(fonts)/Franklin-Gothic-Demi-Cond-Regular.ttf",
+  src: "../utilities/(fonts)/Franklin-Gothic-Demi-Cond-Regular.ttf",
   display: "swap",
   variable: "--franklinGothicDemiCond",
 })
 export const franklinGothicMediumCond = localFont({
-  src: "./(fonts)/Franklin-Gothic-Medium-Cond-Regular.ttf",
+  src: "../utilities/(fonts)/Franklin-Gothic-Medium-Cond-Regular.ttf",
   display: "swap",
   variable: "--franklinGothicMediumCond",
 })

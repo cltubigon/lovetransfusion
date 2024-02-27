@@ -41,7 +41,7 @@ const RecipientProfile = () => {
               placeholder="blur"
               alt="Picture of the recipient"
               width={250}
-              height={250}
+              height={260}
               style={{
                 borderRadius: "200px",
                 border: `7px solid ${lightBlue}`,

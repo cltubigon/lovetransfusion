@@ -8,7 +8,7 @@ import {
   inter,
   openSans,
   ArialNarrowBold,
-} from "./fonts"
+} from "../config/fonts"
 
 export const metadata = {
   title: {
