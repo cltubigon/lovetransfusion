@@ -38,7 +38,7 @@ const PackageSection = () => {
     gap: "14px",
   }
   return (
-    <Flex sx={containerPadding} pt={"47"}>
+    <Flex sx={containerPadding} pt={"47"} pb={'40px'}>
       <Flex sx={containerInner} flexDir={"column"} alignItems={'center'}>
         <Flex justifyContent={"center"}>
           <Text

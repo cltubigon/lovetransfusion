@@ -34,6 +34,8 @@ import heart from "./images/heart.png"
 import RecipientProfile from "./RecipientProfile"
 import HugMessageShare from "./HugMessageShare"
 import PackageSection from "./PackageSection"
+import FifthSection from "./FifthSection"
+import VideoSection from "./VideoSection"
 
 const RecipientsPage = () => {
   return (
@@ -43,6 +45,8 @@ const RecipientsPage = () => {
       <RecipientProfile />
       <HugMessageShare />
       <PackageSection />
+      <FifthSection />
+      <VideoSection />
       <Flex h={"120vh"}></Flex>
     </>
   )
