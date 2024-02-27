@@ -1,5 +1,4 @@
 "use client"
-import ZustandLoader from "@/app/CustomLoader"
 import utilityStore from "@/config/store"
 import { Button } from "@chakra-ui/react"
 import axios from "axios"
@@ -43,7 +42,6 @@ const DeleteAccount = () => {
       <Button w={"100%"} colorScheme={"red"} px={4} onClick={handleButtonClick}>
         Delete Account
       </Button>
-      {isLoaded && <ZustandLoader />}
     </div>
   )
 }

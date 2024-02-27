@@ -12,6 +12,11 @@ export const openSans = Open_Sans({
   variable: "--openSans",
 })
 
+export const ArialNarrowBold = localFont({
+  src: "./(fonts)/Arial-Narrow-Bold.ttf",
+  display: "swap",
+  variable: "--ArialNarrowBold",
+})
 export const franklinGothicBook = localFont({
   src: "./(fonts)/Franklin-Gothic-Book-Regular.ttf",
   display: "swap",

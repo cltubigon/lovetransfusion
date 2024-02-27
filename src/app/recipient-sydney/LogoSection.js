@@ -1,7 +1,7 @@
 import { Flex, Text } from "@chakra-ui/react"
 import React from "react"
 import Image from "next/image"
-import { containerInner, containerPadding } from "../globalStyle"
+import { containerInner, containerPadding, franklinMedium } from "../globalStyle"
 
 const LogoSection = () => {
   return (
@@ -32,7 +32,7 @@ const LogoSection = () => {
           </Text>
           <Text
             fontSize={"18.5px"}
-            fontFamily={"var(--franklinGothicMediumCond)"}
+            fontFamily={franklinMedium}
             lineHeight={"22px"}
           >
             Connecting People Who Hurt With Those Who Care

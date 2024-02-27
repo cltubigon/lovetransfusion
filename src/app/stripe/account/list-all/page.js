@@ -1,5 +1,4 @@
 "use client"
-import ZustandLoader from "@/app/CustomLoader"
 import utilityStore from "@/config/store"
 import { Button } from "@chakra-ui/react"
 import axios from "axios"
@@ -34,7 +33,6 @@ const RetrieveAccount = () => {
       >
         Retrieve Account
       </Button>
-      {isLoaded && <ZustandLoader />}
     </div>
   )
 }

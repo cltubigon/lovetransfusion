@@ -1,5 +1,4 @@
 "use client"
-import ZustandLoader from "@/app/CustomLoader"
 import utilityStore from "@/config/store"
 import { Button, Flex } from "@chakra-ui/react"
 import axios from "axios"
@@ -43,7 +42,6 @@ const CheckoutWithStripeSessions = () => {
       <Button onClick={handleCheckout} w={"100%"} colorScheme={"orange"}>
         Checkout with Stripe Sessions
       </Button>
-      {isLoaded && <ZustandLoader />}
     </Flex>
   )
 }

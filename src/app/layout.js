@@ -1,7 +1,14 @@
 import { ChakraProvider } from "@chakra-ui/react"
 import { theme } from "@/config/theme"
-import { franklinGothicBookItalic, franklinGothicBook, franklinGothicDemiCond, franklinGothicMediumCond, inter, openSans } from "./fonts"
-
+import {
+  franklinGothicBookItalic,
+  franklinGothicBook,
+  franklinGothicDemiCond,
+  franklinGothicMediumCond,
+  inter,
+  openSans,
+  ArialNarrowBold,
+} from "./fonts"
 
 export const metadata = {
   title: {
@@ -13,7 +20,10 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" className={`${openSans.variable} ${inter.variable} ${franklinGothicBookItalic.variable} ${franklinGothicDemiCond.variable} ${franklinGothicMediumCond.variable} ${franklinGothicBook.variable}`}>
+    <html
+      lang="en"
+      className={`${openSans.variable} ${inter.variable} ${franklinGothicBookItalic.variable} ${franklinGothicDemiCond.variable} ${franklinGothicMediumCond.variable} ${franklinGothicBook.variable} ${ArialNarrowBold.variable}`}
+    >
       <body>
         <ChakraProvider theme={theme}>{children}</ChakraProvider>
       </body>

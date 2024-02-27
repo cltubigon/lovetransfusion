@@ -1,5 +1,4 @@
 "use client"
-import ZustandLoader from "@/app/CustomLoader"
 import utilityStore from "@/config/store"
 import { Button } from "@chakra-ui/react"
 import axios from "axios"
@@ -45,7 +44,6 @@ const RetrievePaymentIntent = () => {
       >
         RetrievePaymentIntent
       </Button>
-      {isLoaded && <ZustandLoader />}
     </div>
   )
 }
