@@ -8,6 +8,7 @@ import {
   inter,
   openSans,
   ArialNarrowBold,
+  SegoePrint,
 } from "../config/fonts"
 
 export const metadata = {
@@ -22,7 +23,7 @@ export default function RootLayout({ children }) {
   return (
     <html
       lang="en"
-      className={`${openSans.variable} ${inter.variable} ${franklinGothicBookItalic.variable} ${franklinGothicDemiCond.variable} ${franklinGothicMediumCond.variable} ${franklinGothicBook.variable} ${ArialNarrowBold.variable}`}
+      className={`${SegoePrint.variable} ${openSans.variable} ${inter.variable} ${franklinGothicBookItalic.variable} ${franklinGothicDemiCond.variable} ${franklinGothicMediumCond.variable} ${franklinGothicBook.variable} ${ArialNarrowBold.variable}`}
     >
       <body>
         <ChakraProvider theme={theme}>{children}</ChakraProvider>

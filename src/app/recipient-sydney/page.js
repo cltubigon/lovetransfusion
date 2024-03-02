@@ -36,6 +36,9 @@ import HugMessageShare from "./HugMessageShare"
 import PackageSection from "./PackageSection"
 import FifthSection from "./FifthSection"
 import VideoSection from "./VideoSection"
+import Testimonials from "./Testimonials"
+import WristHugSection from "./WristHugSection"
+import WhatIsSection from "./WhatIsSection"
 
 const RecipientsPage = () => {
   return (
@@ -47,6 +50,9 @@ const RecipientsPage = () => {
       <PackageSection />
       <FifthSection />
       <VideoSection />
+      <Testimonials />
+      <WristHugSection />
+      <WhatIsSection />
       <Flex h={"120vh"}></Flex>
     </>
   )

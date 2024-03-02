@@ -55,7 +55,7 @@ const PackageSection = () => {
               lineHeight={"33px"}
               mb={"-7px"}
             >
-              The Package includes:
+              Love Transfusion Care Packages
             </Text>
             <Text fontSize={"20px"} lineHeight={"22px"}>
               Filled with fun distractions and tangible reminders of love and

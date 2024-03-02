@@ -1,37 +1,39 @@
-import { Flex, Text } from "@chakra-ui/react"
-import React from "react"
+"use client"
+import { Button, Flex, Text } from "@chakra-ui/react"
 import {
   containerInner,
   containerPadding,
+  franklinDemiCond,
   franklinMedium,
   lightBlue,
 } from "../globalStyle"
+import WistiaPlayer from "../components/WistiaPlayer"
 
 const VideoSection = () => {
   return (
-    <Flex sx={containerPadding} py={"75px"}>
+    <Flex sx={containerPadding} pt={"75px"} pb={"33px"}>
       <Flex sx={containerInner}>
-        <Flex w={"100%"} flexDir={"column"} alignItems={"center"}>
+        <Flex w={"100%"} flexDir={"column"} alignItems={"center"} gap={"16px"}>
           <Text
             fontFamily={franklinMedium}
             fontSize={"28px"}
             color={lightBlue}
+            mb={"10px"}
           >{`Short Video Explains How We Are Raising Awareness Of {Name}’s Story`}</Text>
-          <video controls width="250">
-            <source
-              src="/video/Love_Transfusion_Testimonials.mp4"
-              type="video/mp4"
-            />
-            <source
-              src="/video/Love_Transfusion_Testimonials.mp4"
-              type="video/mp4"
-            />
-            Download the
-            <a href="/video/Love_Transfusion_Testimonials.mp4">WEBM</a>
-            or
-            <a href="/video/Love_Transfusion_Testimonials.mp4">MP4</a>
-            video.
-          </video>
+          <WistiaPlayer videoId="hy6qn8dic2" wrapper="video-1" />
+          <Button
+            mt={"10px"}
+            fontFamily={franklinDemiCond}
+            fontSize={"24px"}
+            color={"white"}
+            bgColor={lightBlue}
+            p={"32px 40px"}
+            _hover={{
+              bgColor: lightBlue,
+            }}
+          >
+            {"Click Here To Help Raise Awareness Of Sydney's Story"}
+          </Button>
         </Flex>
       </Flex>
     </Flex>

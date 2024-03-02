@@ -17,6 +17,11 @@ export const ArialNarrowBold = localFont({
   display: "swap",
   variable: "--ArialNarrowBold",
 })
+export const SegoePrint = localFont({
+  src: "../utilities/(fonts)/segoeprb.ttf",
+  display: "swap",
+  variable: "--SegoePrint",
+})
 export const franklinGothicBook = localFont({
   src: "../utilities/(fonts)/Franklin-Gothic-Book-Regular.ttf",
   display: "swap",
