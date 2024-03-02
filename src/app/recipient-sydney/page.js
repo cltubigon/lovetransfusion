@@ -39,6 +39,7 @@ import VideoSection from "./VideoSection"
 import Testimonials from "./Testimonials"
 import WristHugSection from "./WristHugSection"
 import WhatIsSection from "./WhatIsSection"
+import CommentSection from "./CommentSection"
 
 const RecipientsPage = () => {
   return (
@@ -53,6 +54,7 @@ const RecipientsPage = () => {
       <Testimonials />
       <WristHugSection />
       <WhatIsSection />
+      <CommentSection />
       <Flex h={"120vh"}></Flex>
     </>
   )

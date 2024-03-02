@@ -1,6 +1,5 @@
 import { Flex, Text } from "@chakra-ui/react"
 import React from "react"
-import Image from "next/image"
 import {
   containerPadding,
   franklinItalic,
@@ -8,8 +7,7 @@ import {
   lightBlue,
 } from "../globalStyle"
 import { TbDiscountCheckFilled } from "react-icons/tb"
-import profilePic from "./images/profile-pic-placeholder2.png"
-import heart from "./images/heart.png"
+import RecipientImage from "./RecipientImage"
 
 const RecipientProfile = () => {
   return (
@@ -35,30 +33,7 @@ const RecipientProfile = () => {
         </Flex>
 
         <Flex pt={"19px"} gap={"10px"}>
-          <Flex alignItems={"center"} position={"relative"} minW={"270px"}>
-            <Image
-              src={profilePic}
-              placeholder="blur"
-              alt="Picture of the recipient"
-              width={250}
-              height={260}
-              style={{
-                borderRadius: "200px",
-                border: `7px solid ${lightBlue}`,
-                outline: "5px solid #fff",
-                outlineOffset: "-12px",
-                boxShadow: "0px 0px 23px 0px rgba(49, 144, 221, 0.53)",
-              }}
-            />
-            <Flex pos={"absolute"} bottom={"-14px"} right={"10px"}>
-              <Image
-                src={heart}
-                alt="love transfusion"
-                width={107}
-                height={108}
-              />
-            </Flex>
-          </Flex>
+          <RecipientImage />
           <Flex flexDir={"column"} gap={"22px"} pt={"15px"}>
             <Text
               fontSize={"28px"}
