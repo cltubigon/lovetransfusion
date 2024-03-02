@@ -10,6 +10,7 @@ import {
   lightBlue,
 } from "../globalStyle"
 import WistiaPlayer from "../components/WistiaPlayer"
+import Link from "next/link"
 
 const VideoSection = () => {
   return (
@@ -22,23 +23,28 @@ const VideoSection = () => {
             color={lightBlue}
             mb={"14px"}
             lineHeight={"33px"}
+            textAlign={'center'}
           >{`Short Video Explains How We Are Raising Awareness Of {Name}’s Story`}</Text>
           <WistiaPlayer videoId="hy6qn8dic2" wrapper="video-1" />
-          <Button
-            mt={"10px"}
-            fontFamily={franklinDemiCond}
-            fontSize={"24px"}
-            color={"white"}
-            bgColor={buttonColor}
-            p={"32px 40px"}
-            lineHeight={"33px"}
-            _hover={{
-              bgColor: buttonColorHover,
-            }}
-            transition={"background-color 0.5s"}
-          >
-            {"Click Here To Help Raise Awareness Of Sydney's Story"}
-          </Button>
+          <Link href={"/"}>
+            <Flex
+              fontFamily={franklinDemiCond}
+              fontSize={"24px"}
+              color={"white"}
+              bgColor={buttonColor}
+              p={{phs: "18px 15px", tls: "18px 40px"}}
+              lineHeight={"28px"}
+              textAlign={'center'}
+              borderRadius={'md'}
+              maxW={"100%"}
+              _hover={{
+                bgColor: buttonColorHover,
+              }}
+              transition={"background-color 0.5s"}
+            >
+              {"Click Here To Help Raise Awareness Of Sydney's Story"}
+            </Flex>
+          </Link>
         </Flex>
       </Flex>
     </Flex>

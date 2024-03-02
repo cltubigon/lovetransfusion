@@ -52,7 +52,7 @@ const RecipientsPage = () => {
       <PackageSection />
       <FifthSection />
       <VideoSection />
-      {/* <Testimonials /> */}
+      <Testimonials />
       {/* <WristHugSection /> */}
       {/* <WhatIsSection /> */}
       {/* <CommentSection /> */}

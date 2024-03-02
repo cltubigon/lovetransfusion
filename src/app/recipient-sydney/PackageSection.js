@@ -48,7 +48,7 @@ const PackageSection = () => {
             fontSize={"26px"}
             color={lightBlue}
             lineHeight={"33px"}
-            textAlign={'center'}
+            textAlign={"center"}
           >{`Will You Help Us Send {Name} A Care Package As Well?`}</Text>
         </Flex>
         <Flex pt={"33px"} justifyContent={"center"} flexWrap={"wrap"}>
@@ -119,7 +119,7 @@ const PackageSection = () => {
               >
                 TIME REMAINING TO CONTRIBUTE:
               </Text>
-              <Flex gap={5} justifyItems={"center"} alignItems={"flex-start"}>
+              <Flex gap={{ phs: 2, tls: 5 }} justifyItems={"center"} alignItems={"flex-start"}>
                 <Flex sx={timeMainContainer}>
                   <Flex sx={timeContainer}>
                     <Text sx={timeText}>00</Text>
@@ -154,7 +154,12 @@ const PackageSection = () => {
           </Flex>
           <Flex maxW={"273px"} flexDir={"column"} pos={"relative"}>
             <Box w={"100%"} h={"12px"}></Box>
-            <Flex ml={"-24px"} pt={"21px"} minW={"380px"} minH={"460px"}>
+            <Flex
+              ml={"-24px"}
+              pt={"21px"}
+              minW={{tls: "380px" }}
+              minH={{tls: "460px" }}
+            >
               <Image src={PackageImage} alt="package image" />
             </Flex>
           </Flex>
@@ -163,7 +168,7 @@ const PackageSection = () => {
           <Text
             fontFamily={franklinMedium}
             lineHeight={"28px"}
-            textAlign={'center'}
+            textAlign={"center"}
             fontSize={"18px"}
             color={lightBlue}
             mt={"42px"}

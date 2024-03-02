@@ -35,6 +35,10 @@ const ShareModal = ({ buttonStyle }) => {
     if (data === "modal") setmodalHovered(false)
   }
 
+  const handleClick = () => {
+    setisModalActive(()=> !isModalActive)
+  }
+
   const handlebuttonHover = (e) => {
     e.stopPropagation()
     setbuttonHovered(true)
@@ -92,6 +96,7 @@ const ShareModal = ({ buttonStyle }) => {
     <Flex
       sx={buttonStyle}
       position={"relative"}
+      onClick={handleClick}
       onMouseOver={handlebuttonHover}
       onMouseLeave={(e) => handleMouseLeave({ e, data: "button" })}
     >
