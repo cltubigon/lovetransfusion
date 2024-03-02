@@ -11,9 +11,9 @@ import RecipientImage from "./RecipientImage"
 
 const RecipientProfile = () => {
   return (
-    <Flex sx={containerPadding} pb={"18px"}>
+    <Flex sx={containerPadding} pb={"23px"}>
       <Flex maxW={"984px"} w={"100%"} flexDir={"column"}>
-        <Flex position={"relative"} w={"100%"}>
+        <Flex position={"relative"} w={"100%"} display={{ phs: 'none', tls: 'flex' }}>
           <Flex
             alignItems={"center"}
             gap={"3px"}
@@ -25,6 +25,7 @@ const RecipientProfile = () => {
             <Text
               fontSize={"20px"}
               color={lightBlue}
+              mt={'-2px'}
               fontFamily={franklinMedium}
             >
               VERIFIED
@@ -32,13 +33,17 @@ const RecipientProfile = () => {
           </Flex>
         </Flex>
 
-        <Flex pt={"19px"} gap={"10px"}>
+        <Flex
+          pt={"19px"}
+          gap={"10px"}
+          flexWrap={{ phs: "wrap", tls: "nowrap" }}
+        >
           <RecipientImage />
-          <Flex flexDir={"column"} gap={"22px"} pt={"15px"}>
+          <Flex flexDir={"column"} gap={"22px"} pt={"20px"}>
             <Text
               fontSize={"28px"}
               fontFamily={franklinMedium}
-              mb={"-4px"}
+              lineHeight={"33px"}
             >{`Six year old {Name} was recently diagnosed with DIPG.`}</Text>
             <Text
               fontSize={"20px"}
@@ -52,8 +57,8 @@ const RecipientProfile = () => {
           </Flex>
         </Flex>
 
-        <Flex justifyContent={"center"} pt={"35px"}>
-          <Text fontSize={"27px"} fontFamily={franklinMedium} color={lightBlue}>
+        <Flex justifyContent={"center"} pt={"35px"} lineHeight={"33px"}>
+          <Text fontSize={"27px"} textAlign={'center'} fontFamily={franklinMedium} color={lightBlue} mt={'3px'} >
             Click Any of The Options Below To Show You Care:
           </Text>
         </Flex>

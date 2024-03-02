@@ -9,8 +9,8 @@ const TitleSection = () => {
       bgSize={"cover"}
       sx={containerPadding}
       position={"relative"}
-      pt={{ phs: "50px", tll: "78px" }}
-      pb={{ phs: "50px", tll: "79px" }}
+      pt={{ phs: "40px", tls: "78px" }}
+      pb={{ phs: "20px", tls: "79px" }}
     >
       <Flex
         sx={containerInner}
@@ -41,10 +41,14 @@ const TitleSection = () => {
           </Text>
         </Flex>
         <Heading
+        mt={'12px'}
+        mb={'13px'}
           color={"#2F8EDD"}
           fontFamily={franklinMedium}
           fontWeight={"400"}
-          fontSize={"54px"}
+          textAlign={'center'}
+          fontSize={{ phs: '40px', tls: "54px" }}
+          lineHeight={"40px"}
         >{`Welcome to ${"{Name}"}’s Page!`}</Heading>
       </Flex>
     </Flex>

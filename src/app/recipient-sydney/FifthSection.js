@@ -25,11 +25,15 @@ const FifthSection = () => {
       >
         <Flex
           sx={containerInner}
-          pl={"37px"}
-          pr={"44px"}
-          justifyContent={"space-between"}
+          pl={{ phs: "0", tls: "37px" }}
+          pr={{ phs: "0", tls: "44px" }}
+          justifyContent={{ phs: "center", lts: "space-between" }}
+          // alignItems={{ phs: 'center', lts: 'flex-start' }}
         >
-          <Flex flexBasis={"220px"}>
+          <Flex
+            flexBasis={"220px"}
+            justifyContent={{ phs: "center", tls: "flex-start" }}
+          >
             <Flex position={"relative"} w={"208px"} h={"208px"}>
               <Image
                 alt="Mountains"
@@ -53,15 +57,22 @@ const FifthSection = () => {
                   alt="love transfusion"
                   sizes="(min-width: 768px) 100vw"
                   style={{
-                    width: '69px',
-                    height: '69px',
+                    width: "69px",
+                    height: "69px",
                   }}
                 />
               </Flex>
             </Flex>
           </Flex>
 
-          <Flex flexDir={"column"} flexBasis={"450px"} gap={'7px'} pl={"27px"} pr={"8px"}>
+          <Flex
+            flexDir={"column"}
+            flexBasis={"450px"}
+            gap={"7px"}
+            pl={{ phs: "0", tls: "27px" }}
+            pr={{ phs: "0", tls: "8px" }}
+            alignItems={{ phs: "center", tls: "flex-start" }}
+          >
             <Text
               fontFamily={franklinMedium}
               fontSize={"18px"}
@@ -75,17 +86,21 @@ const FifthSection = () => {
               fontFamily={franklinDemiCond}
               fontSize={"30px"}
               lineHeight={"33px"}
-              pb={'5px'}
+              pb={"5px"}
             >
               RESEARCH HAS SHOWN…
             </Text>
-            <Text fontSize={"20px"} color={"#050505"} lineHeight={"24px"}>
+            <Text fontSize={"20px"} color={"#050505"} lineHeight={"24px"} textAlign={{phs: 'center', tls: 'left'}} >
               Social support can play a significant role in the mental and
               phyisical well-being of children bat- tling cancer.
             </Text>
           </Flex>
 
-          <Flex flexDir={"column"} alignItems={"flex-end"} gap={"17px"}>
+          <Flex
+            flexDir={"column"}
+            alignItems={{ phs: "center", tll: "flex-end" }}
+            gap={"17px"}
+          >
             <Text
               fontFamily={franklinDemiCond}
               fontSize={"26px"}

@@ -40,6 +40,7 @@ import Testimonials from "./Testimonials"
 import WristHugSection from "./WristHugSection"
 import WhatIsSection from "./WhatIsSection"
 import CommentSection from "./CommentSection"
+import Footer from "./Footer"
 
 const RecipientsPage = () => {
   return (
@@ -51,11 +52,11 @@ const RecipientsPage = () => {
       <PackageSection />
       <FifthSection />
       <VideoSection />
-      <Testimonials />
-      <WristHugSection />
-      <WhatIsSection />
-      <CommentSection />
-      <Flex h={"120vh"}></Flex>
+      {/* <Testimonials /> */}
+      {/* <WristHugSection /> */}
+      {/* <WhatIsSection /> */}
+      {/* <CommentSection /> */}
+      <Footer />
     </>
   )
 }

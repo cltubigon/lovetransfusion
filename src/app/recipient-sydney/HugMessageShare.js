@@ -18,11 +18,11 @@ const HugMessageShare = () => {
     boxShadow: "3px 3px 3px 0px rgba(47, 142, 221, 0.32)",
     border: `2px solid ${lightBlue}`,
     p: "8px 15px 6px",
-    justifyContent: 'center',
-    alignItems: 'center',
+    justifyContent: "center",
+    alignItems: "center",
     bgColor: "white",
     cursor: "pointer",
-    w: '176px',
+    w: "176px",
   }
   return (
     <Box py={"9px"} w={"100%"} bgColor={"#E0F3FF"}>
@@ -32,7 +32,13 @@ const HugMessageShare = () => {
         borderTop={"1px solid white"}
         borderBottom={"1px solid white"}
       >
-        <Flex sx={containerInner} gap={'55px'} justifyContent={"center"}>
+        <Flex
+          sx={containerInner}
+          gap={{ phs: 4, tls: 6, lts: '55px' }}
+          alignItems={{ phs: "center", tls: "unset" }}
+          justifyContent={{ phs: "flex-start", tls: "center" }}
+          flexDir={{ phs: "column", tls: "row" }}
+        >
           <Flex sx={buttonStyle}>
             <Flex alignItems="center" gap="13px">
               <Text fontSize={"22px"} fontFamily={franklinMedium}>

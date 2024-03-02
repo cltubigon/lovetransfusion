@@ -2,6 +2,8 @@ import { Box, Flex, Text } from "@chakra-ui/react"
 import React from "react"
 import {
   ArialNarrowBold,
+  buttonColor,
+  buttonColorHover,
   containerInner,
   containerPadding,
   franklinDemiCond,
@@ -38,17 +40,24 @@ const PackageSection = () => {
     gap: "14px",
   }
   return (
-    <Flex sx={containerPadding} pt={"47"} pb={'40px'}>
-      <Flex sx={containerInner} flexDir={"column"} alignItems={'center'}>
+    <Flex sx={containerPadding} pt={"50px"} pb={"43px"}>
+      <Flex sx={containerInner} flexDir={"column"} alignItems={"center"}>
         <Flex justifyContent={"center"}>
           <Text
             fontFamily={franklinMedium}
             fontSize={"26px"}
             color={lightBlue}
+            lineHeight={"33px"}
+            textAlign={'center'}
           >{`Will You Help Us Send {Name} A Care Package As Well?`}</Text>
         </Flex>
-        <Flex pt={"30px"} justifyContent={'center'} >
-          <Flex flexDir={"column"} gap={4} flexBasis={"607px"} zIndex={1}>
+        <Flex pt={"33px"} justifyContent={"center"} flexWrap={"wrap"}>
+          <Flex
+            flexDir={"column"}
+            gap={4}
+            flexBasis={{ phs: "100%", lts: "607px" }}
+            zIndex={1}
+          >
             <Text
               fontFamily={franklinMedium}
               fontSize={"25px"}
@@ -68,31 +77,46 @@ const PackageSection = () => {
               a hurry. Please consider becoming a sponsor through a donation of
               any amount….
             </Text>
-            <Flex gap={4} mx={"auto"} mt={'12px'}>
-              <Flex
-                bgColor={lightBlue}
-                borderRadius={"10px"}
-                p={"12px 50px"}
-                border={"4px solid white"}
-                boxShadow={"1px 1px 5px 0px rgba(40, 140, 204, 0.75)"}
-                gap={3}
-                pos={"relative"}
-              >
-                <Flex pos={"absolute"} left={"-79px"}>
+            <Flex gap={4} mx={"auto"} mt={"12px"}>
+              <Flex pos={"relative"} alignItems={"center"}>
+                <Flex
+                  display={{ phs: "none", tll: "flex" }}
+                  pos={"absolute"}
+                  left={"-74px"}
+                >
                   <Image src={blueArrow} alt="blue arrow" />
                 </Flex>
-                <Image src={logoWhite} alt="logo-white" />
-                <Text
-                  fontSize={"20px"}
-                  fontFamily={franklinDemiCond}
-                  color={"white"}
+                <Flex
+                  bgColor={buttonColor}
+                  _hover={{
+                    bgColor: buttonColorHover,
+                  }}
+                  transition={"background-color 0.5s"}
+                  borderRadius={"10px"}
+                  p={"12px 50px"}
+                  border={"4px solid white"}
+                  boxShadow={"1px 1px 5px 0px rgba(40, 140, 204, 0.75)"}
+                  gap={3}
+                  cursor={"pointer"}
                 >
-                  Click Here To Contribute
-                </Text>
+                  <Image src={logoWhite} alt="logo-white" />
+                  <Text
+                    fontSize={"20px"}
+                    fontFamily={franklinDemiCond}
+                    color={"white"}
+                  >
+                    Click Here To Contribute
+                  </Text>
+                </Flex>
               </Flex>
             </Flex>
             <Flex flexDir={"column"} alignItems={"center"}>
-              <Text fontFamily={ArialNarrowBold} mt={"9px"} mb={"14px"} fontSize={'15px'} >
+              <Text
+                fontFamily={ArialNarrowBold}
+                mt={"9px"}
+                mb={"14px"}
+                fontSize={"15px"}
+              >
                 TIME REMAINING TO CONTRIBUTE:
               </Text>
               <Flex gap={5} justifyItems={"center"} alignItems={"flex-start"}>
@@ -128,9 +152,9 @@ const PackageSection = () => {
               fontSize={"16px"}
             >{`* Donations are tax-deductible. Love Transfusion Inc is a 501(c)(3) nonprofit organization.`}</Text>
           </Flex>
-          <Flex  maxW={'273px'} flexDir={"column"} pos={'relative'}>
-            <Box w={'100%'} h={'12px'} ></Box>
-            <Flex ml={'-24px'} pt={"21px"} minW={'380px'} minH={'460px'} >
+          <Flex maxW={"273px"} flexDir={"column"} pos={"relative"}>
+            <Box w={"100%"} h={"12px"}></Box>
+            <Flex ml={"-24px"} pt={"21px"} minW={"380px"} minH={"460px"}>
               <Image src={PackageImage} alt="package image" />
             </Flex>
           </Flex>
@@ -138,10 +162,11 @@ const PackageSection = () => {
         <Flex>
           <Text
             fontFamily={franklinMedium}
-            lineHeight={"33px"}
+            lineHeight={"28px"}
+            textAlign={'center'}
             fontSize={"18px"}
             color={lightBlue}
-            mt={'40px'}
+            mt={"42px"}
           >
             ITEMS IN CARE PACKAGES SERVE AS TANGIBLE REMINDERS OF LOVE AND
             SUPPORT

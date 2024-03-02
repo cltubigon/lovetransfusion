@@ -19,7 +19,7 @@ const CommentSection = () => {
         w={"100%"}
       >
         <Flex sx={containerInner} justifyContent={"center"}>
-          <Flex maxW={"880px"} w={"100%"} flexDir={"column"}>
+          <Flex maxW={"860px"} w={"100%"} flexDir={"column"}>
             <RecipientImage
               maxW={"155px"}
               minW={"157px"}
