@@ -14,7 +14,7 @@ import heart from "./images/heart.png"
 
 const WhatIsSection = () => {
   return (
-    <Flex sx={containerPadding} py={"102px"}>
+    <Flex sx={containerPadding} py={{ phs: '49px', tls: "102px" }}>
       <Flex sx={containerInner} justifyContent={"center"}>
         <Flex maxW={"1000px"} flexDir={"column"}>
           <Flex flexDir={"column"} gap={"26px"}>
@@ -50,8 +50,9 @@ const WhatIsSection = () => {
             borderRadius={"10px"}
             justifyContent={"space-between"}
             mt={"85px"}
-            p={"25px 80px 25px 81px"}
+            p={{ phs: "55px 25px 25px", tls: "25px 80px 25px 81px" }}
             pos={"relative"}
+            flexDir={{ phs: 'column', tls: 'row' }}
           >
             <Flex flexDir={"column"} maxW={"408px"}>
               <Text
@@ -73,7 +74,10 @@ const WhatIsSection = () => {
               >
                 Over 12,000,000 expressions of support and encouragement have
                 been sent through Love Transfusion Inc since 2010. Learn more at{" "}
-                <span style={{ color: lightBlue }}><Link href={"/"}>LoveTransfusion.com</Link></span>.
+                <span style={{ color: lightBlue }}>
+                  <Link href={"/"}>LoveTransfusion.com</Link>
+                </span>
+                .
               </Text>
             </Flex>
             <Flex maxW={"310px"}>
@@ -81,12 +85,21 @@ const WhatIsSection = () => {
                 <Image src={TestimonyImage} alt="testimony" />
               </Flex>
             </Flex>
-            <Flex pos={"absolute"} left={"-40px"} top={"-32px"} maxW={"101px"}>
-              
-                <Image src={heart} alt="love transfusion" />
+            <Flex pos={"absolute"} left={{ phs: '10px', tls: "-40px" }} top={{ phs: '-40px', tls: "-32px" }} maxW={"101px"}>
+              <Image src={heart} alt="love transfusion" />
             </Flex>
           </Flex>
-          <Text fontFamily={SegoePrint} color={lightBlue} fontSize={'19px'} mx={'auto'} mt={'73px'} >“One word frees us of all the weight and pain in life. That word is Love.” - Sophocles</Text>
+          <Text
+            fontFamily={SegoePrint}
+            color={lightBlue}
+            fontSize={"19px"}
+            mx={"auto"}
+            mt={{phs: '19px', tls: "73px"}}
+            textAlign={'center'}
+          >
+            “One word frees us of all the weight and pain in life. That word is
+            Love.” - Sophocles
+          </Text>
         </Flex>
       </Flex>
     </Flex>

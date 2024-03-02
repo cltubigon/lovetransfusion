@@ -1,15 +1,10 @@
-import { Box, Flex, Text } from "@chakra-ui/react"
+import { Flex } from "@chakra-ui/react"
 import React from "react"
 import Image from "next/image"
 import {
   containerInner,
   containerPadding,
-  franklinDemiCond,
-  franklinMedium,
-  lightBlue,
 } from "../globalStyle"
-import childHoldingTablet from "./images/child-holding-tablet.png"
-import heart from "./images/heart.png"
 import wristBand from "./images/wrist-band.png"
 
 const WristHugSection = () => {
@@ -25,8 +20,8 @@ const WristHugSection = () => {
       >
         <Flex
           sx={containerInner}
-          pl={"37px"}
-          pr={"44px"}
+          pl={{phs: '0', tls: "37px"}}
+          pr={{phs: '0', tls: "44px"}}
           justifyContent={"center"}
         >
           <Flex maxW={'697px'}>

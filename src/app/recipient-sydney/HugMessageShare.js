@@ -7,7 +7,6 @@ import {
   franklinMedium,
   lightBlue,
 } from "../globalStyle"
-// import sectionOneBg from "./images/section-1-bg.png"
 import CareIcon from "./images/care.svg"
 import heartMessage from "./images/heart-message.png"
 import ShareModal from "./ShareModal"

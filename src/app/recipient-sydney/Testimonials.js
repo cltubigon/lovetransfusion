@@ -16,17 +16,20 @@ const Testimonials = () => {
     boxShadow: "0px 0px 20px 5px rgba(47, 142, 221, 0.22)",
   }
   return (
-    <Flex sx={containerPadding} pt={'33px'} pb={'60px'} >
+    <Flex sx={containerPadding} pt={"33px"} pb={"60px"}>
       <Flex
         sx={containerInner}
         flexDir={"column"}
         alignItems={"center"}
-        gap={"70px"}
+        gap={{ phs: "20px", tls: "70px" }}
       >
         <Text fontFamily={franklinDemiCond} fontSize={"30px"} color={lightBlue}>
           TESTIMONIALS
         </Text>
-        <Flex gap={"48px"}>
+        <Flex
+          gap={{ phs: 6, tll: "48px" }}
+          flexDir={{ phs: "column", tll: "row" }}
+        >
           <Flex sx={imagesStyle}>
             <Image src={testimonial1} alt="testimonial1" />
           </Flex>

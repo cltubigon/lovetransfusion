@@ -55,8 +55,8 @@ const CommentForm = () => {
             </FormErrorMessage>
           </FormControl>
           {/* ------------------- Email ------------------- */}
-          <Flex gap={4}>
-            <Flex flexBasis={"50%"}>
+          <Flex gap={4} flexDir={{ phs: "column", tls: "row" }}>
+            <Flex flexBasis={{ phs: "100%", tls: "50%" }}>
               <FormControl isInvalid={errors.name} isRequired>
                 {/* <FormLabel htmlFor="name">Name</FormLabel> */}
                 <Input
@@ -73,7 +73,7 @@ const CommentForm = () => {
                 </FormErrorMessage>
               </FormControl>
             </Flex>
-            <Flex flexDir={"column"} flexBasis={"50%"}>
+            <Flex flexDir={"column"} flexBasis={{ phs: "100%", tls: "50%" }}>
               <FormControl isInvalid={errors.email} isRequired>
                 {/* <FormLabel htmlFor="email">Email</FormLabel> */}
                 <Input
