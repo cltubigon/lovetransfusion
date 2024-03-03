@@ -10,7 +10,6 @@ import {
 import Link from "next/link"
 import Image from "next/image"
 import TestimonyImageDesktop from "./images/family-proper-desktop.png"
-import TestimonyImageMobile from "./images/family-proper-mobile.png"
 import heart from "./images/heart-proper.png"
 
 const WhatIsSection = () => {

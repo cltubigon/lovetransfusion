@@ -7,21 +7,20 @@ import {
   franklinMedium,
   lightBlue,
 } from "../../globalStyle"
-// import bgImageDesktop from "./images/section-1-bg-mobile-proper-reduced.webp"
 import Image from "next/image"
 import bgImageMobile from "./images/section-1-bg-mobile-proper-reduced.webp"
 
 const TitleSection = ({firstName}) => {
   return (
     <Flex
-    bgImage={'url("./images/section-1-bg-proper-desktop-reduced.webp")'}
-    bgSize={"cover"}
+    // bgImage={'url("./images/section-1-bg-proper-desktop-reduced.webp")'}
+    // bgSize={"cover"}
 
-      // bgImage={{
-      //   phs: "none",
-      //   tls: 'url("./images/section-1-bg-proper-desktop-reduced.webp")',
-      // }}
-      // bgSize={{ phs: "unset", tls: "cover" }}
+      bgImage={{
+        phs: "none",
+        tls: 'url("../images/section-1-bg-proper-desktop-reduced.webp")',
+      }}
+      bgSize={{ phs: "unset", tls: "cover" }}
       sx={containerPadding}
       position={"relative"}
       pt={{ phs: "40px", tls: "78px" }}

@@ -12,7 +12,6 @@ import {
 } from "../../globalStyle"
 import Image from "next/image"
 import PackageImage from "./images/poster-package-template1.png"
-// import PackageImageMobile from "./images/poster-package-template1-proper-mobile.png"
 import logoWhite from "./images/logo-white-svg.svg"
 import blueArrow from "./images/bl-arrrow.svg"
 

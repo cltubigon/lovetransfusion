@@ -11,7 +11,6 @@ import {
 import childHoldingTablet from "./images/child-holding-tablet.png"
 import heart from "./images/heart-proper.png"
 import ltWristbandDesktop from "./images/lt-wristband-proper-desktop.png"
-import ltWristbandMobile from "./images/lt-wristband-proper-mobile.png"
 
 const FifthSection = () => {
   return (
