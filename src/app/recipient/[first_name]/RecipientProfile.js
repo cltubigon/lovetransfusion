@@ -5,11 +5,11 @@ import {
   franklinItalic,
   franklinMedium,
   lightBlue,
-} from "../globalStyle"
+} from "../../globalStyle"
 import { TbDiscountCheckFilled } from "react-icons/tb"
 import RecipientImage from "./RecipientImage"
 
-const RecipientProfile = () => {
+const RecipientProfile = ({ recipient }) => {
   return (
     <Flex sx={containerPadding} pb={"23px"}>
       <Flex maxW={"984px"} w={"100%"} flexDir={"column"}>

@@ -5,7 +5,7 @@ import {
   containerPadding,
   franklinDemiCond,
   lightBlue,
-} from "../globalStyle"
+} from "../../globalStyle"
 import testimonial1 from "./images/testimonial1.png"
 import testimonial2 from "./images/testimonial2.png"
 import testimonial3 from "./images/testimonial3.png"

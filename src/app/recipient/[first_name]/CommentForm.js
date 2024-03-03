@@ -4,7 +4,6 @@ import {
   Flex,
   FormControl,
   FormErrorMessage,
-  FormLabel,
   Input,
   Text,
   Textarea,
@@ -15,8 +14,7 @@ import {
   buttonColorHover,
   franklinMedium,
   lightBlue,
-  openSans,
-} from "../globalStyle"
+} from "../../globalStyle"
 import { useForm } from "react-hook-form"
 
 const CommentForm = () => {

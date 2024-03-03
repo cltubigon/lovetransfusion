@@ -5,7 +5,7 @@ import {
   containerPadding,
   franklinDemiCond,
   lightBlue,
-} from "../globalStyle"
+} from "../../globalStyle"
 import RecipientImage from "./RecipientImage"
 import CommentForm from "./CommentForm"
 

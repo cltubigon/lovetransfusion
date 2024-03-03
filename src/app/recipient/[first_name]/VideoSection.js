@@ -8,8 +8,8 @@ import {
   franklinDemiCond,
   franklinMedium,
   lightBlue,
-} from "../globalStyle"
-import WistiaPlayer from "../components/WistiaPlayer"
+} from "../../globalStyle"
+import WistiaPlayer from "../../components/WistiaPlayer"
 import Link from "next/link"
 
 const VideoSection = () => {

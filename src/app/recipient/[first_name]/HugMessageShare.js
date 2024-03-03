@@ -6,7 +6,7 @@ import {
   containerPadding,
   franklinMedium,
   lightBlue,
-} from "../globalStyle"
+} from "../../globalStyle"
 import CareIcon from "./images/care.svg"
 import heartMessage from "./images/heart-message.png"
 import ShareModal from "./ShareModal"

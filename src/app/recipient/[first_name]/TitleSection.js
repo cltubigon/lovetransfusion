@@ -6,21 +6,22 @@ import {
   containerPadding,
   franklinMedium,
   lightBlue,
-} from "../globalStyle"
+} from "../../globalStyle"
 // import bgImageDesktop from "./images/section-1-bg-mobile-proper-reduced.webp"
 import Image from "next/image"
 import bgImageMobile from "./images/section-1-bg-mobile-proper-reduced.webp"
 
-const TitleSection = () => {
+const TitleSection = ({firstName}) => {
   return (
     <Flex
-    // bgImage={'url("./images/section-1-bg-mobile-proper-reduced.webp")'}
-    // bgSize={"cover"}
-      bgImage={{
-        phs: "none",
-        tls: 'url("./images/section-1-bg-proper-desktop-reduced.webp")',
-      }}
-      bgSize={{ phs: "unset", tls: "cover" }}
+    bgImage={'url("./images/section-1-bg-proper-desktop-reduced.webp")'}
+    bgSize={"cover"}
+
+      // bgImage={{
+      //   phs: "none",
+      //   tls: 'url("./images/section-1-bg-proper-desktop-reduced.webp")',
+      // }}
+      // bgSize={{ phs: "unset", tls: "cover" }}
       sx={containerPadding}
       position={"relative"}
       pt={{ phs: "40px", tls: "78px" }}
@@ -63,7 +64,7 @@ const TitleSection = () => {
           textAlign={"center"}
           fontSize={{ phs: "40px", tls: "54px" }}
           lineHeight={"40px"}
-        >{`Welcome to ${"{Name}"}’s Page!`}</Heading>
+        >{`Welcome to ${firstName}’s Page!`}</Heading>
       </Flex>
 
       <Flex display={{ tls: 'none' }} pos={'absolute'} top={'0px'} h={'100%'} w={'100%'} >

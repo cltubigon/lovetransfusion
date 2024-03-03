@@ -9,7 +9,7 @@ import {
   franklinDemiCond,
   franklinMedium,
   lightBlue,
-} from "../globalStyle"
+} from "../../globalStyle"
 import Image from "next/image"
 import PackageImage from "./images/poster-package-template1.png"
 // import PackageImageMobile from "./images/poster-package-template1-proper-mobile.png"

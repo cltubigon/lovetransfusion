@@ -3,7 +3,7 @@ import React from "react"
 import {
   containerPadding,
   franklinDemiCond,
-} from "../globalStyle"
+} from "../../globalStyle"
 import Image from "next/image"
 import footerLogo from "./images/footer-logo.png"
 

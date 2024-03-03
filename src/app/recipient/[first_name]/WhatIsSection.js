@@ -6,7 +6,7 @@ import {
   containerPadding,
   franklinDemiCond,
   lightBlue,
-} from "../globalStyle"
+} from "../../globalStyle"
 import Link from "next/link"
 import Image from "next/image"
 import TestimonyImageDesktop from "./images/family-proper-desktop.png"

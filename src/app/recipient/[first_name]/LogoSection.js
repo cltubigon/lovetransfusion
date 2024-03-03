@@ -1,7 +1,7 @@
 import { Flex, Text } from "@chakra-ui/react"
 import React from "react"
 import Image from "next/image"
-import { containerInner, containerPadding, franklinMedium } from "../globalStyle"
+import { containerInner, containerPadding, franklinMedium } from "../../globalStyle"
 
 const LogoSection = () => {
   return (

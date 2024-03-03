@@ -4,7 +4,7 @@ import Image from "next/image"
 import {
   containerInner,
   containerPadding,
-} from "../globalStyle"
+} from "../../globalStyle"
 import wristBand from "./images/wrist-band.png"
 
 const WristHugSection = () => {
