@@ -7,18 +7,20 @@ import {
   franklinMedium,
   lightBlue,
 } from "../globalStyle"
-import bgImageDesktop from "./images/section-1-bg-proper-desktop.png"
+// import bgImageDesktop from "./images/section-1-bg-mobile-proper-reduced.webp"
 import Image from "next/image"
-// import bgImageMobile from "./images/section-1-bg-mobile-proper-reduced.webp"
+import bgImageMobile from "./images/section-1-bg-mobile-proper-reduced.webp"
 
 const TitleSection = () => {
   return (
     <Flex
-      // bgImage={{
-      //   phs: 'url("./images/section-1-bg-mobile-proper-reduced.webp")',
-      //   tls: 'url("./images/section-1-bg-proper-desktop-reduced.webp")',
-      // }}
-      // bgSize={"cover"}
+    // bgImage={'url("./images/section-1-bg-mobile-proper-reduced.webp")'}
+    // bgSize={"cover"}
+      bgImage={{
+        phs: "none",
+        tls: 'url("./images/section-1-bg-proper-desktop-reduced.webp")',
+      }}
+      bgSize={{ phs: "unset", tls: "cover" }}
       sx={containerPadding}
       position={"relative"}
       pt={{ phs: "40px", tls: "78px" }}
@@ -64,22 +66,23 @@ const TitleSection = () => {
         >{`Welcome to ${"{Name}"}’s Page!`}</Heading>
       </Flex>
 
-      <Image
-        alt="multiple hearts"
-        src={bgImageDesktop}
-        placeholder="blur"
-        priority={true}
-        quality={100}
-        fill
-        sizes="(max-width: 767px) 350vw, (min-width: 768px) 100vw"
-        loading="eager"
-        style={{
-          objectFit: "cover",
-          userSelect: "none",
-        }}
-      />
+      <Flex display={{ tls: 'none' }}>
+        <Image
+          alt="multiple hearts"
+          src={bgImageMobile}
+          placeholder="blur"
+          priority={true}
+          quality={100}
+          fill
+          sizes="(max-width: 767px) 100vw, (min-width: 768px) 100vw"
+          loading="eager"
+          style={{
+            objectFit: "cover",
+            userSelect: "none",
+          }}
+        />
+      </Flex>
     </Flex>
-    // </Flex>
   )
 }
 
