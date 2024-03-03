@@ -8,7 +8,7 @@ import { containerInner, containerPadding, franklinMedium, lightBlue } from "../
 const TitleSection = () => {
   return (
     <Flex
-      bgImage={{ phs: 'url("./images/section-1-bg-mobile-proper.webp")', tls: 'url("./images/section-1-bg-proper-desktop.webp")' }}
+      bgImage={{ phs: 'url("./images/section-1-bg-mobile-proper-reduced.webp")', tls: 'url("./images/section-1-bg-proper-desktop-reduced.webp")' }}
       bgSize={"cover"}
       sx={containerPadding}
       position={"relative"}
