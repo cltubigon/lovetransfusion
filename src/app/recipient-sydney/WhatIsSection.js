@@ -83,7 +83,7 @@ const WhatIsSection = () => {
             </Flex>
             <Flex maxW={"310px"}>
               <Flex boxShadow={"3px 3px 3px 0px rgba(0, 0, 0, 0.22)"}>
-                <Image src={{ phs: TestimonyImageMobile, tls: TestimonyImageDesktop }} alt="testimony" />
+                <Image src={TestimonyImageDesktop} alt="testimony" />
               </Flex>
             </Flex>
             <Flex pos={"absolute"} left={{ phs: '10px', tls: "-40px" }} top={{ phs: '-40px', tls: "-32px" }} maxW={"101px"}>

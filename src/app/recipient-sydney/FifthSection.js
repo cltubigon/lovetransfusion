@@ -116,7 +116,7 @@ const FifthSection = () => {
             </Text>
             <Flex maxW={"354px"} maxH={"164px"}>
               <Image
-                src={{ phs: ltWristbandMobile, tls: ltWristbandDesktop }}
+                src={ltWristbandDesktop}
                 alt="love transfusion wristband"
               />
             </Flex>
