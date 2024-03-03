@@ -27,8 +27,8 @@ function WistiaPlayer({ videoId, wrapper }) {
   }, [])
 
   return (
-    <div id={`${wrapper}`} style={{ width: "100%" }}>
-      <Image src={videoPlaceholder} alt='video placeholder' />
+    <div id={`${wrapper}`} style={{ width: "100%", position: 'relative' }}>
+      <Flex position={'absolute'} top={0}><Image src={videoPlaceholder} alt='video placeholder' /></Flex>
     </div>
   )
 }
