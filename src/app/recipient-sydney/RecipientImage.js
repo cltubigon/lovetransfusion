@@ -31,6 +31,7 @@ const RecipientImage = ({
         alt="Picture of the recipient"
         width={250}
         height={260}
+        priority={true}
         style={{
           borderRadius: "200px",
           border: `${borderW || "7px"} solid ${lightBlue}`,
