@@ -1,12 +1,15 @@
 import { Flex, Heading, Text } from "@chakra-ui/react"
 import React from "react"
 import { containerInner, containerPadding, franklinMedium, lightBlue } from "../globalStyle"
+import Image from "next/image"
+import bgImageDesktop from './images/section-1-bg-proper-desktop.png'
+// import bgImageMobile from './images/section-1-bg-mobile-proper.png'
 
 const TitleSection = () => {
   return (
     <Flex
-      bgImage={{ phs: 'url("./images/section-1-bg-mobile-proper.png")', tls: 'url("./images/section-1-bg-proper-desktop.png")' }}
-      bgSize={"cover"}
+      // bgImage={{ phs: 'url("./images/section-1-bg-mobile-proper.png")', tls: 'url("./images/section-1-bg-proper-desktop.png")' }}
+      // bgSize={"cover"}
       sx={containerPadding}
       position={"relative"}
       pt={{ phs: "40px", tls: "78px" }}
@@ -51,6 +54,18 @@ const TitleSection = () => {
           lineHeight={"40px"}
         >{`Welcome to ${"{Name}"}’s Page!`}</Heading>
       </Flex>
+      <Image
+      alt="multiple hearts"
+      src={bgImageDesktop}
+      placeholder="blur"
+      quality={100}
+      fill
+      sizes="100vw"
+      style={{
+        objectFit: 'cover',
+        userSelect: 'none',
+      }}
+    />
     </Flex>
   )
 }
