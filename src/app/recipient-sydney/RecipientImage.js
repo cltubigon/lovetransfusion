@@ -31,7 +31,7 @@ const RecipientImage = ({
         alt="Picture of the recipient"
         width={250}
         height={260}
-        priority={true}
+        loading="eager"
         style={{
           borderRadius: "200px",
           border: `${borderW || "7px"} solid ${lightBlue}`,
@@ -43,7 +43,7 @@ const RecipientImage = ({
       <Flex pos={"absolute"} bottom={bottom || "-14px"} right={right || "10px"}>
         <Image
           src={heart}
-          priority={true}
+          loading="eager"
           alt="love transfusion"
           style={{ width: logoW || 107, height: logoH || 108 }}
         />

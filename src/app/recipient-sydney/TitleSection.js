@@ -66,7 +66,7 @@ const TitleSection = () => {
         >{`Welcome to ${"{Name}"}’s Page!`}</Heading>
       </Flex>
 
-      <Flex display={{ tls: 'none' }}>
+      <Flex display={{ tls: 'none' }} pos={'absolute'} top={'0px'} h={'100%'} w={'100%'} >
         <Image
           alt="multiple hearts"
           src={bgImageMobile}
