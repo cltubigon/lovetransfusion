@@ -43,6 +43,7 @@ const RecipientImage = ({
       <Flex pos={"absolute"} bottom={bottom || "-14px"} right={right || "10px"}>
         <Image
           src={heart}
+          priority={true}
           alt="love transfusion"
           style={{ width: logoW || 107, height: logoH || 108 }}
         />
