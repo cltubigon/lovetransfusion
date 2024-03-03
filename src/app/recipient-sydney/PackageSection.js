@@ -12,6 +12,7 @@ import {
 } from "../globalStyle"
 import Image from "next/image"
 import PackageImage from "./images/poster-package-template1.png"
+import PackageImageMobile from "./images/poster-package-template1-proper-mobile.png"
 import logoWhite from "./images/logo-white-svg.svg"
 import blueArrow from "./images/bl-arrrow.svg"
 
@@ -119,7 +120,11 @@ const PackageSection = () => {
               >
                 TIME REMAINING TO CONTRIBUTE:
               </Text>
-              <Flex gap={{ phs: 2, tls: 5 }} justifyItems={"center"} alignItems={"flex-start"}>
+              <Flex
+                gap={{ phs: 2, tls: 5 }}
+                justifyItems={"center"}
+                alignItems={"flex-start"}
+              >
                 <Flex sx={timeMainContainer}>
                   <Flex sx={timeContainer}>
                     <Text sx={timeText}>00</Text>
@@ -157,10 +162,13 @@ const PackageSection = () => {
             <Flex
               ml={"-24px"}
               pt={"21px"}
-              minW={{tls: "380px" }}
-              minH={{tls: "460px" }}
+              minW={{ tls: "380px" }}
+              minH={{ tls: "460px" }}
             >
-              <Image src={PackageImage} alt="package image" />
+              <Image
+                src={{ phs: PackageImageMobile, tls: PackageImage }}
+                alt="package image"
+              />
             </Flex>
           </Flex>
         </Flex>

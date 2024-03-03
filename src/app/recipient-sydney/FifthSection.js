@@ -9,8 +9,9 @@ import {
   lightBlue,
 } from "../globalStyle"
 import childHoldingTablet from "./images/child-holding-tablet.png"
-import heart from "./images/heart.png"
-import ltWristband from "./images/lt-wristband.png"
+import heart from "./images/heart-proper.png"
+import ltWristbandDesktop from "./images/lt-wristband-proper-desktop.png"
+import ltWristbandMobile from "./images/lt-wristband-proper-mobile.png"
 
 const FifthSection = () => {
   return (
@@ -90,7 +91,12 @@ const FifthSection = () => {
             >
               RESEARCH HAS SHOWN…
             </Text>
-            <Text fontSize={"20px"} color={"#050505"} lineHeight={"24px"} textAlign={{phs: 'center', tls: 'left'}} >
+            <Text
+              fontSize={"20px"}
+              color={"#050505"}
+              lineHeight={"24px"}
+              textAlign={{ phs: "center", tls: "left" }}
+            >
               Social support can play a significant role in the mental and
               phyisical well-being of children bat- tling cancer.
             </Text>
@@ -109,7 +115,10 @@ const FifthSection = () => {
               Love Transfusion Wrist Hugs
             </Text>
             <Flex maxW={"354px"} maxH={"164px"}>
-              <Image src={ltWristband} alt="love transfusion wristband" />
+              <Image
+                src={{ phs: ltWristbandMobile, tls: ltWristbandDesktop }}
+                alt="love transfusion wristband"
+              />
             </Flex>
           </Flex>
         </Flex>

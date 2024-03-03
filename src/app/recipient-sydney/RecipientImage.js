@@ -3,7 +3,7 @@ import React from "react"
 import Image from "next/image"
 import { lightBlue } from "../globalStyle"
 import profilePic from "./images/profile-pic-placeholder2.png"
-import heart from "./images/heart.png"
+import heart from "./images/heart-proper.png"
 
 const RecipientImage = ({
   maxW,

@@ -9,8 +9,9 @@ import {
 } from "../globalStyle"
 import Link from "next/link"
 import Image from "next/image"
-import TestimonyImage from "./images/family.png"
-import heart from "./images/heart.png"
+import TestimonyImageDesktop from "./images/family-proper-desktop.png"
+import TestimonyImageMobile from "./images/family-proper-mobile.png"
+import heart from "./images/heart-proper.png"
 
 const WhatIsSection = () => {
   return (
@@ -82,7 +83,7 @@ const WhatIsSection = () => {
             </Flex>
             <Flex maxW={"310px"}>
               <Flex boxShadow={"3px 3px 3px 0px rgba(0, 0, 0, 0.22)"}>
-                <Image src={TestimonyImage} alt="testimony" />
+                <Image src={{ phs: TestimonyImageMobile, tls: TestimonyImageDesktop }} alt="testimony" />
               </Flex>
             </Flex>
             <Flex pos={"absolute"} left={{ phs: '10px', tls: "-40px" }} top={{ phs: '-40px', tls: "-32px" }} maxW={"101px"}>
