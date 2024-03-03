@@ -5,7 +5,7 @@ import RecipientProfile from "./RecipientProfile"
 import HugMessageShare from "./HugMessageShare"
 import PackageSection from "./PackageSection"
 import FifthSection from "./FifthSection"
-import VideoSection from "./VideoSection"
+// import VideoSection from "./VideoSection"
 import Testimonials from "./Testimonials"
 import WristHugSection from "./WristHugSection"
 import WhatIsSection from "./WhatIsSection"
@@ -21,7 +21,7 @@ const RecipientsPage = () => {
       <HugMessageShare />
       <PackageSection />
       <FifthSection />
-      <VideoSection />
+      {/* <VideoSection /> */}
       <Testimonials />
       <WristHugSection />
       <WhatIsSection />
