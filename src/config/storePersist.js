@@ -9,13 +9,6 @@ const immerPersist = (config) =>
 
 const utilityStore = create(
   immerPersist((set, get) => ({
-    popup: false,
-    setPopup: () => {
-      set((state)=> {
-        const status = get().popup
-        state.popup = !status
-      })
-    },
     isLoaded: false,
     setLoaded: (value) => {
       set((state) => {

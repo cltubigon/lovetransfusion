@@ -42,7 +42,7 @@ const VideoSection = () => {
               }}
               transition={"background-color 0.5s"}
             >
-              {"Click Here To Help Raise Awareness Of Sydney's Story"}
+              {"Click Here To Help"}
             </Flex>
           </Link>
         </Flex>

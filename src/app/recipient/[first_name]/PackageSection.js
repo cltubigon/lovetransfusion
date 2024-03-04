@@ -2,8 +2,6 @@ import { Box, Flex, Text } from "@chakra-ui/react"
 import React from "react"
 import {
   ArialNarrowBold,
-  buttonColor,
-  buttonColorHover,
   containerInner,
   containerPadding,
   franklinDemiCond,
@@ -12,8 +10,8 @@ import {
 } from "../../globalStyle"
 import Image from "next/image"
 import PackageImage from "./images/poster-package-template1-orig.png"
-import logoWhite from "./images/logo-white-svg.svg"
 import blueArrow from "./images/bl-arrrow.svg"
+import ContributeButton from "./ContributeButton"
 
 const PackageSection = () => {
   const timeContainer = {
@@ -86,30 +84,10 @@ const PackageSection = () => {
                 >
                   <Image src={blueArrow} alt="blue arrow" />
                 </Flex>
-                <Flex
-                  bgColor={buttonColor}
-                  _hover={{
-                    bgColor: buttonColorHover,
-                  }}
-                  transition={"background-color 0.5s"}
-                  borderRadius={"10px"}
-                  p={"12px 50px"}
-                  border={"4px solid white"}
-                  boxShadow={"1px 1px 5px 0px rgba(40, 140, 204, 0.75)"}
-                  gap={3}
-                  cursor={"pointer"}
-                >
-                  <Image src={logoWhite} alt="logo-white" />
-                  <Text
-                    fontSize={"20px"}
-                    fontFamily={franklinDemiCond}
-                    color={"white"}
-                  >
-                    Click Here To Contribute
-                  </Text>
-                </Flex>
+                <ContributeButton />
               </Flex>
             </Flex>
+            
             <Flex flexDir={"column"} alignItems={"center"}>
               <Text
                 fontFamily={ArialNarrowBold}

@@ -1,24 +1,31 @@
 import { Flex, Text } from "@chakra-ui/react"
 import React from "react"
 import Image from "next/image"
-import { containerInner, containerPadding, franklinMedium } from "../../globalStyle"
+import {
+  containerInner,
+  containerPadding,
+  franklinMedium,
+} from "../../globalStyle"
+import Link from "next/link"
 
 const LogoSection = () => {
   return (
-    <Flex
-      sx={containerPadding}
-      bgColor={"#2F8EDD"}
-      py={5}
-    >
-      <Flex sx={containerInner} justifyContent={'space-between'} flexWrap={{ phs: 'wrap', tll: 'nowrap' }} >
+    <Flex sx={containerPadding} bgColor={"#2F8EDD"} py={5}>
+      <Flex
+        sx={containerInner}
+        justifyContent={"space-between"}
+        flexWrap={{ phs: "wrap", tll: "nowrap" }}
+      >
         <Flex>
-          <Image
-            src={"/images/lt-logo-white.png"}
-            priority={true}
-            alt="white-logo"
-            width={396}
-            height={60}
-          />
+          <Link href={"/"}>
+            <Image
+              src={"/images/lt-logo-white.png"}
+              priority={true}
+              alt="white-logo"
+              width={396}
+              height={60}
+            />
+          </Link>
         </Flex>
         <Flex
           flexDir={"column"}

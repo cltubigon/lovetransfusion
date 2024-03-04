@@ -34,7 +34,7 @@ const TitleSection = ({ parameters }) => {
         alignItems={"center"}
         justifyContent={"center"}
         gap={"27px"}
-        zIndex={2}
+        zIndex={{ phs: 1, tls: 'unset' }}
       >
         <Flex
           alignItems={"center"}
