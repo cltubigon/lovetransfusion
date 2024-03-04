@@ -10,8 +10,9 @@ import {
 import Image from "next/image"
 import bgImageMobile from "./images/section-1-bg-mobile-proper-reduced.webp"
 
-const TitleSection = ({ firstName, createdAt, category }) => {
-  const date = new Date(createdAt)
+const TitleSection = ({ parameters }) => {
+  const {firstName, category, created_at} = parameters
+  const date = new Date(created_at)
   const day = date.getDate()
   const year = date.getFullYear()
   const month = date.toLocaleString("default", { month: "long" })

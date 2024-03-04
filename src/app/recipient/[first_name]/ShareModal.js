@@ -103,7 +103,7 @@ const ShareModal = ({ buttonStyle }) => {
         <Text fontSize={"22px"} fontFamily={franklinMedium}>
           Share page
         </Text>
-        <Image src={returnIcon} alt="care icon" />
+        <Image src={returnIcon} alt="care icon" quality={100} />
       </Flex>
       {isModalActive && (
         <Flex
@@ -161,7 +161,7 @@ const ShareModal = ({ buttonStyle }) => {
                     key={index}
                     sx={iconsStyle}
                   >
-                    <Image src={icon.image} alt={icon.alt} width={40} />
+                    <Image src={icon.image} alt={icon.alt} width={40} quality={100} />
                   </Box>
                 )
               })}

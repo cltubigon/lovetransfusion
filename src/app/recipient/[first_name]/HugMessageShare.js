@@ -10,8 +10,10 @@ import {
 import CareIcon from "./images/care.svg"
 import heartMessage from "./images/heart-message.png"
 import ShareModal from "./ShareModal"
+import Link from "next/link"
 
-const HugMessageShare = ({ hug }) => {
+const HugMessageShare = ({ parameters }) => {
+  const { firstName, hugs } = parameters
   const buttonStyle = {
     borderRadius: "10px",
     boxShadow: "3px 3px 3px 0px rgba(47, 142, 221, 0.32)",
@@ -43,20 +45,22 @@ const HugMessageShare = ({ hug }) => {
               <Text fontSize={"22px"} fontFamily={franklinMedium}>
                 Hug
               </Text>
-              <Image src={CareIcon} alt="care icon" />
+              <Image src={CareIcon} alt="care icon" quality={100} />
               <Text fontSize={"22px"} fontFamily={franklinMedium}>
-                {hug}
+                {hugs}
               </Text>
             </Flex>
           </Flex>
-          <Flex sx={buttonStyle}>
-            <Flex alignItems={"center"} gap={"13px"}>
-              <Text fontSize={"22px"} fontFamily={franklinMedium}>
-                Message
-              </Text>
-              <Image src={heartMessage} alt="care icon" />
+          <Link href={`#comment-section`}>
+            <Flex sx={buttonStyle}>
+              <Flex alignItems={"center"} gap={"13px"}>
+                <Text fontSize={"22px"} fontFamily={franklinMedium}>
+                  Message
+                </Text>
+                <Image src={heartMessage} alt="care icon" quality={100} />
+              </Flex>
             </Flex>
-          </Flex>
+          </Link>
           <ShareModal buttonStyle={buttonStyle} />
         </Flex>
       </Flex>

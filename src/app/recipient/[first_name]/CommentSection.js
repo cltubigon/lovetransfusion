@@ -11,7 +11,9 @@ import CommentForm from "./CommentForm"
 
 const CommentSection = () => {
   return (
-    <Flex pt={5} bgColor={"#E0F3FF"}>
+    <div id="comment-section">
+
+    <Flex className="comment-section" pt={5} bgColor={"#E0F3FF"}>
       <Flex
         sx={containerPadding}
         borderTop={"2px solid white"}
@@ -58,6 +60,7 @@ const CommentSection = () => {
         </Flex>
       </Flex>
     </Flex>
+    </div>
   )
 }
 
