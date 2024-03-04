@@ -11,7 +11,7 @@ import {
   lightBlue,
 } from "../../globalStyle"
 import Image from "next/image"
-import PackageImage from "./images/poster-package-template1.png"
+import PackageImage from "./images/poster-package-template1-orig.png"
 import logoWhite from "./images/logo-white-svg.svg"
 import blueArrow from "./images/bl-arrrow.svg"
 
@@ -166,6 +166,7 @@ const PackageSection = () => {
             >
               <Image
                 src={PackageImage}
+                quality={100}
                 alt="package image"
               />
             </Flex>

@@ -31,13 +31,13 @@ const Testimonials = () => {
           flexDir={{ phs: "column", tll: "row" }}
         >
           <Flex sx={imagesStyle}>
-            <Image src={testimonial1} alt="testimonial1" />
+            <Image src={testimonial1} alt="testimonial1" quality={100} />
           </Flex>
           <Flex sx={imagesStyle}>
-            <Image src={testimonial2} alt="testimonial2" />
+            <Image src={testimonial2} alt="testimonial2" quality={100} />
           </Flex>
           <Flex sx={imagesStyle}>
-            <Image src={testimonial3} alt="testimonial3" />
+            <Image src={testimonial3} alt="testimonial3" quality={100} />
           </Flex>
         </Flex>
       </Flex>

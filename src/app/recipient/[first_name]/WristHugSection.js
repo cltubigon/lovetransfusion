@@ -25,7 +25,7 @@ const WristHugSection = () => {
           justifyContent={"center"}
         >
           <Flex maxW={'697px'}>
-            <Image src={wristBand} alt="wrist band" />
+            <Image src={wristBand} alt="wrist band" quality={100} />
           </Flex>
         </Flex>
       </Flex>

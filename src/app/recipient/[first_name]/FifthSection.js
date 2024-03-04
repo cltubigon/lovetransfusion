@@ -10,7 +10,7 @@ import {
 } from "../../globalStyle"
 import childHoldingTablet from "./images/child-holding-tablet.png"
 import heart from "./images/heart-proper.png"
-import ltWristbandDesktop from "./images/lt-wristband-proper-desktop.png"
+import ltWristbandDesktop from "./images/lt-wristband-proper-desktop-orig-354x164.png"
 
 const FifthSection = () => {
   return (
@@ -116,6 +116,7 @@ const FifthSection = () => {
             <Flex maxW={"354px"} maxH={"164px"}>
               <Image
                 src={ltWristbandDesktop}
+                quality={100}
                 alt="love transfusion wristband"
               />
             </Flex>
