@@ -39,7 +39,7 @@ const RecipientsPage = async ({ params }) => {
     notFound()
   }
   const {first_name: firstName, hugs, created_at, category} = recipient
-  console.log("recipient", recipient)
+  // console.log("recipient", recipient)
   return (
     <>
       <LogoSection />
@@ -50,7 +50,7 @@ const RecipientsPage = async ({ params }) => {
       <HugMessageShare parameters={{ firstName, hugs }} />
       <PackageSection />
       <FifthSection />
-      {/* <VideoSection /> */}
+      <VideoSection />
       <Testimonials />
       <WristHugSection />
       <WhatIsSection />
