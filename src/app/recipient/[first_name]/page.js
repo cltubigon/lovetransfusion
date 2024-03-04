@@ -50,7 +50,7 @@ const RecipientsPage = async ({ params }) => {
       <HugMessageShare parameters={{ firstName, hugs }} />
       <PackageSection />
       <FifthSection />
-      {/* <VideoSection /> */}
+      <VideoSection />
       <Testimonials />
       <WristHugSection />
       <WhatIsSection />
