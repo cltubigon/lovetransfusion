@@ -10,7 +10,7 @@ import {
 } from "../../globalStyle"
 import childHoldingTablet from "./images/child-holding-tablet.png"
 import heart from "./images/heart-proper.png"
-import ltWristbandDesktop from "./images/lt-wristband-proper-desktop-orig-354x164.png"
+import ltWristbandDesktop from "./images/lt-wristband-proper-desktop.png"
 
 const FifthSection = () => {
   return (
