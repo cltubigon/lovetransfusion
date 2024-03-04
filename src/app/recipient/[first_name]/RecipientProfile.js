@@ -9,11 +9,19 @@ import {
 import { TbDiscountCheckFilled } from "react-icons/tb"
 import RecipientImage from "./RecipientImage"
 
+const capitalize = (str) => `${str.charAt(0).toUpperCase()}${str.slice(1)}`
+
 const RecipientProfile = ({ recipient }) => {
+  const { first_name } = recipient
+  const capitalizeName = capitalize(first_name)
   return (
     <Flex sx={containerPadding} pb={"23px"}>
       <Flex maxW={"984px"} w={"100%"} flexDir={"column"}>
-        <Flex position={"relative"} w={"100%"} display={{ phs: 'none', tls: 'flex' }}>
+        <Flex
+          position={"relative"}
+          w={"100%"}
+          display={{ phs: "none", tls: "flex" }}
+        >
           <Flex
             alignItems={"center"}
             gap={"3px"}
@@ -25,7 +33,7 @@ const RecipientProfile = ({ recipient }) => {
             <Text
               fontSize={"20px"}
               color={lightBlue}
-              mt={'-2px'}
+              mt={"-2px"}
               fontFamily={franklinMedium}
             >
               VERIFIED
@@ -44,21 +52,27 @@ const RecipientProfile = ({ recipient }) => {
               fontSize={"28px"}
               fontFamily={franklinMedium}
               lineHeight={"33px"}
-            >{`Six year old {Name} was recently diagnosed with DIPG.`}</Text>
+            >{`Six year old ${capitalizeName} was recently diagnosed with DIPG.`}</Text>
             <Text
               fontSize={"20px"}
               lineHeight={"22px"}
-            >{`She was riding her bike one day and suddenly felt sick. Her parents took her to the hospital where she was diagnosed with DIPG (a difficult to treat brain tumor). The doctors began taking care of {Name} right away and she is back home resting. She likes Unicorns and dancing and she hopes to meet Beyonce one day.`}</Text>
+            >{`She was riding her bike one day and suddenly felt sick. Her parents took her to the hospital where she was diagnosed with DIPG (a difficult to treat brain tumor). The doctors began taking care of ${capitalizeName} right away and she is back home resting. She likes Unicorns and dancing and she hopes to meet Beyonce one day.`}</Text>
             <Text
               fontSize={"20px"}
               fontFamily={franklinItalic}
               lineHeight={"22px"}
-            >{`Please let {Name} know she is in your thoughts…`}</Text>
+            >{`Please let ${capitalizeName} know she is in your thoughts…`}</Text>
           </Flex>
         </Flex>
 
         <Flex justifyContent={"center"} pt={"35px"} lineHeight={"33px"}>
-          <Text fontSize={"27px"} textAlign={'center'} fontFamily={franklinMedium} color={lightBlue} mt={'3px'} >
+          <Text
+            fontSize={"27px"}
+            textAlign={"center"}
+            fontFamily={franklinMedium}
+            color={lightBlue}
+            mt={"3px"}
+          >
             Click Any of The Options Below To Show You Care:
           </Text>
         </Flex>

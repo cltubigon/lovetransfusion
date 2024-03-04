@@ -10,12 +10,13 @@ import {
 import Image from "next/image"
 import bgImageMobile from "./images/section-1-bg-mobile-proper-reduced.webp"
 
-const TitleSection = ({firstName}) => {
+const TitleSection = ({ firstName, createdAt, category }) => {
+  const date = new Date(createdAt)
+  const day = date.getDate()
+  const year = date.getFullYear()
+  const month = date.toLocaleString("default", { month: "long" })
   return (
     <Flex
-    // bgImage={'url("./images/section-1-bg-proper-desktop-reduced.webp")'}
-    // bgSize={"cover"}
-
       bgImage={{
         phs: "none",
         tls: 'url("../images/section-1-bg-proper-desktop-reduced.webp")',
@@ -48,10 +49,10 @@ const TitleSection = ({firstName}) => {
             px={"20px"}
             borderRadius={"100px"}
           >
-            Childhood Cancer
+            {category}
           </Text>
           <Text color={lightBlue} fontSize={"14px"}>
-            Love Transfusion - January 9, 2024
+            Love Transfusion - {`${month} ${day}, ${year}`}
           </Text>
         </Flex>
         <Heading
@@ -66,7 +67,13 @@ const TitleSection = ({firstName}) => {
         >{`Welcome to ${firstName}’s Page!`}</Heading>
       </Flex>
 
-      <Flex display={{ tls: 'none' }} pos={'absolute'} top={'0px'} h={'100%'} w={'100%'} >
+      <Flex
+        display={{ tls: "none" }}
+        pos={"absolute"}
+        top={"0px"}
+        h={"100%"}
+        w={"100%"}
+      >
         <Image
           alt="multiple hearts"
           src={bgImageMobile}

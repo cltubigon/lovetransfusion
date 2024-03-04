@@ -13,6 +13,7 @@ import CommentSection from "./CommentSection"
 import Footer from "./Footer"
 import { supabase } from "@/config/supabase"
 import { Text } from "@chakra-ui/react"
+import { notFound } from "next/navigation"
 
 export const metadata = {
   title: "Welcome to {Name}'s Page!",
@@ -34,13 +35,16 @@ const getRecipient = async (name) => {
 const RecipientsPage = async ({ params }) => {
   const { first_name } = params
   const recipient = await getRecipient(first_name)
+  if (!recipient) {
+    notFound()
+  }
   console.log("recipient", recipient)
   return (
     <>
       <LogoSection />
-      <TitleSection firstName={recipient.first_name} />
+      <TitleSection category={recipient?.category} firstName={recipient?.first_name} createdAt={recipient?.created_at} />
       <RecipientProfile recipient={recipient} />
-      <HugMessageShare />
+      <HugMessageShare hug={recipient?.hugs} />
       <PackageSection />
       <FifthSection />
       {/* <VideoSection /> */}

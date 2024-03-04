@@ -11,7 +11,7 @@ import CareIcon from "./images/care.svg"
 import heartMessage from "./images/heart-message.png"
 import ShareModal from "./ShareModal"
 
-const HugMessageShare = () => {
+const HugMessageShare = ({ hug }) => {
   const buttonStyle = {
     borderRadius: "10px",
     boxShadow: "3px 3px 3px 0px rgba(47, 142, 221, 0.32)",
@@ -33,7 +33,7 @@ const HugMessageShare = () => {
       >
         <Flex
           sx={containerInner}
-          gap={{ phs: 4, tls: 6, lts: '55px' }}
+          gap={{ phs: 4, tls: 6, lts: "55px" }}
           alignItems={{ phs: "center", tls: "unset" }}
           justifyContent={{ phs: "flex-start", tls: "center" }}
           flexDir={{ phs: "column", tls: "row" }}
@@ -45,7 +45,7 @@ const HugMessageShare = () => {
               </Text>
               <Image src={CareIcon} alt="care icon" />
               <Text fontSize={"22px"} fontFamily={franklinMedium}>
-                105
+                {hug}
               </Text>
             </Flex>
           </Flex>
