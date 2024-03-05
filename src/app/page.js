@@ -26,7 +26,7 @@ const HomePage = async () => {
         {recipients?.map((recipient, index) => {
           const { first_name } = recipient
           return (
-            <Link key={index} href={`/recipient/${first_name}`}>
+            <Link key={index} href={`/recipient/${first_name}`} shallow>
               <Text fontSize={"32px"}>{first_name}</Text>
             </Link>
           )
