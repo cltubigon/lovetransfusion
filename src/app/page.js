@@ -19,8 +19,8 @@ const HomePage = async () => {
     <Flex sx={containerPadding} py={10} flexDir={'column'} alignItems={'center'} >
       <Flex sx={containerInner} flexDir={"column"} alignItems={'flex-start'} gap={4}>
         <Flex flexDir={'column'}  justifyContent={"center"} >
-          <Heading>List of Recipients</Heading>
-          <Text>{"(Click a recipient below to view)"}</Text>
+          <Heading>List of Recipients </Heading>
+          <Text>{"(Click a recipient below to view) v0.0.1"}</Text>
         </Flex>
 
         {recipients?.map((recipient, index) => {

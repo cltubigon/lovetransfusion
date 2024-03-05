@@ -5,7 +5,6 @@ import { IoMdClose } from "react-icons/io"
 import { useStore } from "zustand"
 import utilityStore from "@/config/store"
 import MultiStepForm from "../recipient/[first_name]/MultiStepForm/MultiStepForm"
-import MultiTwo from "../recipient/[first_name]/MultiStepForm/MultiTwo"
 import VideoPopup from "../recipient/[first_name]/VideoPopup/VideoPopup"
 
 const Popup = () => {
@@ -76,7 +75,6 @@ const Popup = () => {
             />
           </Flex>
           {popup?.content === "MultiStepForm" && <MultiStepForm />}
-          {popup?.content === "MultiTwo" && <MultiTwo />}
           {popup?.content === "VideoPopup" && <VideoPopup />}
           {!popup?.content && "No data to show"}
         </Flex>
