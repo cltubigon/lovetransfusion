@@ -12,7 +12,6 @@ import WhatIsSection from "./WhatIsSection"
 import CommentSection from "./CommentSection"
 import Footer from "./Footer"
 import { supabase } from "@/config/supabase"
-import { Box, Text } from "@chakra-ui/react"
 import { notFound } from "next/navigation"
 
 export const metadata = {

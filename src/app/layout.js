@@ -1,4 +1,4 @@
-import { ChakraProvider, Flex, Text } from "@chakra-ui/react"
+import { ChakraProvider } from "@chakra-ui/react"
 import { theme } from "@/config/theme"
 import {
   franklinGothicBookItalic,
@@ -10,10 +10,7 @@ import {
   ArialNarrowBold,
   SegoePrint,
 } from "../config/fonts"
-import { containerInner, containerPadding } from "./globalStyle"
 import Popup from "./components/Popup"
-import Link from "next/link"
-import MultiStepForm from "./recipient/[first_name]/MultiStepForm/MultiStepForm"
 
 export const metadata = {
   title: {
