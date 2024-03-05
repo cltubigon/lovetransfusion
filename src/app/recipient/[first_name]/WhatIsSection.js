@@ -9,12 +9,13 @@ import {
 } from "../../globalStyle"
 import Link from "next/link"
 import Image from "next/image"
-import TestimonyImageDesktop from "./images/family-proper-desktop.png"
+
 import heart from "./images/heart-proper.png"
+import TestimonyImage from "./TestimonyImage"
 
 const WhatIsSection = () => {
   return (
-    <Flex sx={containerPadding} py={{ phs: '49px', tls: "102px" }}>
+    <Flex sx={containerPadding} py={{ phs: "49px", tls: "102px" }}>
       <Flex sx={containerInner} justifyContent={"center"}>
         <Flex maxW={"1000px"} flexDir={"column"}>
           <Flex flexDir={"column"} gap={"26px"}>
@@ -52,7 +53,7 @@ const WhatIsSection = () => {
             mt={"85px"}
             p={{ phs: "55px 25px 25px", tls: "25px 80px 25px 81px" }}
             pos={"relative"}
-            flexDir={{ phs: 'column', tls: 'row' }}
+            flexDir={{ phs: "column", tls: "row" }}
           >
             <Flex flexDir={"column"} maxW={"408px"}>
               <Text
@@ -82,10 +83,15 @@ const WhatIsSection = () => {
             </Flex>
             <Flex maxW={"310px"}>
               <Flex boxShadow={"3px 3px 3px 0px rgba(0, 0, 0, 0.22)"}>
-                <Image src={TestimonyImageDesktop} alt="testimony" quality={100} />
+                <TestimonyImage />
               </Flex>
             </Flex>
-            <Flex pos={"absolute"} left={{ phs: '10px', tls: "-40px" }} top={{ phs: '-40px', tls: "-32px" }} maxW={"101px"}>
+            <Flex
+              pos={"absolute"}
+              left={{ phs: "10px", tls: "-40px" }}
+              top={{ phs: "-40px", tls: "-32px" }}
+              maxW={"101px"}
+            >
               <Image src={heart} alt="love transfusion" />
             </Flex>
           </Flex>
@@ -94,8 +100,8 @@ const WhatIsSection = () => {
             color={lightBlue}
             fontSize={"19px"}
             mx={"auto"}
-            mt={{phs: '19px', tls: "73px"}}
-            textAlign={'center'}
+            mt={{ phs: "19px", tls: "73px" }}
+            textAlign={"center"}
           >
             “One word frees us of all the weight and pain in life. That word is
             Love.” - Sophocles

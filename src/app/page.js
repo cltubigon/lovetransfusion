@@ -16,7 +16,7 @@ const getRecipient = async () => {
 const HomePage = async () => {
   const recipients = await getRecipient()
   return (
-    <Flex sx={containerPadding} py={10}>
+    <Flex sx={containerPadding} py={10} flexDir={'column'} alignItems={'center'} >
       <Flex sx={containerInner} flexDir={"column"} alignItems={'flex-start'} gap={4}>
         <Flex flexDir={'column'}  justifyContent={"center"} >
           <Heading>List of Recipients</Heading>
@@ -32,6 +32,9 @@ const HomePage = async () => {
           )
         })}
       </Flex>
+      <Flex h={'100vh'} w={'100%'} ></Flex>
+      <Flex h={'100vh'} w={'100%'} ></Flex>
+      <Flex h={'100vh'} w={'100%'} ></Flex>
     </Flex>
   )
 }

@@ -4,10 +4,10 @@ import { immer } from "zustand/middleware/immer"
 
 const immerPersist = (config) =>
   persist(immer(config), {
-    name: "mystore", // The name of the store
+    name: "persistStore", // The name of the store
   })
 
-const utilityStore = create(
+const utilityStorePersist = create(
   immerPersist((set, get) => ({
     isLoaded: false,
     setLoaded: (value) => {
@@ -117,4 +117,4 @@ const utilityStore = create(
   }))
 )
 
-export default utilityStore
+export default utilityStorePersist

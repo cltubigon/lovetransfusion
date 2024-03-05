@@ -1,4 +1,4 @@
-import { ChakraProvider } from "@chakra-ui/react"
+import { ChakraProvider, Flex, Text } from "@chakra-ui/react"
 import { theme } from "@/config/theme"
 import {
   franklinGothicBookItalic,
@@ -10,8 +10,10 @@ import {
   ArialNarrowBold,
   SegoePrint,
 } from "../config/fonts"
+import { containerInner, containerPadding } from "./globalStyle"
 import Popup from "./components/Popup"
-import PopupContainer from "./PopupContainer"
+import Link from "next/link"
+import MultiStepForm from "./recipient/[first_name]/MultiStepForm/MultiStepForm"
 
 export const metadata = {
   title: {
@@ -30,8 +32,8 @@ export default function RootLayout({ children }) {
     >
       <body>
         <ChakraProvider theme={theme}>
+          <Popup />
           {children}
-          {/* <PopupContainer /> */}
         </ChakraProvider>
       </body>
     </html>
