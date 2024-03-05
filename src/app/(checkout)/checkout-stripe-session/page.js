@@ -1,5 +1,5 @@
 "use client"
-import utilityStore from "@/config/store"
+import utilityStorePersist from "@/config/storePersist"
 import { Button, Flex } from "@chakra-ui/react"
 import axios from "axios"
 import { useRouter } from "next/navigation"
@@ -7,7 +7,7 @@ import React from "react"
 import { useStore } from "zustand"
 
 const CheckoutWithStripeSessions = () => {
-  const { isLoaded, setLoaded, selectedProducts } = useStore(utilityStore)
+  const { isLoaded, setLoaded, selectedProducts } = useStore(utilityStorePersist)
   const router = useRouter()
 
   const handleCheckout = async () => {

@@ -1,5 +1,5 @@
 "use client"
-import utilityStore from "@/config/store"
+import utilityStorePersist from "@/config/storePersist"
 import { Flex, Text } from "@chakra-ui/react"
 import React from "react"
 import { useStore } from "zustand"
@@ -10,7 +10,7 @@ const CartButtons = ({ id }) => {
     removeProduct,
     decrementQuantity,
     incrementQuantity,
-  } = useStore(utilityStore)
+  } = useStore(utilityStorePersist)
   const handleDecrement = () => {
     const selectedProduct = selectedProducts.filter(product => product.id === id)
     if (selectedProduct[0].quantity < 2) {

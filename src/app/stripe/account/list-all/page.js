@@ -1,12 +1,12 @@
 "use client"
-import utilityStore from "@/config/store"
+import utilityStorePersist from "@/config/storePersist"
 import { Button } from "@chakra-ui/react"
 import axios from "axios"
 import React from "react"
 import { useStore } from "zustand"
 
 const RetrieveAccount = () => {
-  const { isLoaded, setLoaded } = useStore(utilityStore)
+  const { isLoaded, setLoaded } = useStore(utilityStorePersist)
   const handleButtonClick = async () => {
     setLoaded(true)
     console.log("create Account started")

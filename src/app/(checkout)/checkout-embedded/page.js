@@ -1,5 +1,4 @@
 "use client"
-import utilityStore from "@/config/store"
 import { Box } from "@chakra-ui/react"
 import axios from "axios"
 import React, { useEffect, useState } from "react"
@@ -9,10 +8,11 @@ import {
   EmbeddedCheckoutProvider,
 } from "@stripe/react-stripe-js"
 import { loadStripe } from "@stripe/stripe-js"
+import utilityStorePersist from "@/config/storePersist"
 const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY)
 
 const CheckoutEmbedded = () => {
-  const { selectedProducts } = useStore(utilityStore)
+  const { selectedProducts } = useStore(utilityStorePersist)
   const [clientSecret, setclientSecret] = useState("")
   console.log({ selectedProducts })
 

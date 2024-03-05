@@ -3,14 +3,14 @@ import { Button, Flex, Heading, Text } from "@chakra-ui/react"
 import React from "react"
 import CartButtons from "./(components)/CartButtons"
 import { useStore } from "zustand"
-import utilityStore from "@/config/store"
 import TotalCosts from "./(components)/TotalCosts"
 import { useRouter } from "next/navigation"
 import CheckoutWithStripeSessions from "../(checkout)/checkout-stripe-session/page"
+import utilityStorePersist from "@/config/storePersist"
 
 const CartPage = () => {
   const router = useRouter()
-  const { selectedProducts } = useStore(utilityStore)
+  const { selectedProducts } = useStore(utilityStorePersist)
   const sortedProducts = [...selectedProducts].sort((a, b) => a.id - b.id)
   const checkoutEmbedded = () => {
     router.push("/checkout-embedded")

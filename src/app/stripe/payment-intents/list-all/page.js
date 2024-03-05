@@ -1,13 +1,13 @@
 "use client"
-import utilityStore from "@/config/store"
 import { Button, Flex, Text } from "@chakra-ui/react"
 import axios from "axios"
 import React, { useEffect, useState } from "react"
 import { useStore } from "zustand"
 import CancelPaymentIntent from "../cancel/page"
+import utilityStorePersist from "@/config/storePersist"
 
 const ListAllPaymentIntents = () => {
-  const { isLoaded, setLoaded } = useStore(utilityStore)
+  const { isLoaded, setLoaded } = useStore(utilityStorePersist)
   const [intents, setIntents] = useState(null)
   const listAllPaymentIntents = async () => {
     setLoaded(true)

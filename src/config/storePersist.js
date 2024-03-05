@@ -102,18 +102,6 @@ const utilityStorePersist = create(
         return
       })
     },
-    increment: (value) =>
-      set((state) => {
-        console.log("increment started")
-        const currentCount = get().schools.grade.section.count
-        state.schools.grade.section.count = currentCount + value
-      }),
-    decrement: () =>
-      set((state) => {
-        console.log("decrement started")
-        const currentCount = get().schools.grade.section.count
-        state.schools.grade.section.count = currentCount - 1
-      }),
   }))
 )
 
