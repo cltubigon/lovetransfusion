@@ -15,13 +15,14 @@ import { supabase } from "@/config/supabase"
 import { notFound } from "next/navigation"
 import { Box } from "@chakra-ui/react"
 
+export const dynamicParams = true
+export const revalidate = 20
+
 export const metadata = {
   title: "Welcome to {Name}'s Page!",
   description:
     "She was riding her bike one day and suddenly felt sick. Her parents took her to the hospital where she was diagnosed with DIPG (a difficult to treat brain tumor). The doctors began taking care of {Name} right away and she is back home resting. She likes Unicorns and dancing and she hopes to meet Beyonce one day.",
 }
-
-export const revalidate = 10
 
 export const generateStaticParams = async () => {
 // export async function generateStaticParams() {

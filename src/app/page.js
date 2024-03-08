@@ -3,20 +3,22 @@ import { Box, Button, Flex, Heading, Text } from "@chakra-ui/react"
 import { containerInner, containerPadding } from "./globalStyle"
 import Link from "next/link"
 
+export const dynamicParams = true
 export const revalidate = 20
 
-const getRecipient = async () => {
-  let { data: recipients, error } = await supabase
-    .from("recipients")
-    .select("*")
-  if (recipients) {
-    return recipients
-  }
-  if (error) console.log({ error })
+export async function generateStaticParams() {
+  const { data: test, error } = await supabase.from("recipients").select()
+  console.count('generateStaticParams', test)
+  return test ?? []
 }
 
-const HomePage = async () => {
-  const recipients = await getRecipient()
+const HomePage = async ({ params }) => {
+  const { data: recipients, error } = await supabase.from("recipients").select()
+  console.log('params', params)
+  if (!recipients) {
+    return <h2>No recipient found</h2>
+  }
+  if (error) console.log({ error })
   return (
     <Flex
       sx={containerPadding}
@@ -34,8 +36,6 @@ const HomePage = async () => {
           <Heading>List of Recipients </Heading>
           <Text>{"(Click a recipient below to view) v0.0.2"}</Text>
         </Flex>
-
-        {/* <Box>{JSON.stringify(recipients, null, 2)}</Box> */}
 
         {recipients?.map((recipient, index) => {
           const { first_name } = recipient
