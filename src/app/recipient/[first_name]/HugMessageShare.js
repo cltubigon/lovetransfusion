@@ -11,10 +11,13 @@ import heartMessage from "./images/heart-message.png"
 import ShareModal from "./ShareModal"
 import Link from "next/link"
 import HugButton from "./hugButton/HugButton"
+import { supabase } from "@/config/supabase"
 // import HugButton from "./hugButton/HugButton"
 
-const HugMessageShare = ({ parameters }) => {
-  const { id, firstName, hugs } = parameters
+export const revalidate = 0
+
+const HugMessageShare = async ({ parameters }) => {
+  const { id, firstName, first_name, hugs } = parameters
   const buttonStyle = {
     borderRadius: "10px",
     boxShadow: "3px 3px 3px 0px rgba(47, 142, 221, 0.32)",
@@ -26,6 +29,13 @@ const HugMessageShare = ({ parameters }) => {
     cursor: "pointer",
     w: "176px",
   }
+    const { data: customHugs } = await supabase
+    .from("recipients")
+    .select('hugs')
+    .ilike("first_name", first_name)
+
+    if (customHugs) console.log('customHugs', customHugs)
+  
   return (
     <Box py={"9px"} w={"100%"} bgColor={"#E0F3FF"}>
       <Flex
@@ -41,7 +51,7 @@ const HugMessageShare = ({ parameters }) => {
           justifyContent={{ phs: "flex-start", tls: "center" }}
           flexDir={{ phs: "column", tls: "row" }}
         >
-          <HugButton parameters={{ id, hugs }} />
+          {customHugs && <HugButton parameters={{ customHugs: customHugs[0].hugs, id, hugs, first_name }} />}
           <Link href={`#comment-section`}>
             <Flex sx={buttonStyle}>
               <Flex alignItems={"center"} gap={"13px"}>

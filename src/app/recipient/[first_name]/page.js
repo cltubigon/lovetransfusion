@@ -47,7 +47,7 @@ const RecipientsPage = async ({ params: { first_name } }) => {
       <LogoSection />
       <TitleSection parameters={{ firstName, category, created_at }} />
       <RecipientProfile recipient={recipient} />
-      <HugMessageShare parameters={{ id, firstName, hugs }} />
+      <HugMessageShare parameters={{ id, firstName, hugs, first_name }} />
       <PackageSection />
       <FifthSection />
       <VideoSection />
