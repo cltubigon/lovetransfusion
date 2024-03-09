@@ -8,8 +8,7 @@ import { incrementHugs } from "./actions"
 import { franklinMedium, lightBlue } from "@/app/globalStyle"
 
 const HugButton = ({ parameters }) => {
-  console.log("this is client")
-  const { id, firstName, hugs: numberofHugs } = parameters
+  const { id, hugs: numberofHugs } = parameters
   const buttonStyle = {
     borderRadius: "10px",
     boxShadow: "3px 3px 3px 0px rgba(47, 142, 221, 0.32)",
@@ -25,7 +24,7 @@ const HugButton = ({ parameters }) => {
     <div>
       <Flex
         sx={buttonStyle}
-        onClick={() => incrementHugs({ id, numberofHugs, firstName })}
+        onClick={() => incrementHugs({ id })}
       >
         <Flex alignItems="center" gap="13px">
           <Text fontSize={"22px"} fontFamily={franklinMedium}>

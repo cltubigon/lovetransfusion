@@ -13,10 +13,9 @@ import CommentSection from "./CommentSection"
 import Footer from "./Footer"
 import { supabase } from "@/config/supabase"
 import { notFound } from "next/navigation"
-import { Box } from "@chakra-ui/react"
 
 export const dynamicParams = true
-export const revalidate = 5
+export const revalidate = 0
 
 export const metadata = {
   title: "Welcome to {Name}'s Page!",
@@ -30,9 +29,7 @@ export async function generateStaticParams() {
 }
 
 const RecipientsPage = async ({ params: { first_name } }) => {
-  // const name = capitalize(first_name)
-  // console.log({ name })
-  console.log("first_name", first_name)
+  console.log('recipient rendered')
   const { data } = await supabase
     .from("recipients")
     .select()
@@ -40,11 +37,9 @@ const RecipientsPage = async ({ params: { first_name } }) => {
 
   if (!data) {
     notFound()
-  } else {
-    console.log("data", data)
   }
+  
   const recipient = data[0]
-  console.log("recipient", recipient)
   const { id, first_name: firstName, hugs, created_at, category } = recipient
   return (
     <>

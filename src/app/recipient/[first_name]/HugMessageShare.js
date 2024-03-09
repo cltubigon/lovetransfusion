@@ -25,7 +25,6 @@ const HugMessageShare = ({ parameters }) => {
     cursor: "pointer",
     w: "176px",
   }
-  console.log("hug message share")
   return (
     <Box py={"9px"} w={"100%"} bgColor={"#E0F3FF"}>
       <Flex
@@ -41,7 +40,7 @@ const HugMessageShare = ({ parameters }) => {
           justifyContent={{ phs: "flex-start", tls: "center" }}
           flexDir={{ phs: "column", tls: "row" }}
         >
-          <HugButton parameters={{ id, firstName, hugs }} />
+          <HugButton parameters={{ id, hugs }} />
           <Link href={`#comment-section`}>
             <Flex sx={buttonStyle}>
               <Flex alignItems={"center"} gap={"13px"}>
