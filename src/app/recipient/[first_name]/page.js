@@ -16,7 +16,7 @@ import { notFound } from "next/navigation"
 import { Box } from "@chakra-ui/react"
 
 export const dynamicParams = true
-export const revalidate = 20
+export const revalidate = 10
 
 export const metadata = {
   title: "Welcome to {Name}'s Page!",

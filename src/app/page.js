@@ -4,7 +4,7 @@ import { containerInner, containerPadding } from "./globalStyle"
 import Link from "next/link"
 
 // export const dynamicParams = true
-export const revalidate = 20
+export const revalidate = 10
 
 const HomePage = async () => {
   const { data: recipients, error } = await supabase.from("recipients").select()
