@@ -25,7 +25,6 @@ export const metadata = {
 }
 
 export const generateStaticParams = async () => {
-// export async function generateStaticParams() {
   const { data: recipients } = supabase.from("recipients").select("first_name")
   return recipients || []
 }
@@ -36,7 +35,7 @@ const RecipientsPage = async ({ params: { first_name } }) => {
   const { data } = await supabase
     .from("recipients")
     .select()
-    .ilike('first_name', first_name)
+    .ilike("first_name", first_name)
   if (!data) {
     notFound()
   } else {
@@ -46,19 +45,20 @@ const RecipientsPage = async ({ params: { first_name } }) => {
   const { first_name: firstName, hugs, created_at, category } = recipient
   return (
     <>
-      {/* <Box>{JSON.stringify(recipient)}</Box> */}
+      <pre>{JSON.stringify(recipient)}</pre>
       <LogoSection />
+      {/* 
       <TitleSection parameters={{ firstName, category, created_at }} />
       <RecipientProfile recipient={recipient} />
       <HugMessageShare parameters={{ firstName, hugs }} />
       <PackageSection />
       <FifthSection />
-      {/* <VideoSection /> */}
+      <VideoSection />
       <Testimonials />
       <WristHugSection />
       <WhatIsSection />
       <CommentSection />
-      <Footer />
+      <Footer /> */}
     </>
   )
 }

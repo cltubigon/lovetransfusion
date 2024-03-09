@@ -3,18 +3,11 @@ import { Box, Button, Flex, Heading, Text } from "@chakra-ui/react"
 import { containerInner, containerPadding } from "./globalStyle"
 import Link from "next/link"
 
-export const dynamicParams = true
+// export const dynamicParams = true
 export const revalidate = 20
 
-export async function generateStaticParams() {
-  const { data: test, error } = await supabase.from("recipients").select()
-  console.count('generateStaticParams', test)
-  return test ?? []
-}
-
-const HomePage = async ({ params }) => {
+const HomePage = async () => {
   const { data: recipients, error } = await supabase.from("recipients").select()
-  console.log('params', params)
   if (!recipients) {
     return <h2>No recipient found</h2>
   }
