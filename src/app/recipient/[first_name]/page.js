@@ -16,7 +16,7 @@ import { notFound } from "next/navigation"
 import { Box } from "@chakra-ui/react"
 
 export const dynamicParams = true
-export const revalidate = 10
+export const revalidate = 5
 
 export const metadata = {
   title: "Welcome to {Name}'s Page!",
@@ -25,7 +25,7 @@ export const metadata = {
 }
 
 export async function generateStaticParams() {
-  const { data: recipients } = supabase.from("recipients").select("id")
+  const { data: recipients } = supabase.from("recipients").select()
   return recipients || []
 }
 
@@ -45,14 +45,14 @@ const RecipientsPage = async ({ params: { first_name } }) => {
   }
   const recipient = data[0]
   console.log("recipient", recipient)
-  const { first_name: firstName, hugs, created_at, category } = recipient
+  const { id, first_name: firstName, hugs, created_at, category } = recipient
   return (
     <>
       {/* <pre>{JSON.stringify(recipient)}</pre> */}
       <LogoSection />
       <TitleSection parameters={{ firstName, category, created_at }} />
       <RecipientProfile recipient={recipient} />
-      <HugMessageShare parameters={{ firstName, hugs }} />
+      <HugMessageShare parameters={{ id, firstName, hugs }} />
       <PackageSection />
       <FifthSection />
       <VideoSection />

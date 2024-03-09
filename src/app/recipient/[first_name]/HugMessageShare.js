@@ -7,13 +7,13 @@ import {
   franklinMedium,
   lightBlue,
 } from "../../globalStyle"
-import CareIcon from "./images/care.svg"
 import heartMessage from "./images/heart-message.png"
 import ShareModal from "./ShareModal"
 import Link from "next/link"
+import HugButton from "./hugButton/HugButton"
 
 const HugMessageShare = ({ parameters }) => {
-  const { firstName, hugs } = parameters
+  const { id, firstName, hugs } = parameters
   const buttonStyle = {
     borderRadius: "10px",
     boxShadow: "3px 3px 3px 0px rgba(47, 142, 221, 0.32)",
@@ -25,6 +25,7 @@ const HugMessageShare = ({ parameters }) => {
     cursor: "pointer",
     w: "176px",
   }
+  console.log("hug message share")
   return (
     <Box py={"9px"} w={"100%"} bgColor={"#E0F3FF"}>
       <Flex
@@ -40,17 +41,7 @@ const HugMessageShare = ({ parameters }) => {
           justifyContent={{ phs: "flex-start", tls: "center" }}
           flexDir={{ phs: "column", tls: "row" }}
         >
-          <Flex sx={buttonStyle}>
-            <Flex alignItems="center" gap="13px">
-              <Text fontSize={"22px"} fontFamily={franklinMedium}>
-                Hug
-              </Text>
-              <Image src={CareIcon} alt="care icon" quality={100} />
-              <Text fontSize={"22px"} fontFamily={franklinMedium}>
-                {hugs}
-              </Text>
-            </Flex>
-          </Flex>
+          <HugButton parameters={{ id, firstName, hugs }} />
           <Link href={`#comment-section`}>
             <Flex sx={buttonStyle}>
               <Flex alignItems={"center"} gap={"13px"}>

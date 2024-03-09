@@ -35,7 +35,10 @@ const ShareModal = ({ buttonStyle }) => {
   }
 
   const handleClick = () => {
-    setisModalActive(()=> !isModalActive)
+    setisModalActive(() => !isModalActive)
+  }
+  const handleShareModalClick = (e) => {
+    e.stopPropagation()
   }
 
   const handlebuttonHover = (e) => {
@@ -95,7 +98,7 @@ const ShareModal = ({ buttonStyle }) => {
     <Flex
       sx={buttonStyle}
       position={"relative"}
-      onClick={handleClick}
+      onClick={(e) => handleClick(e)}
       onMouseOver={handlebuttonHover}
       onMouseLeave={(e) => handleMouseLeave({ e, data: "button" })}
     >
@@ -114,22 +117,25 @@ const ShareModal = ({ buttonStyle }) => {
           pos={"absolute"}
           bottom={"63px"}
           left={"-30px"}
-          bgColor={"white"}
+          bgColor={'white'}
           boxShadow={"3px 3px 3px 0px rgba(47, 142, 221, 0.32)"}
           border={`4px solid ${lightBlue}`}
           borderRadius={"13px"}
           minW={"312px"}
           pt={"3px"}
           pb={"15px"}
+          cursor={'default'}
           justifyContent={"center"}
           onMouseOver={handleModalHover}
           onMouseLeave={(e) => handleMouseLeave({ e, data: "modal" })}
+          onClick={handleShareModalClick}
         >
           <Flex
             gap={"3px"}
             flexDir={"column"}
             position={"relative"}
             alignItems={"center"}
+            
             _after={{
               content: "''",
               pos: "absolute",
@@ -156,12 +162,18 @@ const ShareModal = ({ buttonStyle }) => {
               {icons.map((icon, index) => {
                 return (
                   <Box
+                  cursor={'pointer'}
                     as={motion.div}
                     variants={item}
                     key={index}
                     sx={iconsStyle}
                   >
-                    <Image src={icon.image} alt={icon.alt} width={40} quality={100} />
+                    <Image
+                      src={icon.image}
+                      alt={icon.alt}
+                      width={40}
+                      quality={100}
+                    />
                   </Box>
                 )
               })}
