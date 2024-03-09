@@ -27,7 +27,7 @@ const HomePage = async () => {
       >
         <Flex flexDir={"column"} justifyContent={"center"}>
           <Heading>List of Recipients </Heading>
-          <Text>{"v0.0.6: Separate Custom hugs fetch"}</Text>
+          <Text>{"(Click a recipient below to view) v0.0.3"}</Text>
         </Flex>
 
         {recipients?.map((recipient, index) => {

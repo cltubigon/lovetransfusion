@@ -8,8 +8,7 @@ import { incrementHugs } from "./actions"
 import { franklinMedium, lightBlue } from "@/app/globalStyle"
 
 const HugButton = ({ parameters }) => {
-  const { id, hugs: numberofHugs, customHugs } = parameters
-  console.log('customHugs', customHugs)
+  const { id, hugs: numberofHugs } = parameters
   const buttonStyle = {
     borderRadius: "10px",
     boxShadow: "3px 3px 3px 0px rgba(47, 142, 221, 0.32)",
@@ -33,8 +32,7 @@ const HugButton = ({ parameters }) => {
           </Text>
           <Image src={CareIcon} alt="care icon" quality={100} />
           <Text fontSize={"22px"} fontFamily={franklinMedium}>
-            {/* {numberofHugs} */}
-            {customHugs}
+            {numberofHugs}
           </Text>
         </Flex>
       </Flex>

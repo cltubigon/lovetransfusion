@@ -13,15 +13,12 @@ export const incrementHugs = async ({ id }) => {
   if (currHugs) {
     const { hugs, first_name } = currHugs[0]
     console.log({ hugs, first_name, id })
-    const updateStart = () => {}
-    const { data } = await supabase
+    await supabase
       .from("recipients")
       .update({ hugs: hugs + 1 })
       .select()
       .eq("id", id)
-    updateStart()
-    if (data) {
-      revalidatePath(`/recipient/${first_name}`)
-    }
+
+    revalidatePath(`/recipient/${first_name}`)
   }
 }

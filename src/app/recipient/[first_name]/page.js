@@ -14,14 +14,13 @@ import Footer from "./Footer"
 import { supabase } from "@/config/supabase"
 import { notFound } from "next/navigation"
 
-export const dynamicParams = true
+// export const dynamicParams = true
 export const revalidate = 5
 
-export async function generateMetadata({ params: { first_name } }) {
-  return {
-    title: `Welcome to ${first_name}'s Page!`,
-    description: `She was riding her bike one day and suddenly felt sick. Her parents took her to the hospital where she was diagnosed with DIPG (a difficult to treat brain tumor). The doctors began taking care of ${first_name} right away and she is back home resting. She likes Unicorns and dancing and she hopes to meet Beyonce one day.`,
-  }
+export const metadata = {
+  title: "Welcome to {Name}'s Page!",
+  description:
+    "She was riding her bike one day and suddenly felt sick. Her parents took her to the hospital where she was diagnosed with DIPG (a difficult to treat brain tumor). The doctors began taking care of {Name} right away and she is back home resting. She likes Unicorns and dancing and she hopes to meet Beyonce one day.",
 }
 
 export async function generateStaticParams() {
@@ -30,7 +29,7 @@ export async function generateStaticParams() {
 }
 
 const RecipientsPage = async ({ params: { first_name } }) => {
-  console.log("recipient rendered")
+  console.log('recipient rendered')
   const { data } = await supabase
     .from("recipients")
     .select()
@@ -39,15 +38,16 @@ const RecipientsPage = async ({ params: { first_name } }) => {
   if (!data) {
     notFound()
   }
-
+  
   const recipient = data[0]
   const { id, first_name: firstName, hugs, created_at, category } = recipient
   return (
     <>
+      {/* <pre>{JSON.stringify(recipient)}</pre> */}
       <LogoSection />
       <TitleSection parameters={{ firstName, category, created_at }} />
       <RecipientProfile recipient={recipient} />
-      <HugMessageShare parameters={{ id, firstName, hugs, first_name }} />
+      <HugMessageShare parameters={{ id, firstName, hugs }} />
       <PackageSection />
       <FifthSection />
       <VideoSection />
