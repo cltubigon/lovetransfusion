@@ -14,8 +14,8 @@ import Footer from "./Footer"
 import { supabase } from "@/config/supabase"
 import { notFound } from "next/navigation"
 
-export const dynamicParams = true
-export const revalidate = 0
+// export const dynamicParams = true
+export const revalidate = 5
 
 export const metadata = {
   title: "Welcome to {Name}'s Page!",
