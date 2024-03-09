@@ -11,6 +11,7 @@ import heartMessage from "./images/heart-message.png"
 import ShareModal from "./ShareModal"
 import Link from "next/link"
 import HugButton from "./hugButton/HugButton"
+// import HugButton from "./hugButton/HugButton"
 
 const HugMessageShare = ({ parameters }) => {
   const { id, firstName, hugs } = parameters

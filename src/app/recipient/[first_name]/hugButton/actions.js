@@ -1,7 +1,7 @@
 "use server"
 
 import { supabase } from "@/config/supabase"
-import { revalidatePath } from "next/cache"
+import { revalidatePath, revalidateTag } from "next/cache"
 
 export const incrementHugs = async ({ id }) => {
   console.log("button clicked", id)
@@ -19,6 +19,7 @@ export const incrementHugs = async ({ id }) => {
       .select()
       .eq("id", id)
 
-    revalidatePath(`/recipient/${first_name}`)
+    // revalidatePath(`/recipient/${first_name}`)
+    revalidateTag(`/recipient/${first_name}`)
   }
 }
