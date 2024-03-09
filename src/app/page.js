@@ -31,10 +31,10 @@ const HomePage = async () => {
         </Flex>
 
         {recipients?.map((recipient, index) => {
-          const { first_name } = recipient
+          const { first_name, id } = recipient
           return (
             <div key={index}>
-              <Link href={`/recipient/${first_name}`} shallow>
+              <Link href={`/recipient/${id}`} shallow>
                 <Text fontSize={"32px"}>{first_name}</Text>
               </Link>
             </div>

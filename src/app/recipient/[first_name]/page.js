@@ -24,25 +24,28 @@ export const metadata = {
     "She was riding her bike one day and suddenly felt sick. Her parents took her to the hospital where she was diagnosed with DIPG (a difficult to treat brain tumor). The doctors began taking care of {Name} right away and she is back home resting. She likes Unicorns and dancing and she hopes to meet Beyonce one day.",
 }
 
-export const generateStaticParams = async () => {
-  const { data: recipients } = supabase.from("recipients").select("first_name")
+export async function generateStaticParams() {
+  const { data: recipients } = supabase.from("recipients").select("id")
   return recipients || []
 }
 
 const RecipientsPage = async ({ params: { first_name } }) => {
   // const name = capitalize(first_name)
   // console.log({ name })
+  console.log("first_name", first_name)
   const { data } = await supabase
     .from("recipients")
     .select()
-    .ilike("first_name", first_name)
+    .eq("id", first_name)
+
   if (!data) {
     notFound()
   } else {
     console.log("data", data)
   }
   const recipient = data[0]
-  const { first_name: firstName, hugs, created_at, category } = recipient
+  console.log("recipient", recipient)
+  // const { first_name: firstName, hugs, created_at, category } = recipient
   return (
     <>
       <pre>{JSON.stringify(recipient)}</pre>
