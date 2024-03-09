@@ -36,7 +36,7 @@ const RecipientsPage = async ({ params: { first_name } }) => {
   const { data } = await supabase
     .from("recipients")
     .select()
-    .eq("id", first_name)
+    .ilike("first_name", first_name)
 
   if (!data) {
     notFound()
@@ -45,12 +45,11 @@ const RecipientsPage = async ({ params: { first_name } }) => {
   }
   const recipient = data[0]
   console.log("recipient", recipient)
-  // const { first_name: firstName, hugs, created_at, category } = recipient
+  const { first_name: firstName, hugs, created_at, category } = recipient
   return (
     <>
-      <pre>{JSON.stringify(recipient)}</pre>
+      {/* <pre>{JSON.stringify(recipient)}</pre> */}
       <LogoSection />
-      {/* 
       <TitleSection parameters={{ firstName, category, created_at }} />
       <RecipientProfile recipient={recipient} />
       <HugMessageShare parameters={{ firstName, hugs }} />
@@ -61,7 +60,7 @@ const RecipientsPage = async ({ params: { first_name } }) => {
       <WristHugSection />
       <WhatIsSection />
       <CommentSection />
-      <Footer /> */}
+      <Footer />
     </>
   )
 }
