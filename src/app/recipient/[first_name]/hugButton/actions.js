@@ -2,7 +2,6 @@
 
 import { supabase } from "@/config/supabase"
 import { revalidatePath } from "next/cache"
-import { redirect } from "next/navigation"
 
 export const incrementHugs = async ({ id }) => {
   console.log("button clicked", id)
@@ -21,6 +20,5 @@ export const incrementHugs = async ({ id }) => {
       .eq("id", id)
 
     revalidatePath(`/recipient/${first_name}`)
-    redirect(`/recipient/${first_name}`)
   }
 }

@@ -27,7 +27,7 @@ const HomePage = async () => {
       >
         <Flex flexDir={"column"} justifyContent={"center"}>
           <Heading>List of Recipients </Heading>
-          <Text>{"v0.0.4 - Added Redirect and OptimisticUpdate"}</Text>
+          <Text>{"v0.0.5 - Removed redirect"}</Text>
         </Flex>
 
         {recipients?.map((recipient, index) => {
