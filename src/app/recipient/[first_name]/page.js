@@ -43,7 +43,6 @@ const RecipientsPage = async ({ params: { first_name } }) => {
   const { id, first_name: firstName, hugs, created_at, category } = recipient
   return (
     <>
-      {/* <pre>{JSON.stringify(recipient)}</pre> */}
       <LogoSection />
       <TitleSection parameters={{ firstName, category, created_at }} />
       <RecipientProfile recipient={recipient} />

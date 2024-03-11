@@ -1,5 +1,5 @@
 import { supabase } from "@/config/supabase"
-import { Box, Button, Flex, Heading, Text } from "@chakra-ui/react"
+import { Flex, Heading, Text } from "@chakra-ui/react"
 import { containerInner, containerPadding } from "./globalStyle"
 import Link from "next/link"
 
@@ -27,7 +27,7 @@ const HomePage = async () => {
       >
         <Flex flexDir={"column"} justifyContent={"center"}>
           <Heading>List of Recipients </Heading>
-          <Text>{"(Click a recipient below to view) v0.0.3"}</Text>
+          <Text>{"v0.0.4 - Added Redirect and OptimisticUpdate"}</Text>
         </Flex>
 
         {recipients?.map((recipient, index) => {
