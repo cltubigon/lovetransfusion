@@ -11,8 +11,15 @@ import WristHugSection from "./WristHugSection"
 import WhatIsSection from "./WhatIsSection"
 import CommentSection from "./CommentSection"
 import Footer from "./Footer"
-import { supabase } from "@/config/supabase"
 import { notFound } from "next/navigation"
+import { supabase } from "@/config/supabase/supabase"
+import BlogPostClient from "./BlogPostClient"
+import {
+  HydrationBoundary,
+  QueryClient,
+  dehydrate,
+} from "@tanstack/react-query"
+import singleUseQuery from "@/hooks/useQuery/singleUseQuery"
 
 // export const dynamicParams = true
 export const revalidate = 5
@@ -29,32 +36,24 @@ export async function generateStaticParams() {
 }
 
 const RecipientsPage = async ({ params: { first_name } }) => {
-  console.log('recipient rendered')
-  const { data } = await supabase
-    .from("recipients")
-    .select()
-    .ilike("first_name", first_name)
+  console.log("recipient rendered")
+  const queryClient = new QueryClient()
 
-  if (!data) {
-    notFound()
-  }
-  
-  const recipient = data[0]
-  const { id, first_name: firstName, hugs, created_at, category } = recipient
+  await queryClient.prefetchQuery(
+    singleUseQuery({
+      queryKey: [`recipient - ${first_name}`],
+      table: "recipients",
+      column: "first_name",
+      columnValue: first_name,
+      supabase: supabase,
+    })
+  )
+
   return (
     <>
-      <LogoSection />
-      <TitleSection parameters={{ firstName, category, created_at }} />
-      <RecipientProfile recipient={recipient} />
-      <HugMessageShare parameters={{ id, firstName, hugs }} />
-      <PackageSection />
-      <FifthSection />
-      <VideoSection />
-      <Testimonials />
-      <WristHugSection />
-      <WhatIsSection />
-      <CommentSection />
-      <Footer />
+      <HydrationBoundary state={dehydrate(queryClient)}>
+        <BlogPostClient params={first_name} />
+      </HydrationBoundary>
     </>
   )
 }

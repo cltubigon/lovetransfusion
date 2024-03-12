@@ -40,7 +40,7 @@ const HugMessageShare = ({ parameters }) => {
           justifyContent={{ phs: "flex-start", tls: "center" }}
           flexDir={{ phs: "column", tls: "row" }}
         >
-          <HugButton parameters={{ id, hugs }} />
+          <HugButton parameters={{ id, hugs, firstName }} />
           <Link href={`#comment-section`}>
             <Flex sx={buttonStyle}>
               <Flex alignItems={"center"} gap={"13px"}>

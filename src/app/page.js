@@ -1,7 +1,7 @@
-import { supabase } from "@/config/supabase"
 import { Flex, Heading, Text } from "@chakra-ui/react"
 import { containerInner, containerPadding } from "./globalStyle"
 import Link from "next/link"
+import { supabase } from "@/config/supabase/supabase"
 
 // export const dynamicParams = true
 export const revalidate = 5

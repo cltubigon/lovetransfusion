@@ -11,9 +11,8 @@ import RecipientImage from "./RecipientImage"
 
 const capitalize = (str) => `${str.charAt(0).toUpperCase()}${str.slice(1)}`
 
-const RecipientProfile = ({ recipient }) => {
-  const { first_name } = recipient
-  const capitalizeName = capitalize(first_name)
+const RecipientProfile = ({ firstName }) => {
+  const capitalizeName = capitalize(firstName)
   return (
     <Flex sx={containerPadding} pb={"23px"}>
       <Flex maxW={"984px"} w={"100%"} flexDir={"column"}>

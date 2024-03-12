@@ -1,24 +1,60 @@
 "use client"
 import { Flex, Text } from "@chakra-ui/react"
-import React, { useOptimistic, startTransition } from "react"
 import Image from "next/image"
 import CareIcon from "../images/care.svg"
-import { incrementHugs } from "./actions"
+import { updateHugs } from "./actions"
 import { franklinMedium, lightBlue } from "@/app/globalStyle"
+import { useMutation, useQueryClient } from "@tanstack/react-query"
+import { useEffect, useState } from "react"
+import { motion } from "framer-motion"
 
 const HugButton = ({ parameters }) => {
-  const { id, hugs: numberofHugs } = parameters
+  const { id, hugs: numberofHugs, firstName } = parameters
+  const [buttonClick, setbuttonClick] = useState(false)
 
-  const [optimisticHug, addOptimisticHug] = useOptimistic(
-    [numberofHugs],
-    (state, newHug) => [newHug + 1]
-  )
+  const queryClient = useQueryClient()
+
+  const { mutate } = useMutation({
+    mutationFn: () => updateHugs(id),
+    onMutate: async () => {
+      const mainKey = [`recipient - ${firstName}`]
+      await queryClient.cancelQueries(mainKey)
+      const prevQueryData = queryClient.getQueryData(mainKey)
+      queryClient.setQueryData(mainKey, () => {
+        const oldData = prevQueryData[0]
+        const newData = [{ ...oldData, hugs: numberofHugs + 1 }]
+        return newData
+      })
+      return prevQueryData
+    },
+  })
 
   const handleClick = async () => {
-    startTransition(() => {
-      addOptimisticHug(numberofHugs)
-    })
-    incrementHugs({ id })
+    setbuttonClick(true)
+    mutate()
+  }
+
+  useEffect(() => {
+    const timeout = setTimeout(() => {
+      setbuttonClick(false)
+    }, 2000)
+
+    return () => clearTimeout(timeout)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [numberofHugs])
+
+  const hugSent = {
+    initial: {
+      y: "0px",
+      opacity: 100,
+    },
+    exit: {
+      y: "-25px",
+      opacity: 0,
+      transition: {
+        duration: 1.2,
+      },
+    },
   }
 
   const buttonStyle = {
@@ -35,19 +71,29 @@ const HugButton = ({ parameters }) => {
   return (
     <div>
       <Flex sx={buttonStyle} onClick={handleClick}>
-        <Flex alignItems="center" gap="13px">
+        <Flex as={motion.div} alignItems="center" gap="13px" pos={"relative"}>
           <Text fontSize={"22px"} fontFamily={franklinMedium}>
             Hug
           </Text>
 
           <Image src={CareIcon} alt="care icon" quality={100} />
-          {optimisticHug?.map((h, k) => {
-            return (
-              <Text key={k} fontSize={"22px"} fontFamily={franklinMedium}>
-                {h}
-              </Text>
-            )
-          })}
+          <Text fontSize={"22px"} fontFamily={franklinMedium}>
+            {numberofHugs}
+          </Text>
+          <Flex
+            as={motion.div}
+            animate={!buttonClick ? "initial" : "exit"}
+            variants={hugSent}
+            pos={"absolute"}
+            top={"-18px"}
+            fontFamily={franklinMedium}
+            left={0}
+            right={0}
+            justifyContent={"center"}
+            display={!buttonClick ? "none" : "flex"}
+          >
+            <Text textAlign={"centerp"}>Hug sent</Text>
+          </Flex>
         </Flex>
       </Flex>
     </div>

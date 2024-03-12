@@ -11,6 +11,7 @@ import {
   SegoePrint,
 } from "../config/fonts"
 import Popup from "./components/Popup"
+import TanstackProvider from "@/config/providers/TanstackProvider"
 
 export const metadata = {
   title: {
@@ -28,10 +29,12 @@ export default function RootLayout({ children }) {
       className={`${SegoePrint.variable} ${openSans.variable} ${inter.variable} ${franklinGothicBookItalic.variable} ${franklinGothicDemiCond.variable} ${franklinGothicMediumCond.variable} ${franklinGothicBook.variable} ${ArialNarrowBold.variable}`}
     >
       <body>
-        <ChakraProvider theme={theme}>
-          <Popup />
-          {children}
-        </ChakraProvider>
+        <TanstackProvider>
+          <ChakraProvider theme={theme}>
+            <Popup />
+            {children}
+          </ChakraProvider>
+        </TanstackProvider>
       </body>
     </html>
   )
