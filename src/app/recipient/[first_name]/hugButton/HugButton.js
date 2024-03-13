@@ -2,7 +2,7 @@
 import { Flex, Text } from "@chakra-ui/react"
 import Image from "next/image"
 import CareIcon from "../images/care.svg"
-import { updateHugs } from "./actions"
+import { updateHugs } from "../actions/actions"
 import { franklinMedium, lightBlue } from "@/app/globalStyle"
 import { useMutation, useQueryClient } from "@tanstack/react-query"
 import { useEffect, useState } from "react"
@@ -15,7 +15,7 @@ const HugButton = ({ parameters }) => {
   const queryClient = useQueryClient()
 
   const { mutate } = useMutation({
-    mutationFn: () => updateHugs(id),
+    mutationFn: () => updateHugs({id, firstName}),
     onMutate: async () => {
       const mainKey = [`recipient - ${firstName}`]
       await queryClient.cancelQueries(mainKey)

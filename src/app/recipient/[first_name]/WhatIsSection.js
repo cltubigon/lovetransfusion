@@ -15,7 +15,7 @@ import TestimonyImage from "./TestimonyImage"
 
 const WhatIsSection = () => {
   return (
-    <Flex sx={containerPadding} py={{ phs: "49px", tls: "102px" }}>
+    <Flex sx={containerPadding} py={{ phs: "49px", tll: '70px', ltl: "102px" }}>
       <Flex sx={containerInner} justifyContent={"center"}>
         <Flex maxW={"1000px"} flexDir={"column"}>
           <Flex flexDir={"column"} gap={"26px"}>
@@ -53,9 +53,9 @@ const WhatIsSection = () => {
             mt={"85px"}
             p={{ phs: "55px 25px 25px", tls: "25px 80px 25px 81px" }}
             pos={"relative"}
-            flexDir={{ phs: "column", tls: "row" }}
+            flexDir={{ phs: "column", tll: "row" }}
           >
-            <Flex flexDir={"column"} maxW={"408px"}>
+            <Flex flexDir={"column"} maxW={{phs: '100%', tll: "408px"}}>
               <Text
                 fontSize={"30px"}
                 fontFamily={franklinDemiCond}
@@ -81,7 +81,7 @@ const WhatIsSection = () => {
                 .
               </Text>
             </Flex>
-            <Flex maxW={"310px"}>
+            <Flex maxW={{phs: '100%', tll: "310px"}}>
               <Flex boxShadow={"3px 3px 3px 0px rgba(0, 0, 0, 0.22)"}>
                 <TestimonyImage />
               </Flex>

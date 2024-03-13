@@ -18,7 +18,7 @@ const RecipientImage = ({
 }) => {
   return (
     <Flex
-    // zIndex={2}
+    zIndex={1}
       alignItems={"center"}
       position={"relative"}
       mx={'auto'}

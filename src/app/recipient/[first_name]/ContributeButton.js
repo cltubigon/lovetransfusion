@@ -11,13 +11,19 @@ import logoWhite from "./images/logo-white-svg.svg"
 import { useStore } from "zustand"
 import utilityStore from "@/config/store"
 
-const ContributeButton = () => {
+const ContributeButton = ({ parameters }) => {
+  const { id, capitalizeFirstName: firstName } = parameters
   const { setPopup } = useStore(utilityStore)
 
   const handleClick = () => {
     setPopup({
+      data: {
+        id,
+        firstName,
+      },
       content: "MultiStepForm",
       maxW: "582px",
+      bgNotClicable: true,
     })
   }
   return (

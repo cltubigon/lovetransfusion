@@ -1,4 +1,4 @@
-import { ChakraProvider } from "@chakra-ui/react"
+import { Box, ChakraProvider } from "@chakra-ui/react"
 import { theme } from "@/config/theme"
 import {
   franklinGothicBookItalic,
@@ -28,11 +28,13 @@ export default function RootLayout({ children }) {
       style={{ scrollBehavior: "smooth" }}
       className={`${SegoePrint.variable} ${openSans.variable} ${inter.variable} ${franklinGothicBookItalic.variable} ${franklinGothicDemiCond.variable} ${franklinGothicMediumCond.variable} ${franklinGothicBook.variable} ${ArialNarrowBold.variable}`}
     >
-      <body>
+      <body style={{ overflow: "hidden" }}>
         <TanstackProvider>
           <ChakraProvider theme={theme}>
             <Popup />
-            {children}
+            <Box overflowY={"scroll"} maxH={"100vh"}>
+              {children}
+            </Box>
           </ChakraProvider>
         </TanstackProvider>
       </body>

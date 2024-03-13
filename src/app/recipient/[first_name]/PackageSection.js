@@ -12,8 +12,11 @@ import Image from "next/image"
 import PackageImage from "./images/poster-package-template1-orig.png"
 import blueArrow from "./images/bl-arrrow.svg"
 import ContributeButton from "./ContributeButton"
+import { capitalize } from "@/utilities/capitalize"
 
-const PackageSection = () => {
+const PackageSection = ({ parameters }) => {
+  const { id, firstName } = parameters
+  const capitalizeFirstName = capitalize(firstName)
   const timeContainer = {
     bgColor: lightBlue,
     pt: "17px",
@@ -37,6 +40,7 @@ const PackageSection = () => {
     alignItems: "center",
     gap: "14px",
   }
+
   return (
     <Flex sx={containerPadding} pt={"50px"} pb={"43px"}>
       <Flex sx={containerInner} flexDir={"column"} alignItems={"center"}>
@@ -47,7 +51,7 @@ const PackageSection = () => {
             color={lightBlue}
             lineHeight={"33px"}
             textAlign={"center"}
-          >{`Will You Help Us Send {Name} A Care Package As Well?`}</Text>
+          >{`Will You Help Us Send ${capitalizeFirstName} A Care Package As Well?`}</Text>
         </Flex>
         <Flex pt={"33px"} justifyContent={"center"} flexWrap={"wrap"}>
           <Flex
@@ -84,10 +88,10 @@ const PackageSection = () => {
                 >
                   <Image src={blueArrow} alt="blue arrow" />
                 </Flex>
-                <ContributeButton />
+                <ContributeButton parameters={{id, capitalizeFirstName}} />
               </Flex>
             </Flex>
-            
+
             <Flex flexDir={"column"} alignItems={"center"}>
               <Text
                 fontFamily={ArialNarrowBold}
@@ -142,11 +146,7 @@ const PackageSection = () => {
               minW={{ tls: "380px" }}
               minH={{ tls: "460px" }}
             >
-              <Image
-                src={PackageImage}
-                quality={100}
-                alt="package image"
-              />
+              <Image src={PackageImage} quality={100} alt="package image" />
             </Flex>
           </Flex>
         </Flex>

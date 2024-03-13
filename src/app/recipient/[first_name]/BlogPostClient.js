@@ -17,6 +17,7 @@ import { notFound } from "next/navigation"
 import { useQuery } from "@tanstack/react-query"
 // import singleUseQueryInitialdata from "@/hooks/useQuery/singleUseQueryInitialdata"
 import singleUseQuery from "@/hooks/useQuery/singleUseQuery"
+import { Box } from "@chakra-ui/react"
 
 const BlogPostClient = ({ params }) => {
   const { data: recipient } = useQuery(
@@ -28,24 +29,27 @@ const BlogPostClient = ({ params }) => {
       supabase: supabase,
     })
   )
+  if (recipient?.length === 0) {
+    return notFound()
+  }
   const { id, first_name: firstName, category, created_at, hugs } = recipient[0]
 
   console.log("recipient", recipient)
   return (
-    <div>
+    <Box minH={"5200px"}>
       <LogoSection />
       <TitleSection parameters={{ firstName, category, created_at }} />
       <RecipientProfile firstName={firstName} />
       <HugMessageShare parameters={{ id, firstName, hugs }} />
-      <PackageSection />
+      <PackageSection parameters={{ id, firstName }} />
       <FifthSection />
-      {/* <VideoSection /> */}
+      <VideoSection />
       <Testimonials />
       <WristHugSection />
       <WhatIsSection />
       <CommentSection />
       <Footer />
-    </div>
+    </Box>
   )
 }
 

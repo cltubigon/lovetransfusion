@@ -18,7 +18,7 @@ import {
 import { useForm } from "react-hook-form"
 
 const CommentForm = () => {
-  const { register, handleSubmit, formState, control, watch } = useForm()
+  const { register, handleSubmit, formState, watch } = useForm()
   const { errors } = formState
 
   const onSubmit = () => {
@@ -52,7 +52,7 @@ const CommentForm = () => {
               {errors.comment && errors.comment.message}
             </FormErrorMessage>
           </FormControl>
-          {/* ------------------- Email ------------------- */}
+          {/* ------------------- Name & Email ------------------- */}
           <Flex gap={4} flexDir={{ phs: "column", tls: "row" }}>
             <Flex flexBasis={{ phs: "100%", tls: "50%" }}>
               <FormControl isInvalid={errors.name} isRequired>
