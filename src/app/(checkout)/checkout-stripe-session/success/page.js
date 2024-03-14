@@ -18,7 +18,7 @@ const SuccessPage = ()=> {
     const initiateGet = async () => {
       try {
         const response = await axios.post(
-          "http://localhost:3000/checkout-stripe-session/api/get",
+          `${process.env.NEXT_PUBLIC_ROOT_DOMAIN}/checkout-stripe-session/api/get`,
           {
             sessionId,
           },

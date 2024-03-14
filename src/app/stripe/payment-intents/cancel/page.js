@@ -11,7 +11,7 @@ const CancelPaymentIntent = ({ id: data }) => {
     // setLoaded(true)
     try {
       const response = await axios.post(
-        "http://localhost:3000/stripe/payment-intents/cancel/api",
+        `${process.env.NEXT_PUBLIC_ROOT_DOMAIN}/stripe/payment-intents/cancel/api`,
         {
           data,
         },

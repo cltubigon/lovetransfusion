@@ -23,7 +23,7 @@ const CheckoutEmbedded = () => {
         // setLoaded(true)
         try {
           const response = await axios.post(
-            "http://localhost:3000/checkout-embedded/api/post",
+            `${process.env.NEXT_PUBLIC_ROOT_DOMAIN}/checkout-embedded/api/post`,
             {
               products: selectedProducts,
             },

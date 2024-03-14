@@ -21,7 +21,7 @@ const UpdateAccount = () => {
     }
     try {
       const response = await axios.post(
-        "http://localhost:3000/stripe/account/update/api",
+        `${process.env.NEXT_PUBLIC_ROOT_DOMAIN}/stripe/account/update/api`,
         {
           data,
         },

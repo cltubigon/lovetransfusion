@@ -16,7 +16,7 @@ export default function Return() {
     const initiateGet = async () => {
       try {
         const response = await axios.post(
-          "http://localhost:3000/checkout-embedded/api/get",
+          `${process.env.NEXT_PUBLIC_ROOT_DOMAIN}/checkout-embedded/api/get`,
           {
             sessionId,
           },

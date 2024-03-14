@@ -7,7 +7,7 @@ import HeaderSection from "./HeaderSection"
 import Amount from "./Amount"
 
 const StepTwo = ({ setactiveStep }) => {
-  console.log('step two rendered')
+  console.log("step two rendered")
   const {
     popup: { data },
   } = useStore(utilityStore)
@@ -89,6 +89,7 @@ const StepTwo = ({ setactiveStep }) => {
         </Flex>
       </Flex>
       <Amount setactiveStep={setactiveStep} />
+      {/* <NumberInput /> */}
     </Flex>
   )
 }

@@ -18,7 +18,7 @@ const UpdatePaymentIntent = () => {
     }
     try {
       const response = await axios.post(
-        "http://localhost:3000/stripe/payment-intents/update/api",
+        `${process.env.NEXT_PUBLIC_ROOT_DOMAIN}/stripe/payment-intents/update/api`,
         {
           data,
         },

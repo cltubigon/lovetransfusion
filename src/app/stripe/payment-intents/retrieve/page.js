@@ -14,7 +14,7 @@ const RetrievePaymentIntent = () => {
 
     try {
       const response = await axios.get(
-        "http://localhost:3000/stripe/payment-intents/retrieve/api",
+        `${process.env.NEXT_PUBLIC_ROOT_DOMAIN}/stripe/payment-intents/retrieve/api`,
         {
           data,
         },

@@ -13,7 +13,7 @@ const CheckoutWithStripeSessions = () => {
   const handleCheckout = async () => {
     try {
       const response = await axios.post(
-        "http://localhost:3000/checkout-stripe-session/api/post",
+        `${process.env.NEXT_PUBLIC_ROOT_DOMAIN}/checkout-stripe-session/api/post`,
         {
           products: selectedProducts,
         },

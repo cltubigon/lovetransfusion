@@ -15,7 +15,7 @@ const DeleteAccount = () => {
     }
     try {
       const response = await axios.delete(
-        "http://localhost:3000/stripe/account/delete/api",
+        `${process.env.NEXT_PUBLIC_ROOT_DOMAIN}/stripe/account/delete/api`,
         {
           data,
         },

@@ -1,7 +1,8 @@
 "use client"
 import React, { useEffect, useState } from "react"
 import { PaymentElement, useStripe, useElements } from "@stripe/react-stripe-js"
-import { Box, Button } from "@chakra-ui/react"
+import { Box, Button, Flex } from "@chakra-ui/react"
+import { buttonColor, lightBlue } from "@/app/globalStyle"
 
 export default function CheckoutForm() {
   const stripe = useStripe()
@@ -62,7 +63,7 @@ export default function CheckoutForm() {
       elements,
       confirmParams: {
         // Make sure to change this to your payment completion page
-        return_url: "http://localhost:3000/checkout-custom-flow/success",
+        return_url: `${process.env.NEXT_PUBLIC_ROOT_DOMAIN}/checkout-custom-flow/success`,
       },
     })
 
@@ -77,22 +78,37 @@ export default function CheckoutForm() {
       //   spaceAccordionItems: true      // Optional in "accordion"
     },
   }
-console.log({ message })
+  console.log({ message })
   return (
-    <Box>
+    <Box px={6}>
       <form id="payment-form" onSubmit={handleSubmit}>
-        <PaymentElement id="payment-element" options={paymentElementOptions} />
-        <button disabled={isLoading || !stripe || !elements} id="submit">
-          <span id="button-text">
-            {isLoading ? (
-              <div className="spinner" id="spinner"></div>
-            ) : (
-              "Pay now"
-            )}
-          </span>
-        </button>
-        {/* Show any error or success messages */}
-        {message && <div id="payment-message">{message}</div>}
+        <Flex flexDir={"column"} gap={4}>
+          <PaymentElement
+            id="payment-element"
+            options={paymentElementOptions}
+          />
+          <button
+            disabled={isLoading || !stripe || !elements}
+            id="submit"
+            style={{
+              backgroundColor: buttonColor,
+              width: "100%",
+              color: "white",
+              padding: "12px",
+              borderRadius: "6px",
+            }}
+          >
+            <span id="button-text">
+              {isLoading ? (
+                <div className="spinner" id="spinner"></div>
+              ) : (
+                "Pay now"
+              )}
+            </span>
+          </button>
+          {/* Show any error or success messages */}
+          {message && <div id="payment-message">{message}</div>}
+        </Flex>
       </form>
     </Box>
   )

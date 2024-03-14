@@ -18,7 +18,7 @@ const CheckoutPage = () => {
       const createIntent = async () => {
         try {
           const response = await axios.post(
-            "http://localhost:3000/stripe/payment-intents/create/api",
+            `${process.env.NEXT_PUBLIC_ROOT_DOMAIN}/stripe/payment-intents/create/api`,
             {
               data: selectedProducts,
             },

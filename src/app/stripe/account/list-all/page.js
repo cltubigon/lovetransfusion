@@ -12,7 +12,7 @@ const RetrieveAccount = () => {
     console.log("create Account started")
     try {
       const response = await axios.get(
-        "http://localhost:3000/stripe/account/list-all/api"
+        `${process.env.NEXT_PUBLIC_ROOT_DOMAIN}/stripe/account/list-all/api`
       )
 
       if (response) {

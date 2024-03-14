@@ -22,7 +22,7 @@ const CreateAccount = () => {
     }
     try {
       const response = await axios.post(
-        "http://localhost:3000/stripe/account/create/api",
+        `${process.env.NEXT_PUBLIC_ROOT_DOMAIN}/stripe/account/create/api`,
         {
           data,
         },

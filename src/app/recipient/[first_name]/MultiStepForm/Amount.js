@@ -32,138 +32,70 @@ import utilityStore from "@/config/store"
 import { IoArrowBackOutline } from "react-icons/io5"
 import HeaderSection from "./HeaderSection"
 import { useForm } from "react-hook-form"
+import { NumericFormat } from "react-number-format"
 
 const Amount = ({ setactiveStep }) => {
   console.log("amount rendered")
-  const { register, handleSubmit, formState, watch } = useForm()
-  const { errors } = formState
 
   const [value, setValue] = useState("")
   const {
     popup: { data },
   } = useStore(utilityStore)
-
-  useEffect(() => {
-    console.log("value", value)
-  }, [value])
-
-  const handleOnChange = (e) => {
-    const initial = e.target.value
-    const formatter = new Intl.NumberFormat("en-US", {
-      style: "currency",
-      currency: "USD", // Change 'USD' to your desired currency code
-      minimumFractionDigits: 2, // Enforces 2 decimal places
-    })
-
-    const formattedNumber = formatter.format(initial)
-    console.log("formattedNumber", formattedNumber)
-    setValue(formattedNumber)
-
-    // console.log("initial", initial)
-    // const parsed = parseFloat(initial).toFixed(2)
-    // console.log("!!parsed", !!parsed)
-    // if (initial === "") {
-    //   setValue("")
-    //   return
-    // }
-    // if (initial !== "") setValue(parsed)
-  }
-
-  if (!data) return <p>No data to show</p>
-
-  const onSubmit = (data) => {
-    console.log("data", data)
+  const gotoStepThree = () => {
     setactiveStep(3)
   }
 
-  const format = (val) => {
-    console.log("val", val)
-    if (val) {
-      console.log("val", val)
-    //   const parsedValue = parseFloat(val)
-    //   console.log("parsedValue", parsedValue)
-      const value = `$` + val
-      console.log("value", value)
-      const int = parseFloat(value)
-      console.log('int', int)
-      
-      return value
-    }
-    if (!val) return ""
+  const handleOnChange = (e) => {
+    const val = e.target.value
+    setValue(val)
   }
-  const parse = (val) => val.replace(/^\$/, '')
-
+  console.log("value", value)
   return (
     <div>
-      <form onSubmit={handleSubmit(onSubmit)}>
-        <FormControl isInvalid={errors.price}>
-          {/* <Input
-            textAlign={"center"}
-            placeholder="Enter custom amount"
-            readOnly
-            type="text"
-            value={value}
-          />
-          <Input
-            textAlign={"center"}
-            id="price"
-            {...register("price")}
-            onChange={handleOnChange}
-            border={"1px solid #8c8c8c"}
-            placeholder="Enter custom amount"
-            fontSize={"17px"}
-            py={7}
-            min={5}
-            type="number"
-          /> */}
-          <NumberInput
-            defaultValue={0}
-            onChange={(valueString) => setValue(parse(valueString))}
-            value={format(value)}
-          >
-            <NumberInputField
-              textAlign={"center"}
-              border={"1px solid #8c8c8c"}
-              placeholder="Enter custom amount"
-              fontSize={"17px"}
-              py={7}
-              min={5}
-              maxLength={10}
-              id="price"
-              {...register("price")}
-            />
-          </NumberInput>
-          <FormErrorMessage>
-            {errors.price && errors.price.message}
-          </FormErrorMessage>
-        </FormControl>
-        <Button
-          mt={5}
-          color={"white"}
-          fontSize={"16px"}
-          fontFamily={openSans}
-          bgColor={buttonColor}
-          _hover={{ bgColor: buttonColorHover }}
-          transition={"background-color 0.5s"}
-          w={"full"}
-          rightIcon={<FiArrowRight fontSize={"18px"} />}
-          borderRadius={"4px"}
-          p={"25px 16px"}
-          type="submit"
-          mb={3}
-        >
-          Donate Now
-        </Button>
-        <Flex
-          color="#00d084"
-          alignItems={"center"}
-          gap={2}
-          justifyContent={"center"}
-        >
-          <FaLock fontSize={"12px"} />
-          <Text fontSize={"12px"}>Secure donation</Text>
-        </Flex>
-      </form>
+      <NumericFormat
+        required
+        prefix={"$"}
+        decimalScale={2}
+        thousandSeparator=","
+        fixedDecimalScale={true}
+        allowNegative={false}
+        placeholder="Enter custom amount"
+        onChange={handleOnChange}
+        style={{
+          textAlign: "center",
+          border: "1px solid #8c8c8c",
+          borderRadius: "4px",
+          padding: "18px 10px",
+          fontSize: "17px",
+          width: "100%",
+        }}
+      />
+      <Button
+        mt={5}
+        color={"white"}
+        fontSize={"16px"}
+        fontFamily={openSans}
+        bgColor={buttonColor}
+        _hover={{ bgColor: buttonColorHover }}
+        transition={"background-color 0.5s"}
+        w={"full"}
+        rightIcon={<FiArrowRight fontSize={"18px"} />}
+        borderRadius={"4px"}
+        p={"25px 16px"}
+        onClick={gotoStepThree}
+        mb={3}
+      >
+        Donate Now
+      </Button>
+      <Flex
+        color="#00d084"
+        alignItems={"center"}
+        gap={2}
+        justifyContent={"center"}
+      >
+        <FaLock fontSize={"12px"} />
+        <Text fontSize={"12px"}>Secure donation</Text>
+      </Flex>
     </div>
   )
 }

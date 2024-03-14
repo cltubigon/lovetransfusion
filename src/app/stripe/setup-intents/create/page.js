@@ -14,7 +14,7 @@ const CreateSetupIntents = () => {
     }
     try {
       const response = await axios.post(
-        "http://localhost:3000/stripe/setup-intents/create/api",
+        `${process.env.NEXT_PUBLIC_ROOT_DOMAIN}/stripe/setup-intents/create/api`,
         {
           data,
         },
