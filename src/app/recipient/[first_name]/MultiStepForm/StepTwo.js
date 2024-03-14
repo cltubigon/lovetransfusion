@@ -1,16 +1,27 @@
-import { lightBlue } from "@/app/globalStyle"
-import { Flex, Text } from "@chakra-ui/react"
-import React from "react"
+import {
+  buttonColor,
+  buttonColorHover,
+  franklinMedium,
+  lightBlue,
+  openSans,
+} from "@/app/globalStyle"
+import { Button, Flex, Text } from "@chakra-ui/react"
 import { useStore } from "zustand"
 import utilityStore from "@/config/store"
 import HeaderSection from "./HeaderSection"
 import Amount from "./Amount"
+import { FaLock } from "react-icons/fa"
+import { FiArrowRight } from "react-icons/fi"
 
 const StepTwo = ({ setactiveStep }) => {
   console.log("step two rendered")
   const {
     popup: { data },
+    carePackage: { donationAmount, priceList },
+    setDonationAmount,
+    setPriceList,
   } = useStore(utilityStore)
+  console.log({ donationAmount })
 
   if (!data) return <p>No data to show</p>
 
@@ -20,17 +31,18 @@ const StepTwo = ({ setactiveStep }) => {
     p: 4,
     justifyContent: "center",
     fontSize: "18px",
-    fontWeight: "600",
     my: 1,
+    fontFamily: franklinMedium
   }
-  const prices = [
-    { id: 1, price: "$10.00", active: false },
-    { id: 2, price: "$25.00", active: false },
-    { id: 3, price: "$50.00", active: false },
-    { id: 4, price: "$100.00", active: false },
-    { id: 5, price: "$250.00", active: true },
-    { id: 6, price: "$500.00", active: false },
-  ]
+  const gotoStepThree = () => {
+    setactiveStep(3)
+  }
+  const handlePriceClick = ({ price, id }) => {
+    const float = price.replace("$", "")
+    const parsedFloat = parseFloat(float)
+    setDonationAmount(parsedFloat)
+    setPriceList(id)
+  }
   return (
     <Flex flexDir={"column"} gap={3} w={"100%"}>
       {/************ Section 1 ************/}
@@ -53,7 +65,7 @@ const StepTwo = ({ setactiveStep }) => {
       <Flex flexDir={"column"}>
         <Flex justifyContent={"space-between"} alignItems={"center"} mb={1}>
           <Flex gap={1}>
-            <Text fontSize={"17px"} fontWeight={"600"}>
+            <Text fontSize={"20px"} fontFamily={franklinMedium} >
               Donation Amount
             </Text>
             <Text fontSize={"17px"} color={"red"}>
@@ -72,8 +84,8 @@ const StepTwo = ({ setactiveStep }) => {
           </Text>
         </Flex>
         <Flex gap={"1.5%"} flexWrap={"wrap"}>
-          {prices.map((item, index) => {
-            const { price, active } = item
+          {priceList?.map((item, index) => {
+            const { id, price, active } = item
             return (
               <Flex
                 key={index}
@@ -81,6 +93,7 @@ const StepTwo = ({ setactiveStep }) => {
                 bgColor={active ? lightBlue : "unset"}
                 color={active ? "white" : "unset"}
                 border={active ? `1px solid ${lightBlue}` : "1px solid #9a9a9a"}
+                onClick={() => handlePriceClick({ price, id })}
               >
                 <Text>{price}</Text>
               </Flex>
@@ -89,7 +102,32 @@ const StepTwo = ({ setactiveStep }) => {
         </Flex>
       </Flex>
       <Amount setactiveStep={setactiveStep} />
-      {/* <NumberInput /> */}
+      <Button
+        mt={5}
+        color={"white"}
+        fontSize={"16px"}
+        fontFamily={openSans}
+        bgColor={buttonColor}
+        _hover={{ bgColor: buttonColorHover }}
+        transition={"background-color 0.5s"}
+        w={"full"}
+        rightIcon={<FiArrowRight fontSize={"18px"} />}
+        borderRadius={"4px"}
+        p={"25px 16px"}
+        onClick={gotoStepThree}
+        // mb={3}
+      >
+        Donate Now
+      </Button>
+      <Flex
+        color="#00d084"
+        alignItems={"center"}
+        gap={2}
+        justifyContent={"center"}
+      >
+        <FaLock fontSize={"12px"} />
+        <Text fontSize={"12px"}>Secure donation</Text>
+      </Flex>
     </Flex>
   )
 }

@@ -1,19 +1,16 @@
 import {
-  Button,
   Flex,
-  FormControl,
-  FormErrorMessage,
-  FormLabel,
-  Input,
   Text,
 } from "@chakra-ui/react"
 import React from "react"
-import { FiArrowRight } from "react-icons/fi"
-import { FaLock } from "react-icons/fa"
 import HeaderSection from "./HeaderSection"
 import PaymentForm from "./PaymentForm"
+import utilityStore from "@/config/store"
+import { useStore } from "zustand"
 
 const StepFour = ({ setactiveStep }) => {
+  const { carePackage } = useStore(utilityStore)
+  console.log({ carePackage })
   return (
     <Flex flexDir={"column"} gap={3} w={"100%"}>
       {/************ Section 1 ************/}
@@ -40,7 +37,7 @@ const StepFour = ({ setactiveStep }) => {
           <Text fontSize={"22px"}>Donation Summary</Text>
           <Flex justifyContent={"space-between"} fontSize={"18px"}>
             <Text>Payment Amount</Text>
-            <Text>$10.00</Text>
+            <Text>${parseFloat(carePackage.donationAmount).toFixed(2)}</Text>
           </Flex>
           <Flex justifyContent={"space-between"} fontSize={"18px"}>
             <Text>Giving Frequency</Text>
@@ -51,7 +48,7 @@ const StepFour = ({ setactiveStep }) => {
           <Flex justifyContent={"space-between"} fontSize={"18px"}>
             <Text>Donation Total</Text>
             <Text fontSize={"20px"} fontWeight={"600"}>
-              $10.00
+              ${parseFloat(carePackage.donationAmount).toFixed(2)}
             </Text>
           </Flex>
         </Flex>

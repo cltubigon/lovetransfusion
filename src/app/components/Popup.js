@@ -7,6 +7,7 @@ import utilityStore from "@/config/store"
 import MultiStepForm from "../recipient/[first_name]/MultiStepForm/MultiStepForm"
 import VideoPopup from "../recipient/[first_name]/VideoPopup/VideoPopup"
 import { motion } from "framer-motion"
+import PaymentReceipt from "../recipient/[first_name]/MultiStepForm/PaymentReceipt"
 
 const Popup = () => {
   const { popup, setPopup } = useStore(utilityStore)
@@ -95,6 +96,7 @@ const Popup = () => {
         </Flex>
         {popup?.content === "MultiStepForm" && <MultiStepForm />}
         {popup?.content === "VideoPopup" && <VideoPopup />}
+        {popup?.content === "PaymentReceipt" && <PaymentReceipt />}
       </Flex>
     </Flex>
   )

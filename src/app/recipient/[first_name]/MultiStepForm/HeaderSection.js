@@ -1,4 +1,4 @@
-import { lightBlue } from "@/app/globalStyle"
+import { franklinDemiCond, lightBlue } from "@/app/globalStyle"
 import { Box, Flex, Text } from "@chakra-ui/react"
 import React from "react"
 import { IoArrowBackOutline } from "react-icons/io5"
@@ -10,10 +10,10 @@ const HeaderSection = ({ data }) => {
   }
   return (
     <Flex alignItems={"center"} gap={3} pos={"relative"} flexDir={"column"}>
-      <Flex pos={"absolute"} left={0} top={1}>
-        <IoArrowBackOutline onClick={goTo} fontSize={"18px"} />
+      <Flex pos={"absolute"} left={0} top={2}>
+        <IoArrowBackOutline onClick={goTo} fontSize={"20px"} />
       </Flex>
-      <Text fontSize={"17px"} fontWeight={"600"}>
+      <Text fontSize={"22px"} fontFamily={franklinDemiCond} >
         {title}
       </Text>
       <Flex

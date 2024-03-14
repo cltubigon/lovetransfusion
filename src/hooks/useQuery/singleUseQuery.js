@@ -7,7 +7,6 @@ const singleUseQuery = ({ supabase, queryKey, table, column, columnValue }) => {
         .select()
         .ilike(column, columnValue)
       if (data) {
-        console.log("data", data)
         return data
       }
     },

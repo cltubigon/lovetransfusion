@@ -1,23 +1,27 @@
 "use client"
-import utilityStorePersist from "@/config/storePersist"
-import { Box, Button, Flex, Heading, Text } from "@chakra-ui/react"
+import { Box, Flex, Text } from "@chakra-ui/react"
 import axios from "axios"
 import React, { useEffect, useState } from "react"
-import { useStore } from "zustand"
 import { FiArrowRight } from "react-icons/fi"
 import { FaLock } from "react-icons/fa"
-import { buttonColor, buttonColorHover, openSans } from "@/app/globalStyle"
-import {
-  Elements,
-  EmbeddedCheckout,
-  EmbeddedCheckoutProvider,
-} from "@stripe/react-stripe-js"
+import { Elements } from "@stripe/react-stripe-js"
 import { loadStripe } from "@stripe/stripe-js"
 import CheckoutForm from "@/app/(checkout)/checkout-custom-flow/CheckoutForm"
+import utilityStore from "@/config/store"
+import { useStore } from "zustand"
 const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY)
 
 const PaymentForm = () => {
   const [clientSecret, setclientSecret] = useState(null)
+  const {
+    carePackage: {
+      donationAmount,
+      donorFirstName,
+      donorLastName,
+      donorEmailAddress,
+      donee,
+    },
+  } = useStore(utilityStore)
 
   useEffect(() => {
     const createIntent = async () => {
@@ -25,7 +29,13 @@ const PaymentForm = () => {
         const response = await axios.post(
           `${process.env.NEXT_PUBLIC_ROOT_DOMAIN}/stripe/payment-intents/create/singleItemApi`,
           {
-            data: "",
+            data: {
+              donationAmount,
+              donorFirstName,
+              donorLastName,
+              donorEmailAddress,
+              donee,
+            },
           },
           {
             headers: {

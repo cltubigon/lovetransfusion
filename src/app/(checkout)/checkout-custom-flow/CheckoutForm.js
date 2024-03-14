@@ -1,7 +1,7 @@
 "use client"
 import React, { useEffect, useState } from "react"
 import { PaymentElement, useStripe, useElements } from "@stripe/react-stripe-js"
-import { Box, Button, Flex } from "@chakra-ui/react"
+import { Box, Button, Flex, Spinner, Text, flexbox } from "@chakra-ui/react"
 import { buttonColor, lightBlue } from "@/app/globalStyle"
 
 export default function CheckoutForm() {
@@ -57,17 +57,18 @@ export default function CheckoutForm() {
       return
     }
 
-    // setIsLoading(true)
+    setIsLoading(true)
 
+    const targetPathURL = window.location.pathname
     const { error } = await stripe.confirmPayment({
       elements,
       confirmParams: {
         // Make sure to change this to your payment completion page
-        return_url: `${process.env.NEXT_PUBLIC_ROOT_DOMAIN}/checkout-custom-flow/success`,
+        return_url: `${process.env.NEXT_PUBLIC_ROOT_DOMAIN}${targetPathURL}`,
       },
     })
 
-    // setIsLoading(false)
+    setIsLoading(false)
   }
 
   const paymentElementOptions = {
@@ -78,7 +79,6 @@ export default function CheckoutForm() {
       //   spaceAccordionItems: true      // Optional in "accordion"
     },
   }
-  console.log({ message })
   return (
     <Box px={6}>
       <form id="payment-form" onSubmit={handleSubmit}>
@@ -98,13 +98,18 @@ export default function CheckoutForm() {
               borderRadius: "6px",
             }}
           >
-            <span id="button-text">
-              {isLoading ? (
-                <div className="spinner" id="spinner"></div>
-              ) : (
-                "Pay now"
+            <Flex
+              pos={"relative"}
+              mx={"auto"}
+              w={"fit-content"}
+              alignItems={"center"}
+              gap={2}
+            >
+              <Text>Donate Now</Text>
+              {isLoading && (
+                <Spinner size={"sm"} pos={"absolute"} right={"-30px"} />
               )}
-            </span>
+            </Flex>
           </button>
           {/* Show any error or success messages */}
           {message && <div id="payment-message">{message}</div>}

@@ -1,14 +1,13 @@
 import {
   buttonColor,
   buttonColorHover,
-  franklinBook,
   franklinDemiCond,
   lightBlue,
   openSans,
 } from "@/app/globalStyle"
 import { Box, Button, Flex, Heading, Text } from "@chakra-ui/react"
 import Image from "next/image"
-import React from "react"
+import React, { useEffect } from "react"
 import imagePlaceholder from "./images/placeholder-image.png"
 import logo from "./images/full-color-logo.png"
 import { FiArrowRight } from "react-icons/fi"
@@ -19,7 +18,14 @@ import utilityStore from "@/config/store"
 const StepOne = ({ setactiveStep }) => {
   const {
     popup: { data },
+    carePackage: {donee},
+    setDonee,
   } = useStore(utilityStore)
+
+  useEffect(()=> {
+    console.log('donee', donee)
+    }, [donee])
+
   if (!data) return <p>No data to show</p>
 
   const { firstName } = data
@@ -32,8 +38,12 @@ const StepOne = ({ setactiveStep }) => {
     pt: 2,
     pb: "10px",
   }
+
+
+
   const gotoStepTwo = () => {
     console.log("button clicked")
+    setDonee(firstName)
     setactiveStep(2)
   }
   return (
@@ -45,8 +55,7 @@ const StepOne = ({ setactiveStep }) => {
         textAlign={"center"}
         as={"h2"}
         fontFamily={franklinDemiCond}
-        fontSize={"26px"}
-        color={lightBlue}
+        fontSize={"28px"}
       >
         {`${firstName}’s Care Package`}
       </Heading>

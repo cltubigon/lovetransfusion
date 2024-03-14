@@ -8,25 +8,31 @@ const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY)
 //   return NextResponse.json('')
 // }
 export const POST = async (request) => {
-  // // const { data } = await request.json()
-
-  const total = 10 * 100
+  const { data } = await request.json()
+  const {
+    donee,
+    donationAmount,
+    donorFirstName,
+    donorLastName,
+    donorEmailAddress,
+  } = data
 
   const empotencyKey = v4()
   console.log({ empotencyKey })
 
   const paymentIntent = await stripe.paymentIntents.create(
     {
-      amount: total,
+      amount: donationAmount * 100,
       currency: "usd",
       automatic_payment_methods: {
         enabled: true,
       },
-      description: "This is the description23",
-      receipt_email: "cltubigon23@gmail.com",
+      description: `A $${parseFloat(donationAmount)} donation for ${donee}`,
+      receipt_email: donorEmailAddress,
       metadata: {
-        owner_name: "Carlo Tubigon",
-        owner_email: "cltubigon23@gmail.com",
+        owner_firstName: donorFirstName,
+        owner_lastName: donorLastName,
+        owner_email: donorEmailAddress,
       },
       // customer: await createCustomerID(),
     },

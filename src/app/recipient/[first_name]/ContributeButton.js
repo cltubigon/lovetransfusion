@@ -1,6 +1,6 @@
 "use client"
 import { Box, Flex, Text } from "@chakra-ui/react"
-import React from "react"
+import React, { useEffect } from "react"
 import {
   buttonColor,
   buttonColorHover,
@@ -10,10 +10,27 @@ import Image from "next/image"
 import logoWhite from "./images/logo-white-svg.svg"
 import { useStore } from "zustand"
 import utilityStore from "@/config/store"
+import { useSearchParams } from "next/navigation"
 
 const ContributeButton = ({ parameters }) => {
   const { id, capitalizeFirstName: firstName } = parameters
   const { setPopup } = useStore(utilityStore)
+
+  const searchParams = useSearchParams()
+  useEffect(() => {
+    const payment_intent = searchParams.get("payment_intent")
+    const redirect_status = searchParams.get("redirect_status")
+    if (!!payment_intent && redirect_status === "succeeded") {
+      setPopup({
+        data: {
+          payment_intent,
+        },
+        content: "PaymentReceipt",
+        maxW: "582px",
+      })
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [searchParams])
 
   const handleClick = () => {
     setPopup({

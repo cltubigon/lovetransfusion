@@ -1,30 +1,17 @@
+import { buttonColor, buttonColorHover, openSans } from "@/app/globalStyle"
 import {
-  buttonColor,
-  buttonColorHover,
-  franklinBook,
-  lightBlue,
-  openSans,
-} from "@/app/globalStyle"
-import {
-  Box,
   Button,
   Flex,
   FormControl,
   FormErrorMessage,
   FormLabel,
-  Heading,
   Input,
   Text,
 } from "@chakra-ui/react"
-import Image from "next/image"
-import React from "react"
-import imagePlaceholder from "./images/placeholder-image.png"
-import logo from "./images/full-color-logo.png"
 import { FiArrowRight } from "react-icons/fi"
 import { FaLock } from "react-icons/fa"
 import { useStore } from "zustand"
 import utilityStore from "@/config/store"
-import { IoArrowBackOutline } from "react-icons/io5"
 import HeaderSection from "./HeaderSection"
 import { useForm } from "react-hook-form"
 
@@ -34,18 +21,21 @@ const StepThree = ({ setactiveStep }) => {
 
   const {
     popup: { data },
+    setFNameLNameEmail,
+    carePackage,
   } = useStore(utilityStore)
 
-  const onSubmit = () => {
-    ;("trying to submit")
+  const onSubmit = (data) => {
+    setFNameLNameEmail(data)
     setactiveStep(4)
   }
 
+  const number = carePackage.donationAmount
+  const parsed = parseFloat(number).toFixed(2)
+  console.log({ parsed })
+
   if (!data) return <p>No data to show</p>
 
-  // const gotoStepFour = () => {
-  //   setactiveStep(4)
-  // }
   const inputStyle = {
     bgColor: "white",
     borderColor: "#8c8c8c",
@@ -76,6 +66,7 @@ const StepThree = ({ setactiveStep }) => {
             <FormLabel htmlFor="firstName">First name</FormLabel>
             <Input
               type="text"
+              defaultValue={carePackage.donorFirstName}
               sx={inputStyle}
               id="firstName"
               placeholder="First name"
@@ -92,6 +83,7 @@ const StepThree = ({ setactiveStep }) => {
             <FormLabel htmlFor="lastName">Last name</FormLabel>
             <Input
               type="text"
+              defaultValue={carePackage.donorLastName}
               sx={inputStyle}
               id="lastName"
               placeholder="Last name"
@@ -107,6 +99,7 @@ const StepThree = ({ setactiveStep }) => {
             <Input
               type="email"
               id="email"
+              defaultValue={carePackage.donorEmailAddress}
               sx={inputStyle}
               placeholder="Email address"
               {...register("email", {
