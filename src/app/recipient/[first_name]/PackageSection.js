@@ -1,5 +1,5 @@
 import { Box, Flex, Text } from "@chakra-ui/react"
-import React from "react"
+import React, { Suspense } from "react"
 import {
   ArialNarrowBold,
   containerInner,
@@ -13,6 +13,7 @@ import PackageImage from "./images/poster-package-template1-orig.png"
 import blueArrow from "./images/bl-arrrow.svg"
 import ContributeButton from "./ContributeButton"
 import { capitalize } from "@/utilities/capitalize"
+import ContributeButtonFallback from "./ContributeButtonFallback"
 
 const PackageSection = ({ parameters }) => {
   const { id, firstName } = parameters
@@ -88,7 +89,9 @@ const PackageSection = ({ parameters }) => {
                 >
                   <Image src={blueArrow} alt="blue arrow" />
                 </Flex>
-                <ContributeButton parameters={{id, capitalizeFirstName}} />
+                <Suspense fallback={<ContributeButtonFallback />}>
+                  <ContributeButton parameters={{ id, capitalizeFirstName }} />
+                </Suspense>
               </Flex>
             </Flex>
 

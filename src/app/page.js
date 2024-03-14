@@ -27,7 +27,7 @@ const HomePage = async () => {
       >
         <Flex flexDir={"column"} justifyContent={"center"}>
           <Heading>List of Recipients </Heading>
-          <Text>{"v0.0.6 - TanstackQuery"}</Text>
+          <Text>{"v0.1.0 - Added Stripe Integration"}</Text>
         </Flex>
 
         {recipients?.map((recipient, index) => {
