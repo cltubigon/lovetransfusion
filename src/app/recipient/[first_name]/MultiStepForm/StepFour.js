@@ -14,7 +14,6 @@ const PaymentForm = dynamic(() => import("./PaymentForm"), {
 
 const StepFour = ({ setactiveStep }) => {
   const { carePackage } = useStore(utilityStore)
-  console.log({ carePackage })
   return (
     <Flex flexDir={"column"} gap={3} w={"100%"}>
       {/************ Section 1 ************/}
@@ -57,7 +56,7 @@ const StepFour = ({ setactiveStep }) => {
           </Flex>
         </Flex>
       </Flex>
-      {carePackage.donorEmailAddress && <PaymentForm />}
+      {carePackage.donationAmount && <PaymentForm />}
     </Flex>
   )
 }

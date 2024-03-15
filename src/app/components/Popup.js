@@ -52,7 +52,7 @@ const Popup = () => {
       bgColor={`rgb(0 0 0 / ${popup?.opacity || "60%"})`}
       zIndex={9999}
       h={"100vh"}
-      overflowY={"scroll"}
+      overflowY={"auto"}
       py={{ phs: 4, tls: 10 }}
       w={"100%"}
       onClick={handleBackgroundClick}

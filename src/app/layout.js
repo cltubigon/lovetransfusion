@@ -25,14 +25,14 @@ export default function RootLayout({ children }) {
   return (
     <html
       lang="en"
-      style={{ scrollBehavior: "smooth" }}
+      style={{ scrollBehavior: "smooth", overflow: "hidden" }}
       className={`${SegoePrint.variable} ${openSans.variable} ${inter.variable} ${franklinGothicBookItalic.variable} ${franklinGothicDemiCond.variable} ${franklinGothicMediumCond.variable} ${franklinGothicBook.variable} ${ArialNarrowBold.variable}`}
     >
-      <body style={{ overflow: "hidden" }}>
+      <body>
         <TanstackProvider>
           <ChakraProvider theme={theme}>
             <Popup />
-            <Box overflowY={"scroll"} maxH={"100vh"}>
+            <Box overflowY={"auto"} maxH={"100vh"}>
               {children}
             </Box>
           </ChakraProvider>
