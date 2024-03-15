@@ -12,7 +12,7 @@ import {
 import WistiaPlayer from "../../components/WistiaPlayer"
 import Link from "next/link"
 
-const VideoSection = () => {
+const VideoSection = ({firstName}) => {
   return (
     <Flex sx={containerPadding} pt={"80px"} pb={"33px"}>
       <Flex sx={containerInner}>
@@ -24,7 +24,7 @@ const VideoSection = () => {
             mb={"14px"}
             lineHeight={"33px"}
             textAlign={'center'}
-          >{`Short Video Explains How We Are Raising Awareness Of {Name}’s Story`}</Text>
+          >{`Short Video Explains How We Are Raising Awareness Of ${firstName}’s Story`}</Text>
           <WistiaPlayer videoId="nx9htrqsu9" wrapper="video-1" />
           <Link href={"/"}>
             <Flex

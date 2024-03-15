@@ -3,13 +3,14 @@ import { immer } from "zustand/middleware/immer"
 
 const utilityStore = create(
   immer((set, get) => ({
+    // ********* Popup *********
     popup: null,
     setPopup: (data) => {
       set((state) => {
         state.popup = data
       })
     },
-
+    // ********* Care Package *********
     carePackage: {
       donationAmount: 25,
       donorFirstName: "",
@@ -63,6 +64,21 @@ const utilityStore = create(
         }
         console.log({ updated })
         state.carePackage = updated
+      })
+    },
+    // ********* Add Recipient *********
+    recipient: {
+      sec_one_paragraph: null,
+      according_to_paragraph: null,
+    },
+    setSec_one_paragraph: (value) => {
+      set((state) => {
+        state.recipient.sec_one_paragraph = value
+      })
+    },
+    setAccording_to_paragraph: (value) => {
+      set((state) => {
+        state.recipient.according_to_paragraph = value
       })
     },
   })),

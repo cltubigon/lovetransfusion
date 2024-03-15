@@ -1,8 +1,5 @@
-import {
-  Flex,
-  Text,
-} from "@chakra-ui/react"
-import React from "react"
+import { Flex, Heading, Text } from "@chakra-ui/react"
+import React, { Suspense } from "react"
 import HeaderSection from "./HeaderSection"
 import utilityStore from "@/config/store"
 import { useStore } from "zustand"
@@ -56,7 +53,7 @@ const StepFour = ({ setactiveStep }) => {
           </Flex>
         </Flex>
       </Flex>
-      {carePackage.donationAmount && <PaymentForm />}
+      <Suspense fallback={<Heading>Loading Payment...</Heading>}>{carePackage.donationAmount && <PaymentForm />}</Suspense>
     </Flex>
   )
 }

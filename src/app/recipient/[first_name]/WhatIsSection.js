@@ -13,9 +13,17 @@ import Image from "next/image"
 import heart from "./images/heart-proper.png"
 import TestimonyImage from "./TestimonyImage"
 
-const WhatIsSection = () => {
+const WhatIsSection = ({
+  parameters: {
+    what_is,
+    according_to,
+    according_to_paragraph,
+    learn_more_url,
+    learn_more_text,
+  },
+}) => {
   return (
-    <Flex sx={containerPadding} py={{ phs: "49px", tll: '70px', ltl: "102px" }}>
+    <Flex sx={containerPadding} py={{ phs: "49px", tll: "70px", ltl: "102px" }}>
       <Flex sx={containerInner} justifyContent={"center"}>
         <Flex maxW={"1000px"} flexDir={"column"}>
           <Flex flexDir={"column"} gap={"26px"}>
@@ -26,22 +34,15 @@ const WhatIsSection = () => {
               color={lightBlue}
               pb={"4px"}
             >
-              What is a diffuse intrinsic pontine glioma?
+              What is {what_is}?
             </Text>
             <Text fontSize={"20px"} lineHeight={"22px"}>
-              According to Boston Childrens Hospital: “Diffuse intrinsic pontine
-              gliomas (DIPGs) are highly-aggressive and difficult-to-treat brain
-              tumors found at the base of the brain. They are glial tumors,
-              meaning they arise from the brain’s glial tissue — tissue made up
-              of cells that help support and protect the brain’s neurons. These
-              tumors are found in an area of the brainstem called the pons,
-              which controls many of the body’s most vital functions such as
-              breathing, blood pressure and heart rate.”
+              According to {according_to}: “{according_to_paragraph}”
             </Text>
             <Text fontSize={"20px"} lineHeight={"22px"}>
               Learn more:{" "}
-              <Link href={"#"} style={{ color: lightBlue }}>
-                DIPG
+              <Link target="_blank" href={learn_more_url} style={{ color: lightBlue }}>
+                {learn_more_text}
               </Link>
             </Text>
           </Flex>
@@ -55,7 +56,7 @@ const WhatIsSection = () => {
             pos={"relative"}
             flexDir={{ phs: "column", tll: "row" }}
           >
-            <Flex flexDir={"column"} maxW={{phs: '100%', tll: "408px"}}>
+            <Flex flexDir={"column"} maxW={{ phs: "100%", tll: "408px" }}>
               <Text
                 fontSize={"30px"}
                 fontFamily={franklinDemiCond}
@@ -81,7 +82,7 @@ const WhatIsSection = () => {
                 .
               </Text>
             </Flex>
-            <Flex maxW={{phs: '100%', tll: "310px"}}>
+            <Flex maxW={{ phs: "100%", tll: "310px" }}>
               <Flex boxShadow={"3px 3px 3px 0px rgba(0, 0, 0, 0.22)"}>
                 <TestimonyImage />
               </Flex>

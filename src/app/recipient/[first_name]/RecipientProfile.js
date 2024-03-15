@@ -1,4 +1,4 @@
-import { Flex, Text } from "@chakra-ui/react"
+import { Box, Flex, Text } from "@chakra-ui/react"
 import React from "react"
 import {
   containerPadding,
@@ -11,7 +11,9 @@ import RecipientImage from "./RecipientImage"
 
 const capitalize = (str) => `${str.charAt(0).toUpperCase()}${str.slice(1)}`
 
-const RecipientProfile = ({ firstName }) => {
+const RecipientProfile = ({
+  parameters: { firstName, sub_title, sec_one_paragraph, gender },
+}) => {
   const capitalizeName = capitalize(firstName)
   return (
     <Flex sx={containerPadding} pb={"23px"}>
@@ -51,16 +53,22 @@ const RecipientProfile = ({ firstName }) => {
               fontSize={"28px"}
               fontFamily={franklinMedium}
               lineHeight={"33px"}
-            >{`Six year old ${capitalizeName} was recently diagnosed with DIPG.`}</Text>
-            <Text
+            >
+              {sub_title}
+            </Text>
+            <Box
+              pr={{ phs: 0, tll: "10px" }}
               fontSize={"20px"}
               lineHeight={"22px"}
-            >{`She was riding her bike one day and suddenly felt sick. Her parents took her to the hospital where she was diagnosed with DIPG (a difficult to treat brain tumor). The doctors began taking care of ${capitalizeName} right away and she is back home resting. She likes Unicorns and dancing and she hopes to meet Beyonce one day.`}</Text>
+              dangerouslySetInnerHTML={{ __html: sec_one_paragraph }}
+            ></Box>
             <Text
               fontSize={"20px"}
               fontFamily={franklinItalic}
               lineHeight={"22px"}
-            >{`Please let ${capitalizeName} know she is in your thoughts…`}</Text>
+            >{`Please let ${capitalizeName} know ${
+              gender.toLowerCase() === "female" ? "she" : "he"
+            } is in your thoughts…`}</Text>
           </Flex>
         </Flex>
 

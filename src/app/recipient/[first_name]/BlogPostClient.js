@@ -32,21 +32,46 @@ const BlogPostClient = ({ params }) => {
   if (recipient?.length === 0) {
     return notFound()
   }
-  const { id, first_name: firstName, category, created_at, hugs } = recipient[0]
+  const {
+    id,
+    first_name: firstName,
+    sub_title,
+    category,
+    gender,
+    sec_one_paragraph,
+    according_to,
+    according_to_paragraph,
+    learn_more_url,
+    learn_more_text,
+    created_at,
+    hugs,
+    what_is,
+    condition,
+  } = recipient[0]
 
   console.log("recipient", recipient)
   return (
     <Box minH={"5200px"}>
       <LogoSection />
       <TitleSection parameters={{ firstName, category, created_at }} />
-      <RecipientProfile firstName={firstName} />
+      <RecipientProfile
+        parameters={{ firstName, sub_title, sec_one_paragraph, gender }}
+      />
       <HugMessageShare parameters={{ id, firstName, hugs }} />
       <PackageSection parameters={{ id, firstName }} />
-      <FifthSection />
-      <VideoSection />
+      <FifthSection condition={condition} />
+      <VideoSection firstName={firstName} />
       <Testimonials />
       <WristHugSection />
-      <WhatIsSection />
+      <WhatIsSection
+        parameters={{
+          what_is,
+          according_to,
+          according_to_paragraph,
+          learn_more_text,
+          learn_more_url,
+        }}
+      />
       <CommentSection />
       <Footer />
     </Box>

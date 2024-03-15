@@ -1,61 +1,32 @@
-import { Button, Flex, Heading, Text } from "@chakra-ui/react"
+import multipleUseQuery from "@/hooks/useQuery/multipleUseQuery"
+import React from "react"
+import RecipientsClientComponent from "./RecipientsClientComponent"
 import {
-  buttonColor,
-  buttonColorHover,
-  containerInner,
-  containerPadding,
-} from "../globalStyle"
-import Link from "next/link"
+  HydrationBoundary,
+  QueryClient,
+  dehydrate,
+} from "@tanstack/react-query"
 import { supabase } from "@/config/supabase/supabase"
 
-export const revalidate = 5
+const RecipientsPage = async () => {
+  console.log("recipient rendered")
+  const queryClient = new QueryClient()
 
-const RecipientPage = async () => {
-  const { data: recipients, error } = await supabase.from("recipients").select()
-  if (!recipients) {
-    return <h2>No recipient found</h2>
-  }
-  if (error) console.log({ error })
+  await queryClient.prefetchQuery(
+    multipleUseQuery({
+      supabase: supabase,
+      queryKey: ["recipients"],
+      table: "recipients",
+      select: "first_name",
+    })
+  )
   return (
-    <Flex
-      sx={containerPadding}
-      py={10}
-      flexDir={"column"}
-      alignItems={"center"}
-    >
-      <Flex
-        sx={containerInner}
-        flexDir={"column"}
-        alignItems={"flex-start"}
-        gap={4}
-      >
-        <Flex flexDir={"column"} justifyContent={"center"}>
-          <Heading>List of Recipients </Heading>
-          <Text>{"v0.1.0 - Added Stripe Integration"}</Text>
-        </Flex>
-        <Link href={'/add-recipient'}>
-          <Button
-            bgColor={buttonColor}
-            _hover={buttonColorHover}
-            color={"white"}
-          >
-            Add New Recipient
-          </Button>
-        </Link>
-
-        {recipients?.map((recipient, index) => {
-          const { first_name } = recipient
-          return (
-            <div key={index}>
-              <Link href={`/recipient/${first_name}`} shallow>
-                <Text fontSize={"32px"}>{first_name}</Text>
-              </Link>
-            </div>
-          )
-        })}
-      </Flex>
-    </Flex>
+    <div>
+      <HydrationBoundary state={dehydrate(queryClient)}>
+        <RecipientsClientComponent />
+      </HydrationBoundary>
+    </div>
   )
 }
 
-export default RecipientPage
+export default RecipientsPage

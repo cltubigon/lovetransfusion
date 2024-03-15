@@ -12,7 +12,7 @@ import childHoldingTablet from "./images/child-holding-tablet.png"
 import heart from "./images/heart-proper.png"
 import ltWristbandDesktop from "./images/lt-wristband-proper-desktop-orig-354x164.png"
 
-const FifthSection = () => {
+const FifthSection = ({condition}) => {
   return (
     <Flex py={"18px"} bgColor={"#E0F3FF"}>
       <Flex
@@ -97,7 +97,7 @@ const FifthSection = () => {
               textAlign={{ phs: "center", tls: "left" }}
             >
               Social support can play a significant role in the mental and
-              phyisical well-being of children bat- tling cancer.
+              phyisical well-being of children bat- tling {condition.toLowerCase()}.
             </Text>
           </Flex>
 
