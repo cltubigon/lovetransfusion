@@ -3,7 +3,6 @@ import { containerInner, containerPadding } from "./globalStyle"
 import Link from "next/link"
 import { supabase } from "@/config/supabase/supabase"
 
-// export const dynamicParams = true
 export const revalidate = 5
 
 const HomePage = async () => {
@@ -12,6 +11,7 @@ const HomePage = async () => {
     return <h2>No recipient found</h2>
   }
   if (error) console.log({ error })
+
   return (
     <Flex
       sx={containerPadding}

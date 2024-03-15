@@ -65,7 +65,7 @@ const PaymentForm = () => {
 
   return (
     <div>
-      <Box alignItems={"center"} flexDir={"column"} gap={2}>
+      <Box alignItems={"center"} flexDir={"column"} gap={2} mb={3} >
         {clientSecret && (
           <Elements options={options} stripe={stripePromise}>
             <CheckoutForm />

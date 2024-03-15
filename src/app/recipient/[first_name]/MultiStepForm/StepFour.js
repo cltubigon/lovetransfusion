@@ -4,9 +4,13 @@ import {
 } from "@chakra-ui/react"
 import React from "react"
 import HeaderSection from "./HeaderSection"
-import PaymentForm from "./PaymentForm"
 import utilityStore from "@/config/store"
 import { useStore } from "zustand"
+import dynamic from "next/dynamic"
+
+const PaymentForm = dynamic(() => import("./PaymentForm"), {
+  loading: () => <p>Loading header...</p>,
+})
 
 const StepFour = ({ setactiveStep }) => {
   const { carePackage } = useStore(utilityStore)
@@ -53,7 +57,7 @@ const StepFour = ({ setactiveStep }) => {
           </Flex>
         </Flex>
       </Flex>
-      <PaymentForm />
+      {carePackage.donorEmailAddress && <PaymentForm />}
     </Flex>
   )
 }

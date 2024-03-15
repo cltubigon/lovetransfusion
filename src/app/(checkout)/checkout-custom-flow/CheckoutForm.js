@@ -96,6 +96,7 @@ export default function CheckoutForm() {
               color: "white",
               padding: "12px",
               borderRadius: "6px",
+              marginTop: '5px',
             }}
           >
             <Flex
