@@ -18,17 +18,17 @@ import utilityStore from "@/config/store"
 const StepOne = ({ setactiveStep }) => {
   const {
     popup: { data },
-    carePackage: {donee},
+    carePackage: { donee },
     setDonee,
   } = useStore(utilityStore)
 
-  useEffect(()=> {
-    console.log('donee', donee)
-    }, [donee])
+  useEffect(() => {
+    console.log("donee", donee)
+  }, [donee])
 
   if (!data) return <p>No data to show</p>
 
-  const { firstName } = data
+  const { firstName, condition } = data
   const borderColor = "#dadada"
   const donationColumns = {
     flexDir: "column",
@@ -38,8 +38,6 @@ const StepOne = ({ setactiveStep }) => {
     pt: 2,
     pb: "10px",
   }
-
-
 
   const gotoStepTwo = () => {
     console.log("button clicked")
@@ -64,7 +62,7 @@ const StepOne = ({ setactiveStep }) => {
         {`Thank you for considering becoming a sponsor of ${firstName}’s care package.`}
       </Text>
       <Text fontSize={"20px"} lineHeight={"28px"}>
-        {`Without help from people like you, we would not be able to send care packages to ${firstName} and other children battling [condition].`}
+        {`Without help from people like you, we would not be able to send care packages to ${firstName} and other children battling ${condition.toLowerCase()}.`}
       </Text>
       <Text textAlign={"center"} fontSize={"11px"} color={"#b3b3b3"} mb={2}>
         {

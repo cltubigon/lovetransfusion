@@ -43,7 +43,7 @@ const RecipientsClientComponent = () => {
           <Link href={"/"}>
             <Heading>List of Recipients</Heading>
           </Link>
-          <Text>{"v0.1.0 - Added Stripe Integration"}</Text>
+          <Text>{"v0.1.1 - Can add recipient"}</Text>
         </Flex>
         <Link href={"/recipient/add-recipient"}>
           <Button

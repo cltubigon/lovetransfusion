@@ -13,7 +13,7 @@ import utilityStore from "@/config/store"
 import { useSearchParams } from "next/navigation"
 
 const ContributeButton = ({ parameters }) => {
-  const { id, capitalizeFirstName: firstName } = parameters
+  const { id, capitalizeFirstName: firstName, condition } = parameters
   const { setPopup } = useStore(utilityStore)
 
   const searchParams = useSearchParams()
@@ -37,6 +37,7 @@ const ContributeButton = ({ parameters }) => {
       data: {
         id,
         firstName,
+        condition,
       },
       content: "MultiStepForm",
       maxW: "582px",

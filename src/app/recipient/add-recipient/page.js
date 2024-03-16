@@ -13,7 +13,6 @@ import {
   buttonColorHover,
   containerInner,
   containerPadding,
-  lightBlue,
 } from "../../globalStyle"
 import { useStore } from "zustand"
 import utilityStore from "@/config/store"
@@ -21,10 +20,9 @@ import AddSectionOneParagraph from "./AddSectionOneParagraph"
 import { useForm } from "react-hook-form"
 import Image from "next/image"
 import logo from "../[first_name]/MultiStepForm/images/full-color-logo.png"
-import AddAccordingToParagraph from "./AddAccordingToParagraph"
 import { useRouter } from "next/navigation"
 import { supabase } from "@/config/supabase/supabase"
-import { revalidatePath } from "next/cache"
+import Link from "next/link"
 
 const AddRecipient = () => {
   const router = useRouter()
@@ -48,7 +46,7 @@ const AddRecipient = () => {
       according_to_paragraph,
     } = data
 
-    const { data: recipient, error } = await supabase
+    const { data: recipient } = await supabase
       .from("recipients")
       .insert([
         {
@@ -67,7 +65,6 @@ const AddRecipient = () => {
         },
       ])
       .select()
-    console.log("recipient", recipient)
     if (recipient) {
       router.push(`/recipient/${recipient[0].first_name}`)
     }
@@ -81,9 +78,11 @@ const AddRecipient = () => {
   return (
     <Flex sx={containerPadding} pt={"40px"} pb={"100px"}>
       <Flex sx={containerInner} flexDir={"column"}>
-        <Flex mb={6}>
-          <Image src={logo} quality={100} alt="logo" />
-        </Flex>
+        <Link href={"/recipient"}>
+          <Flex mb={6}>
+            <Image src={logo} quality={100} alt="logo" />
+          </Flex>
+        </Link>
         <form onSubmit={handleSubmit(onSubmit)}>
           <Flex gap={4} flexDir={"column"}>
             <Flex gap={6}>

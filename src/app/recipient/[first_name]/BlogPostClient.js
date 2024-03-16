@@ -58,7 +58,7 @@ const BlogPostClient = ({ params }) => {
         parameters={{ firstName, sub_title, sec_one_paragraph, gender }}
       />
       <HugMessageShare parameters={{ id, firstName, hugs }} />
-      <PackageSection parameters={{ id, firstName }} />
+      <PackageSection parameters={{ id, firstName, condition }} />
       <FifthSection condition={condition} />
       <VideoSection firstName={firstName} />
       <Testimonials />

@@ -13,10 +13,9 @@ import PackageImage from "./images/poster-package-template1-orig.png"
 import blueArrow from "./images/bl-arrrow.svg"
 import ContributeButton from "./ContributeButton"
 import { capitalize } from "@/utilities/capitalize"
-import ContributeButtonFallback from "./ContributeButtonFallback"
 
 const PackageSection = ({ parameters }) => {
-  const { id, firstName } = parameters
+  const { id, firstName, condition } = parameters
   const capitalizeFirstName = capitalize(firstName)
   const timeContainer = {
     bgColor: lightBlue,
@@ -89,9 +88,9 @@ const PackageSection = ({ parameters }) => {
                 >
                   <Image src={blueArrow} alt="blue arrow" />
                 </Flex>
-                <Suspense fallback={<ContributeButtonFallback />}>
-                  <ContributeButton parameters={{ id, capitalizeFirstName }} />
-                </Suspense>
+                <ContributeButton
+                  parameters={{ id, capitalizeFirstName, condition }}
+                />
               </Flex>
             </Flex>
 

@@ -8,6 +8,8 @@ import {
 } from "@tanstack/react-query"
 import { supabase } from "@/config/supabase/supabase"
 
+export const revalidate = 5
+
 const RecipientsPage = async () => {
   console.log("recipient rendered")
   const queryClient = new QueryClient()
