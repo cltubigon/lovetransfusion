@@ -1,25 +1,11 @@
-import React from "react"
-import LogoSection from "./LogoSection"
-import TitleSection from "./TitleSection"
-import RecipientProfile from "./RecipientProfile"
-import HugMessageShare from "./HugMessageShare"
-import PackageSection from "./PackageSection"
-import FifthSection from "./FifthSection"
-import VideoSection from "./VideoSection"
-import Testimonials from "./Testimonials"
-import WristHugSection from "./WristHugSection"
-import WhatIsSection from "./WhatIsSection"
-import CommentSection from "./CommentSection"
-import Footer from "./Footer"
-import { notFound } from "next/navigation"
 import { supabase } from "@/config/supabase/supabase"
-import BlogPostClient from "./BlogPostClient"
 import {
   HydrationBoundary,
   QueryClient,
   dehydrate,
 } from "@tanstack/react-query"
 import singleUseQuery from "@/hooks/useQuery/singleUseQuery"
+import PageClientRecipientPost from "./PageClientRecipientPost"
 
 // export const dynamicParams = true
 export const revalidate = 5
@@ -52,7 +38,7 @@ const RecipientsPage = async ({ params: { first_name } }) => {
   return (
     <>
       <HydrationBoundary state={dehydrate(queryClient)}>
-        <BlogPostClient params={first_name} />
+        <PageClientRecipientPost params={first_name} />
       </HydrationBoundary>
     </>
   )

@@ -13,6 +13,7 @@ import PackageImage from "./images/poster-package-template1-orig.png"
 import blueArrow from "./images/bl-arrrow.svg"
 import ContributeButton from "./ContributeButton"
 import { capitalize } from "@/utilities/capitalize"
+import ContributeButtonFallback from "./ContributeButtonFallback"
 
 const PackageSection = ({ parameters }) => {
   const { id, firstName, condition } = parameters
@@ -88,9 +89,11 @@ const PackageSection = ({ parameters }) => {
                 >
                   <Image src={blueArrow} alt="blue arrow" />
                 </Flex>
-                <ContributeButton
-                  parameters={{ id, capitalizeFirstName, condition }}
-                />
+                <Suspense fallback={<ContributeButtonFallback />}>
+                  <ContributeButton
+                    parameters={{ id, capitalizeFirstName, condition }}
+                  />
+                </Suspense>
               </Flex>
             </Flex>
 

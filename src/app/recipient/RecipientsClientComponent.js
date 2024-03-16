@@ -43,7 +43,7 @@ const RecipientsClientComponent = () => {
           <Link href={"/"}>
             <Heading>List of Recipients</Heading>
           </Link>
-          <Text>{"v0.1.2 - Can add new recipient"}</Text>
+          <Text>{"v0.1.3 - Added Suspense to fix useSearchParams()"}</Text>
         </Flex>
         <Link href={"/recipient/add-recipient"}>
           <Button

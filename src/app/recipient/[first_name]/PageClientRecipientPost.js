@@ -14,12 +14,11 @@ import WhatIsSection from "./WhatIsSection"
 import CommentSection from "./CommentSection"
 import Footer from "./Footer"
 import { notFound } from "next/navigation"
-import { useQuery } from "@tanstack/react-query"
-// import singleUseQueryInitialdata from "@/hooks/useQuery/singleUseQueryInitialdata"
 import singleUseQuery from "@/hooks/useQuery/singleUseQuery"
 import { Box } from "@chakra-ui/react"
+import { useQuery } from "@tanstack/react-query"
 
-const BlogPostClient = ({ params }) => {
+const PageClientRecipientPost = ({ params }) => {
   const { data: recipient } = useQuery(
     singleUseQuery({
       queryKey: [`recipient - ${params}`],
@@ -78,4 +77,4 @@ const BlogPostClient = ({ params }) => {
   )
 }
 
-export default BlogPostClient
+export default PageClientRecipientPost
