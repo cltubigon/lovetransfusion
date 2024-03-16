@@ -1,8 +1,11 @@
-import { Flex, Heading, Text } from "@chakra-ui/react"
+import { Button, Flex, Heading, Text } from "@chakra-ui/react"
 import Link from "next/link"
 import { lightBlue } from "./globalStyle"
+import { plaiceholderLocalGenerator } from "@/utilities/plaiceholder/plaiceholderLocalGenerator"
 
 const HomePage = async () => {
+  // const generated = await plaiceholderLocalGenerator()
+  // console.log({ generated })
   return (
     <Flex
       w={"100%"}
@@ -11,9 +14,7 @@ const HomePage = async () => {
       justifyContent={"center"}
     >
       <Link href={"/recipient"}>
-        <Text fontSize={"22px"}>
-          Goto
-        </Text>
+        <Text fontSize={"22px"}>Goto</Text>
         <Heading color={lightBlue}>Recipient Page</Heading>
       </Link>
     </Flex>

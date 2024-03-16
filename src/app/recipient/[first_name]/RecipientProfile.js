@@ -48,7 +48,7 @@ const RecipientProfile = ({
           flexWrap={{ phs: "wrap", tls: "nowrap" }}
         >
           <RecipientImage />
-          <Flex flexDir={"column"} gap={"22px"} pt={"20px"}>
+          <Flex flexDir={"column"} gap={"22px"} pt={"20px"} pl={'20px'}>
             <Text
               fontSize={"28px"}
               fontFamily={franklinMedium}
