@@ -6,36 +6,43 @@ import { useState } from "react"
 import { supabase } from "@/config/supabase/supabase"
 import Image from "next/image"
 import { generatePlaceholderRemote } from "@/utilities/globalActions"
+import { v4 } from "uuid"
 
 const TestPage = () => {
   const [files, setfiles] = useState([])
   const [uploads, setuploads] = useState([])
 
-  const uploadToSupabase = async (file) => {
-    console.log('upload started')
+  const gPlaceholder = async (file) => {
+    console.log("finished uploading and started plaiceholder")
+    const plaiceholders = await generatePlaceholderRemote(
+      `${process.env.NEXT_PUBLIC_SUPABASE_STORAGE_URL}${file.fullPath}`
+    )
+    console.log("plaiceholders finished")
+    return plaiceholders
+  }
+
+  const handleUpload = async (file) => {
+    console.log("upload started")
     const { data, error } = await supabase.storage
       .from("profile_picture")
-      .upload(`folder10/${file.lastModified}`, file)
-    if (data) {
-      console.log('finished uploading and started plaiceholder')
-      const plaiceholder = await generatePlaceholderRemote(
-        `${process.env.NEXT_PUBLIC_SUPABASE_STORAGE_URL}${data.fullPath}`
-      )
-      console.log('plaiceholder finished')
-      return { ...data, plaiceholder }
-    }
+      .upload(`folder10/${v4()}`, file)
+
     if (error) {
       throw new Error(error.message)
     }
     return data
   }
-
-  const handleUpload = async () => {
+  const uploadToSupabase = async () => {
+    console.log("files", files)
     try {
-      const upload = files.map(uploadToSupabase)
+      const upload = files.map(handleUpload)
+      const gplaice = files.map(gPlaceholder)
       const uploadedFiles = await Promise.all(upload)
-      console.log('finished all')
-      setuploads(uploadedFiles)
+      const plaiceholders = await Promise.all(gplaice)
+      console.log("finished all")
+      // setuploads(uploadedFiles)
+      console.log("uploadedFiles", uploadedFiles)
+      return uploadedFiles
     } catch (error) {
       console.log("error during upload", error.message)
     }
@@ -68,7 +75,7 @@ const TestPage = () => {
             )
           })}
 
-          <Button onClick={handleUpload}>Upload</Button>
+          <Button onClick={uploadToSupabase}>Upload</Button>
         </Flex>
       </Flex>
     </div>

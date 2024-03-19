@@ -1,6 +1,8 @@
 "use server"
+import { supabase } from "@/config/supabase/supabase"
 import fs from "node:fs/promises"
 import { getPlaiceholder } from "plaiceholder"
+import { v4 } from "uuid"
 
 export const generatePlaceholder = async (image) => {
   console.log("started plaiceholderLocalGenerator")
@@ -27,3 +29,4 @@ export const generatePlaceholderRemote = async (image) => {
     err
   }
 }
+
