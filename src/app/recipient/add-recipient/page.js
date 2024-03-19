@@ -15,7 +15,7 @@ import {
   containerPadding,
 } from "../../globalStyle"
 import { useStore } from "zustand"
-import utilityStore from "@/config/store"
+import utilityStore from "@/utilities/store/store"
 import AddSectionOneParagraph from "./AddSectionOneParagraph"
 import { useForm } from "react-hook-form"
 import Image from "next/image"

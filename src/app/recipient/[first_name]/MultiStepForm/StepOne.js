@@ -12,7 +12,7 @@ import logo from "./images/full-color-logo.png"
 import { FiArrowRight } from "react-icons/fi"
 import { FaLock } from "react-icons/fa"
 import { useStore } from "zustand"
-import utilityStore from "@/config/store"
+import utilityStore from "@/utilities/store/store"
 
 const StepOne = ({ setactiveStep }) => {
   const {

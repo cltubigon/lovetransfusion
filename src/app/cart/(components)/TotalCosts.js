@@ -1,5 +1,5 @@
 "use client"
-import utilityStorePersist from "@/config/storePersist"
+import utilityStorePersist from "@/utilities/store/storePersist"
 import { Flex, Heading } from "@chakra-ui/react"
 import React, { useEffect } from "react"
 import { useStore } from "zustand"

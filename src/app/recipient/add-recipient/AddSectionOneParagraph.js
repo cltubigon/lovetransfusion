@@ -4,7 +4,7 @@ import { containerInner, containerPadding } from "../../globalStyle"
 import { useEffect, useState } from "react"
 import QuillEditor from "@/app/components/ReactQuill/QuillEditor"
 import { useStore } from "zustand"
-import utilityStore from "@/config/store"
+import utilityStore from "@/utilities/store/store"
 
 const AddSectionOneParagraph = () => {
   const [value, setValue] = useState("")

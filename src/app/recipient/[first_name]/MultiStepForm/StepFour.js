@@ -1,7 +1,7 @@
 import { Flex, Heading, Text } from "@chakra-ui/react"
 import React, { Suspense } from "react"
 import HeaderSection from "./HeaderSection"
-import utilityStore from "@/config/store"
+import utilityStore from "@/utilities/store/store"
 import { useStore } from "zustand"
 import dynamic from "next/dynamic"
 

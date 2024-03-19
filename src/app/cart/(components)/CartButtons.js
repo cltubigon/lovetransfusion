@@ -1,5 +1,5 @@
 "use client"
-import utilityStorePersist from "@/config/storePersist"
+import utilityStorePersist from "@/utilities/store/storePersist"
 import { Flex, Text } from "@chakra-ui/react"
 import React from "react"
 import { useStore } from "zustand"

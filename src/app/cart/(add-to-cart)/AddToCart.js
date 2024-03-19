@@ -3,7 +3,7 @@ import { Button, Text } from "@chakra-ui/react"
 import React, { useEffect, useState } from "react"
 import { homepageStyle } from "../../homepageStyle"
 import { useStore } from "zustand"
-import utilityStorePersist from "@/config/storePersist"
+import utilityStorePersist from "@/utilities/store/storePersist"
 
 const AddToCart = ({ product }) => {
   const [isAdded, setisAdded] = useState(false)

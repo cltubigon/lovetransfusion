@@ -9,7 +9,7 @@ import {
 import Image from "next/image"
 import logoWhite from "./images/logo-white-svg.svg"
 import { useStore } from "zustand"
-import utilityStore from "@/config/store"
+import utilityStore from "@/utilities/store/store"
 import { useSearchParams } from "next/navigation"
 
 const ContributeButton = ({ parameters }) => {

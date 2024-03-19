@@ -7,7 +7,7 @@ import { FaLock } from "react-icons/fa"
 import { Elements } from "@stripe/react-stripe-js"
 import { loadStripe } from "@stripe/stripe-js"
 import CheckoutForm from "@/app/(checkout)/checkout-custom-flow/CheckoutForm"
-import utilityStore from "@/config/store"
+import utilityStore from "@/utilities/store/store"
 import { useStore } from "zustand"
 const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY)
 

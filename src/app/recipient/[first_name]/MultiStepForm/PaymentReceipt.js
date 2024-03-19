@@ -4,7 +4,7 @@ import { redirect } from "next/navigation"
 import axios from "axios"
 import { Flex, Heading, Spinner, Text } from "@chakra-ui/react"
 import { useStore } from "zustand"
-import utilityStore from "@/config/store"
+import utilityStore from "@/utilities/store/store"
 import { lightBlue } from "@/app/globalStyle"
 
 const PaymentReceipt = () => {

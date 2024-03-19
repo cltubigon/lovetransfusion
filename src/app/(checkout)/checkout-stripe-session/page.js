@@ -1,5 +1,5 @@
 "use client"
-import utilityStorePersist from "@/config/storePersist"
+import utilityStorePersist from "@/utilities/store/storePersist"
 import { Button, Flex } from "@chakra-ui/react"
 import axios from "axios"
 import { useRouter } from "next/navigation"

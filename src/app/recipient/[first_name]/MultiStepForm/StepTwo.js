@@ -7,7 +7,7 @@ import {
 } from "@/app/globalStyle"
 import { Button, Flex, Text } from "@chakra-ui/react"
 import { useStore } from "zustand"
-import utilityStore from "@/config/store"
+import utilityStore from "@/utilities/store/store"
 import HeaderSection from "./HeaderSection"
 import Amount from "./Amount"
 import { FaLock } from "react-icons/fa"

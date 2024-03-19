@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react"
 import { useStore } from "zustand"
-import utilityStore from "@/config/store"
+import utilityStore from "@/utilities/store/store"
 import { NumericFormat } from "react-number-format"
 
 const Amount = () => {

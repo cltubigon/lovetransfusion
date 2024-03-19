@@ -3,7 +3,7 @@ import Image from "next/image"
 import React from "react"
 import TestimonyImageDesktop from "./images/family-proper-desktop.png"
 import { useStore } from "zustand"
-import utilityStore from "@/config/store"
+import utilityStore from "@/utilities/store/store"
 
 const TestimonyImage = () => {
   const { setPopup } = useStore(utilityStore)

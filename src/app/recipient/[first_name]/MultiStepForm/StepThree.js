@@ -11,7 +11,7 @@ import {
 import { FiArrowRight } from "react-icons/fi"
 import { FaLock } from "react-icons/fa"
 import { useStore } from "zustand"
-import utilityStore from "@/config/store"
+import utilityStore from "@/utilities/store/store"
 import HeaderSection from "./HeaderSection"
 import { useForm } from "react-hook-form"
 

@@ -4,7 +4,7 @@ import axios from "axios"
 import React, { useEffect, useState } from "react"
 import { useStore } from "zustand"
 import CancelPaymentIntent from "../cancel/page"
-import utilityStorePersist from "@/config/storePersist"
+import utilityStorePersist from "@/utilities/store/storePersist"
 
 const ListAllPaymentIntents = () => {
   const { isLoaded, setLoaded } = useStore(utilityStorePersist)

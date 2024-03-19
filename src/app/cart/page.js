@@ -6,7 +6,7 @@ import { useStore } from "zustand"
 import TotalCosts from "./(components)/TotalCosts"
 import { useRouter } from "next/navigation"
 import CheckoutWithStripeSessions from "../(checkout)/checkout-stripe-session/page"
-import utilityStorePersist from "@/config/storePersist"
+import utilityStorePersist from "@/utilities/store/storePersist"
 
 const CartPage = () => {
   const router = useRouter()
