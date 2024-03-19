@@ -23,7 +23,7 @@ import logo from "../[first_name]/MultiStepForm/images/full-color-logo.png"
 import { useRouter } from "next/navigation"
 import { supabase } from "@/config/supabase/supabase"
 import Link from "next/link"
-import ImagesUpload from "@/app/recipient/add-recipient/ImagesUpload"
+// import ImagesUpload from "@/app/recipient/add-recipient/ImagesUpload"
 import { useState } from "react"
 import Loader from "./Loader"
 
@@ -271,13 +271,13 @@ const AddRecipient = () => {
               </FormControl>
             </Flex>
             {/*********** Upload Images ***********/}
-            <ImagesUpload
+            {/* <ImagesUpload
               files={files}
               setfiles={setfiles}
               id={recipientFromDatabase}
               submitFormTrigger={submitFormTrigger}
               setsubmitFormTrigger={setsubmitFormTrigger}
-            />
+            /> */}
             {/*********** End of Inputs ***********/}
             <Button
               fontSize={"18px"}
