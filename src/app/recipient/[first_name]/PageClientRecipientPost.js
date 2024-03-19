@@ -28,6 +28,8 @@ const PageClientRecipientPost = ({ params }) => {
       supabase: supabase,
     })
   )
+  if (recipient) {
+  }
   if (recipient?.length === 0) {
     return notFound()
   }
@@ -71,7 +73,7 @@ const PageClientRecipientPost = ({ params }) => {
         parameters={{ id, firstName, condition, poster_image, package_image }}
       />
       <FifthSection condition={condition} />
-      <VideoSection firstName={firstName} />
+      {/* <VideoSection firstName={firstName} /> */}
       <Testimonials />
       <WristHugSection />
       <WhatIsSection

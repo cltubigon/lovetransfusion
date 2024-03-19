@@ -1,5 +1,5 @@
 "use client"
-import CltDropzone from "../components/Dropzone"
+import CltDropzone from "../../components/Dropzone"
 import { useEffect } from "react"
 import { supabase } from "@/config/supabase/supabase"
 import { generatePlaceholderRemote } from "@/utilities/globalActions"
