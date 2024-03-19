@@ -43,8 +43,7 @@ const ReactQuill = dynamic(() => import("react-quill"), { ssr: false })
 function QuillEditor({setValue}) {
 
   const handleChange = (content, delta, source, editor) => {
-    const data = { content, delta, source, editor }
-    console.log("content", content)
+    // const data = { content, delta, source, editor }  // Available Data
     setValue(content)
   }
 

@@ -14,6 +14,7 @@ const capitalize = (str) => `${str.charAt(0).toUpperCase()}${str.slice(1)}`
 const RecipientProfile = ({
   parameters: { firstName, sub_title, sec_one_paragraph, gender },
 }) => {
+  console.log("RecipientProfile")
   const capitalizeName = capitalize(firstName)
   return (
     <Flex sx={containerPadding} pb={"23px"}>
@@ -48,7 +49,7 @@ const RecipientProfile = ({
           flexWrap={{ phs: "wrap", tls: "nowrap" }}
         >
           <RecipientImage />
-          <Flex flexDir={"column"} gap={"22px"} pt={"20px"} pl={'20px'}>
+          <Flex flexDir={"column"} gap={"22px"} pt={"20px"} pl={"20px"}>
             <Text
               fontSize={"28px"}
               fontFamily={franklinMedium}

@@ -1,5 +1,5 @@
 import { Flex } from "@chakra-ui/react"
-import React from "react"
+import React, { useEffect, useState } from "react"
 import Image from "next/image"
 import { lightBlue } from "../../globalStyle"
 import profilePic from "./images/profile-pic-placeholder2.png"
@@ -16,12 +16,13 @@ const RecipientImage = ({
   bottom,
   right,
 }) => {
+  console.log("render recipient")
   return (
     <Flex
-    zIndex={1}
+      zIndex={1}
       alignItems={"center"}
       position={"relative"}
-      mx={'auto'}
+      mx={"auto"}
       maxW={maxW || "250px"}
       minW={minW || "250px"}
       maxH={maxW || "260px"}
@@ -29,10 +30,8 @@ const RecipientImage = ({
     >
       <Image
         src={profilePic}
-        placeholder="blur"
+        placeholder={"blur"}
         alt="Picture of the recipient"
-        // width={250}
-        // height={260}
         loading="eager"
         fill
         style={{
@@ -43,7 +42,11 @@ const RecipientImage = ({
           boxShadow: "0px 0px 23px 0px rgba(49, 144, 221, 0.53)",
         }}
       />
-      <Flex pos={"absolute"} bottom={bottom || "-14px"} right={right || "-10px"}>
+      <Flex
+        pos={"absolute"}
+        bottom={bottom || "-14px"}
+        right={right || "-10px"}
+      >
         <Image
           src={heart}
           loading="eager"

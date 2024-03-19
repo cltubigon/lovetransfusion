@@ -1,11 +1,9 @@
-import { Button, Flex, Heading, Text } from "@chakra-ui/react"
+import { Flex, Heading, Text } from "@chakra-ui/react"
 import Link from "next/link"
 import { lightBlue } from "./globalStyle"
-import { plaiceholderLocalGenerator } from "@/utilities/plaiceholder/plaiceholderLocalGenerator"
+import { generatePlaceholder } from "@/utilities/globalActions"
 
 const HomePage = async () => {
-  // const generated = await plaiceholderLocalGenerator()
-  // console.log({ generated })
   return (
     <Flex
       w={"100%"}
