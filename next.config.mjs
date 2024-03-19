@@ -1,4 +1,18 @@
-import withPlaiceholder from "@plaiceholder/next"
+// import withPlaiceholder from "@plaiceholder/next"
+
+// /** @type {import('next').NextConfig} */
+// const nextConfig = {
+//   images: {
+//     remotePatterns: [
+//       {
+//         protocol: "https",
+//         hostname: "bnsyauupzwhhsloomymu.supabase.co",
+//       },
+//     ],
+//   },
+// }
+
+// export default withPlaiceholder(nextConfig)
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
@@ -12,4 +26,4 @@ const nextConfig = {
   },
 }
 
-export default withPlaiceholder(nextConfig)
+export default nextConfig
