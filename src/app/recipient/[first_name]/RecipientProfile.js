@@ -12,7 +12,13 @@ import RecipientImage from "./RecipientImage"
 const capitalize = (str) => `${str.charAt(0).toUpperCase()}${str.slice(1)}`
 
 const RecipientProfile = ({
-  parameters: { firstName, sub_title, sec_one_paragraph, gender },
+  parameters: {
+    profile_picture,
+    firstName,
+    sub_title,
+    sec_one_paragraph,
+    gender,
+  },
 }) => {
   console.log("RecipientProfile")
   const capitalizeName = capitalize(firstName)
@@ -48,7 +54,7 @@ const RecipientProfile = ({
           gap={"10px"}
           flexWrap={{ phs: "wrap", tls: "nowrap" }}
         >
-          <RecipientImage />
+          <RecipientImage profile_picture={profile_picture} />
           <Flex flexDir={"column"} gap={"22px"} pt={"20px"} pl={"20px"}>
             <Text
               fontSize={"28px"}

@@ -12,6 +12,7 @@ const CltDropzone = ({
   accept,
   title,
   getFiles,
+  borderColor,
 }) => {
   const [files, setfiles] = useState([])
   const toast = useToast()
@@ -58,7 +59,11 @@ const CltDropzone = ({
       pb={4}
       height={height || "120px"}
       borderRadius={"md"}
-      border={files?.length > 0 ? "1px dashed #1DA1F2" : "1px dashed #646C7F"}
+      border={
+        files?.length > 0
+          ? `1px dashed #1DA1F2`
+          : `1px dashed ${borderColor || "#646C7F"}`
+      }
       justifyContent={"center"}
       alignItems={"center"}
       {...getRootProps({ className: "dropzone" })}

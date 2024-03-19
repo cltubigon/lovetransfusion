@@ -1,5 +1,5 @@
 "use client"
-import { Box, Flex, Text } from "@chakra-ui/react"
+import { Flex, Text } from "@chakra-ui/react"
 import React, { useEffect } from "react"
 import {
   buttonColor,
@@ -13,7 +13,12 @@ import utilityStore from "@/config/store"
 import { useSearchParams } from "next/navigation"
 
 const ContributeButton = ({ parameters }) => {
-  const { id, capitalizeFirstName: firstName, condition } = parameters
+  const {
+    id,
+    capitalizeFirstName: firstName,
+    condition,
+    package_image,
+  } = parameters
   const { setPopup } = useStore(utilityStore)
 
   const searchParams = useSearchParams()
@@ -38,6 +43,10 @@ const ContributeButton = ({ parameters }) => {
         id,
         firstName,
         condition,
+        package_image: package_image
+          ? `${process.env.NEXT_PUBLIC_SUPABASE_STORAGE_URL}${package_image?.fullPath}`
+          : null,
+        package_image_blur: package_image ? package_image?.plaiceholders : null,
       },
       content: "MultiStepForm",
       maxW: "582px",

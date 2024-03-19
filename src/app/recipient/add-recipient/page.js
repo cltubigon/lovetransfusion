@@ -23,6 +23,9 @@ import logo from "../[first_name]/MultiStepForm/images/full-color-logo.png"
 import { useRouter } from "next/navigation"
 import { supabase } from "@/config/supabase/supabase"
 import Link from "next/link"
+import ImagesUpload from "@/app/test/ImagesUpload"
+import { useState } from "react"
+import Loader from "./Loader"
 
 const AddRecipient = () => {
   const router = useRouter()
@@ -31,8 +34,14 @@ const AddRecipient = () => {
   } = useStore(utilityStore)
   const { register, handleSubmit, formState, watch } = useForm()
   const { errors } = formState
+  const [files, setfiles] = useState([])
+  const [submitFormTrigger, setsubmitFormTrigger] = useState(null)
+  const [recipientFromDatabase, setrecipientFromDatabase] = useState(false)
 
+  console.log("files", files)
   const onSubmit = async (data) => {
+    setsubmitFormTrigger(true)
+    if (files?.length === 0) return
     const {
       first_name,
       category,
@@ -46,7 +55,7 @@ const AddRecipient = () => {
       according_to_paragraph,
     } = data
 
-    const { data: recipient } = await supabase
+    const { data: recipient, error } = await supabase
       .from("recipients")
       .insert([
         {
@@ -66,9 +75,16 @@ const AddRecipient = () => {
       ])
       .select()
     if (recipient) {
-      router.push(`/recipient/${recipient[0].first_name}`)
+      console.log("recipient", recipient)
+      setrecipientFromDatabase(recipient[0].id)
+      // router.push(`/recipient/${recipient[0].first_name}`)
+    }
+    if (error) {
+      console.log('Error adding recipient details', error.message)
+      setsubmitFormTrigger(false)
     }
   }
+  // console.log('recipientFromDatabase', recipientFromDatabase)
 
   const inputStyle = {
     bgColor: "white",
@@ -77,10 +93,11 @@ const AddRecipient = () => {
 
   return (
     <Flex sx={containerPadding} pt={"40px"} pb={"100px"}>
+      {submitFormTrigger && <Loader />}
       <Flex sx={containerInner} flexDir={"column"}>
         <Link href={"/recipient"}>
           <Flex mb={6}>
-            <Image src={logo} quality={100} alt="logo" />
+            <Image src={logo} quality={100} priority={true} alt="logo" />
           </Flex>
         </Link>
         <form onSubmit={handleSubmit(onSubmit)}>
@@ -253,6 +270,14 @@ const AddRecipient = () => {
                 </FormErrorMessage>
               </FormControl>
             </Flex>
+            {/*********** Upload Images ***********/}
+            <ImagesUpload
+              files={files}
+              setfiles={setfiles}
+              id={recipientFromDatabase}
+              submitFormTrigger={submitFormTrigger}
+              setsubmitFormTrigger={setsubmitFormTrigger}
+            />
             {/*********** End of Inputs ***********/}
             <Button
               fontSize={"18px"}

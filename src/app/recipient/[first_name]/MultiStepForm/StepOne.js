@@ -7,7 +7,6 @@ import {
 } from "@/app/globalStyle"
 import { Box, Button, Flex, Heading, Text } from "@chakra-ui/react"
 import Image from "next/image"
-import React, { useEffect } from "react"
 import imagePlaceholder from "./images/placeholder-image.png"
 import logo from "./images/full-color-logo.png"
 import { FiArrowRight } from "react-icons/fi"
@@ -18,17 +17,17 @@ import utilityStore from "@/config/store"
 const StepOne = ({ setactiveStep }) => {
   const {
     popup: { data },
-    carePackage: { donee },
+    // carePackage: { donee },
     setDonee,
   } = useStore(utilityStore)
 
-  useEffect(() => {
-    console.log("donee", donee)
-  }, [donee])
+  // useEffect(() => {
+  //   console.log("donee", donee)
+  // }, [donee])
 
   if (!data) return <p>No data to show</p>
 
-  const { firstName, condition } = data
+  const { firstName, condition, package_image, package_image_blur } = data
   const borderColor = "#dadada"
   const donationColumns = {
     flexDir: "column",
@@ -70,7 +69,15 @@ const StepOne = ({ setactiveStep }) => {
         }
       </Text>
       <Flex justifyContent={"center"} mb={5}>
-        <Image src={imagePlaceholder} alt="placeholder" quality={100} />
+        <Image
+          src={package_image || imagePlaceholder}
+          blurDataURL={package_image_blur || ''}
+          placeholder="blur"
+          alt="placeholder"
+          width={534}
+          height={289}
+          quality={100}
+        />
       </Flex>
 
       <Flex flexDir={"column"} mb={5}>

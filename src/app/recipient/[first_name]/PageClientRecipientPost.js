@@ -46,7 +46,11 @@ const PageClientRecipientPost = ({ params }) => {
     hugs,
     what_is,
     condition,
+    profile_picture,
+    package_image,
+    poster_image,
   } = recipient[0]
+  console.log("profile_picture", profile_picture)
 
   console.log("recipient", recipient)
   return (
@@ -54,10 +58,18 @@ const PageClientRecipientPost = ({ params }) => {
       <LogoSection />
       <TitleSection parameters={{ firstName, category, created_at }} />
       <RecipientProfile
-        parameters={{ firstName, sub_title, sec_one_paragraph, gender }}
+        parameters={{
+          profile_picture,
+          firstName,
+          sub_title,
+          sec_one_paragraph,
+          gender,
+        }}
       />
       <HugMessageShare parameters={{ id, firstName, hugs }} />
-      <PackageSection parameters={{ id, firstName, condition }} />
+      <PackageSection
+        parameters={{ id, firstName, condition, poster_image, package_image }}
+      />
       <FifthSection condition={condition} />
       <VideoSection firstName={firstName} />
       <Testimonials />
@@ -71,7 +83,7 @@ const PageClientRecipientPost = ({ params }) => {
           learn_more_url,
         }}
       />
-      <CommentSection />
+      <CommentSection parameters={{ profile_picture }} />
       <Footer />
     </Box>
   )

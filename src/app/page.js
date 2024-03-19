@@ -1,7 +1,6 @@
 import { Flex, Heading, Text } from "@chakra-ui/react"
 import Link from "next/link"
 import { lightBlue } from "./globalStyle"
-import { generatePlaceholder } from "@/utilities/globalActions"
 
 const HomePage = async () => {
   return (

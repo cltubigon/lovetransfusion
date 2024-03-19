@@ -1,5 +1,4 @@
 import { Flex } from "@chakra-ui/react"
-import React, { useEffect, useState } from "react"
 import Image from "next/image"
 import { lightBlue } from "../../globalStyle"
 import profilePic from "./images/profile-pic-placeholder2.png"
@@ -15,8 +14,10 @@ const RecipientImage = ({
   outlineOffset,
   bottom,
   right,
+  profile_picture,
 }) => {
   console.log("render recipient")
+  console.log("profile_picture", profile_picture)
   return (
     <Flex
       zIndex={1}
@@ -29,7 +30,13 @@ const RecipientImage = ({
       minH={minW || "260px"}
     >
       <Image
-        src={profilePic}
+        src={
+          profile_picture
+            ? `${process.env.NEXT_PUBLIC_SUPABASE_STORAGE_URL}${profile_picture?.fullPath}`
+            : profilePic
+        }
+        quality={100}
+        blurDataURL={profile_picture?.plaiceholders || ""}
         placeholder={"blur"}
         alt="Picture of the recipient"
         loading="eager"

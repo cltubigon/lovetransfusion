@@ -16,7 +16,8 @@ import { capitalize } from "@/utilities/capitalize"
 import ContributeButtonFallback from "./ContributeButtonFallback"
 
 const PackageSection = ({ parameters }) => {
-  const { id, firstName, condition } = parameters
+  const { id, firstName, condition, poster_image, package_image } = parameters
+  console.log("poster_image", poster_image)
   const capitalizeFirstName = capitalize(firstName)
   const timeContainer = {
     bgColor: lightBlue,
@@ -91,7 +92,12 @@ const PackageSection = ({ parameters }) => {
                 </Flex>
                 <Suspense fallback={<ContributeButtonFallback />}>
                   <ContributeButton
-                    parameters={{ id, capitalizeFirstName, condition }}
+                    parameters={{
+                      id,
+                      capitalizeFirstName,
+                      condition,
+                      package_image,
+                    }}
                   />
                 </Suspense>
               </Flex>
@@ -151,7 +157,17 @@ const PackageSection = ({ parameters }) => {
               minW={{ tls: "380px" }}
               minH={{ tls: "460px" }}
             >
-              <Image src={PackageImage} quality={100} alt="package image" />
+              <Image
+                src={
+                  poster_image
+                    ? `${process.env.NEXT_PUBLIC_SUPABASE_STORAGE_URL}${poster_image?.fullPath}`
+                    : PackageImage
+                }
+                width={380}
+                height={460}
+                quality={100}
+                alt="package image"
+              />
             </Flex>
           </Flex>
         </Flex>
