@@ -1,4 +1,3 @@
-import { supabase } from "@/config/supabase/supabase"
 import {
   HydrationBoundary,
   QueryClient,
@@ -6,6 +5,7 @@ import {
 } from "@tanstack/react-query"
 import singleUseQuery from "@/hooks/useQuery/singleUseQuery"
 import PageClientRecipientPost from "./PageClientRecipientPost"
+import { supabase } from "@/config/supabase/supabase"
 
 // export const dynamicParams = true
 export const revalidate = 5
@@ -24,6 +24,9 @@ export async function generateStaticParams() {
 const RecipientsPage = async ({ params: { first_name } }) => {
   console.log("recipient rendered")
   const queryClient = new QueryClient()
+
+  const isUser = await supabase.auth.getUser()
+  console.log('isUser', isUser)
 
   await queryClient.prefetchQuery(
     singleUseQuery({
