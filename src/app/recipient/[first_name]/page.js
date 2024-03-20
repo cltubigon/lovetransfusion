@@ -6,6 +6,7 @@ import {
 import singleUseQuery from "@/hooks/useQuery/singleUseQuery"
 import PageClientRecipientPost from "./PageClientRecipientPost"
 import { createClient } from "@/config/supabase/supabaseClient"
+import { isAuthenticated } from "@/config/supabase/isAuthenticated"
 
 // export const dynamicParams = true
 export const revalidate = 5
@@ -26,9 +27,6 @@ const RecipientsPage = async ({ params: { first_name } }) => {
   const supabase = createClient()
   console.log("recipient rendered")
   const queryClient = new QueryClient()
-
-  const isUser = await supabase.auth.getUser()
-  console.log('isUser', isUser)
 
   await queryClient.prefetchQuery(
     singleUseQuery({
