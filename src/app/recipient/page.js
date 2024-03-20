@@ -6,12 +6,13 @@ import {
   QueryClient,
   dehydrate,
 } from "@tanstack/react-query"
-import { supabase } from "@/config/supabase/supabase"
+import { createClient } from "@/config/supabase/supabaseClient"
 
 export const revalidate = 5
 
 const RecipientsPage = async () => {
   console.log("recipient rendered")
+  const supabase = createClient()
   const queryClient = new QueryClient()
 
   await queryClient.prefetchQuery(

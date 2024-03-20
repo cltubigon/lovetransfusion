@@ -7,13 +7,14 @@ import {
   containerPadding,
 } from "../globalStyle"
 import Link from "next/link"
-import { supabase } from "@/config/supabase/supabase"
 import multipleUseQuery from "@/hooks/useQuery/multipleUseQuery"
 import { useQuery } from "@tanstack/react-query"
+import { createClient } from "@/config/supabase/supabaseClient"
 
 export const revalidate = 5
 
 const RecipientsClientComponent = () => {
+  const supabase = createClient()
   const { data: recipients, error } = useQuery(
     multipleUseQuery({
       supabase,

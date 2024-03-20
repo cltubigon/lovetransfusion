@@ -1,5 +1,4 @@
 "use client"
-import { supabase } from "@/config/supabase/supabase"
 import React from "react"
 import LogoSection from "./LogoSection"
 import TitleSection from "./TitleSection"
@@ -17,8 +16,10 @@ import { notFound } from "next/navigation"
 import singleUseQuery from "@/hooks/useQuery/singleUseQuery"
 import { Box } from "@chakra-ui/react"
 import { useQuery } from "@tanstack/react-query"
+import { createClient } from "@/config/supabase/supabaseClient"
 
 const PageClientRecipientPost = ({ params }) => {
+  const supabase = createClient()
   const { data: recipient } = useQuery(
     singleUseQuery({
       queryKey: [`recipient - ${params}`],

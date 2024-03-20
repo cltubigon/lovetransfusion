@@ -21,13 +21,14 @@ import { useForm } from "react-hook-form"
 import Image from "next/image"
 import logo from "../[first_name]/MultiStepForm/images/full-color-logo.png"
 import { useRouter } from "next/navigation"
-import { supabase } from "@/config/supabase/supabase"
 import Link from "next/link"
 import ImagesUpload from "@/app/recipient/add-recipient/ImagesUpload"
 import { useState } from "react"
 import Loader from "./Loader"
+import { createClient } from "@/config/supabase/supabaseClient"
 
 const AddRecipient = () => {
+  const supabase = createClient()
   const router = useRouter()
   const {
     recipient: { sec_one_paragraph },
@@ -80,7 +81,7 @@ const AddRecipient = () => {
       // router.push(`/recipient/${recipient[0].first_name}`)
     }
     if (error) {
-      console.log('Error adding recipient details', error.message)
+      console.log("Error adding recipient details", error.message)
       setsubmitFormTrigger(false)
     }
   }

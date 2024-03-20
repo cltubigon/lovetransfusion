@@ -1,9 +1,9 @@
 "use client"
 import CltDropzone from "../../components/Dropzone"
 import { useEffect } from "react"
-import { supabase } from "@/config/supabase/supabase"
 import { generatePlaceholderRemote } from "@/utilities/globalActions"
 import { useRouter } from "next/navigation"
+import { createClient } from "@/config/supabase/supabaseClient"
 
 const ImagesUpload = ({
   id,
@@ -12,6 +12,7 @@ const ImagesUpload = ({
   submitFormTrigger,
   setsubmitFormTrigger,
 }) => {
+  const supabase = createClient()
   const route = useRouter()
 
   const updateRecipient = (file) => {
@@ -93,7 +94,7 @@ const ImagesUpload = ({
       }
       uploadToSupabase()
     }
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [id])
 
   return (

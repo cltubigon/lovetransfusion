@@ -1,8 +1,9 @@
 "use client"
-import { supabase } from "@/config/supabase/supabase"
+import { createClient } from "@/config/supabase/supabaseClient"
 import { useCallback, useEffect, useState } from "react"
 
 export default function AccountForm({ user }) {
+  const supabase = createClient()
   const [loading, setLoading] = useState(true)
   const [fullname, setFullname] = useState(null)
   const [username, setUsername] = useState(null)
@@ -10,8 +11,8 @@ export default function AccountForm({ user }) {
   const [avatar_url, setAvatarUrl] = useState(null)
 
   const getProfile = useCallback(async () => {
-    console.log('Get profile function is triggered')
-    
+    console.log("Get profile function is triggered")
+
     try {
       setLoading(true)
 
@@ -36,7 +37,7 @@ export default function AccountForm({ user }) {
     } finally {
       setLoading(false)
     }
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [user, supabase])
 
   useEffect(() => {
@@ -44,7 +45,7 @@ export default function AccountForm({ user }) {
   }, [user, getProfile])
 
   async function updateProfile({ username, website, avatar_url }) {
-    console.log('updateProfile function is triggered')
+    console.log("updateProfile function is triggered")
     try {
       setLoading(true)
 
