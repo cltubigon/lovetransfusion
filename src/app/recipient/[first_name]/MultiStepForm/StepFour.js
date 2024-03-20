@@ -53,7 +53,9 @@ const StepFour = ({ setactiveStep }) => {
           </Flex>
         </Flex>
       </Flex>
-      <Suspense fallback={<Heading>Loading Payment...</Heading>}>{carePackage.donationAmount && <PaymentForm />}</Suspense>
+      <Suspense fallback={<Heading>Loading Payment...</Heading>}>
+        {carePackage.donationAmount && <PaymentForm />}
+      </Suspense>
     </Flex>
   )
 }

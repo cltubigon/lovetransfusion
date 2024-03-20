@@ -22,8 +22,11 @@ const RecipientProfile = ({
 }) => {
   console.log("RecipientProfile")
   const capitalizeName = capitalize(firstName)
+  const handleOut = () => {
+    console.log('I am out')
+  }
   return (
-    <Flex sx={containerPadding} pb={"23px"}>
+    <Flex sx={containerPadding} pb={"23px"} >
       <Flex maxW={"984px"} w={"100%"} flexDir={"column"}>
         <Flex
           position={"relative"}

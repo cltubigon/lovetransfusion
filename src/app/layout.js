@@ -25,7 +25,7 @@ export default function RootLayout({ children }) {
   return (
     <html
       lang="en"
-      style={{ scrollBehavior: 'smooth', overflow: "hidden" }}
+      style={{ overflow: "hidden" }}
       className={`${SegoePrint.variable} ${openSans.variable} ${inter.variable} ${franklinGothicBookItalic.variable} ${franklinGothicDemiCond.variable} ${franklinGothicMediumCond.variable} ${franklinGothicBook.variable} ${ArialNarrowBold.variable}`}
     >
       <body>

@@ -1,4 +1,4 @@
-import { Box, Flex } from "@chakra-ui/react"
+import { Flex } from "@chakra-ui/react"
 import Image from "next/image"
 import React, { useEffect } from "react"
 import videoPlaceholder from '../recipient/[first_name]/images/video-placeholder.jpg'

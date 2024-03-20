@@ -12,7 +12,7 @@ import {
 import WistiaPlayer from "../../components/WistiaPlayer"
 import Link from "next/link"
 
-const VideoSection = ({firstName}) => {
+const VideoSection = ({ firstName }) => {
   return (
     <Flex sx={containerPadding} pt={"80px"} pb={"33px"}>
       <Flex sx={containerInner}>
@@ -23,7 +23,7 @@ const VideoSection = ({firstName}) => {
             color={lightBlue}
             mb={"14px"}
             lineHeight={"33px"}
-            textAlign={'center'}
+            textAlign={"center"}
           >{`Short Video Explains How We Are Raising Awareness Of ${firstName}’s Story`}</Text>
           <WistiaPlayer videoId="nx9htrqsu9" wrapper="video-1" />
           <Link href={"/"}>
@@ -32,10 +32,10 @@ const VideoSection = ({firstName}) => {
               fontSize={"24px"}
               color={"white"}
               bgColor={buttonColor}
-              p={{phs: "18px 15px", tls: "18px 40px"}}
+              p={{ phs: "18px 15px", tls: "18px 40px" }}
               lineHeight={"28px"}
-              textAlign={'center'}
-              borderRadius={'md'}
+              textAlign={"center"}
+              borderRadius={"md"}
               maxW={"100%"}
               _hover={{
                 bgColor: buttonColorHover,

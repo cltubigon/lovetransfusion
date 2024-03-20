@@ -16,8 +16,6 @@ const RecipientImage = ({
   right,
   profile_picture,
 }) => {
-  console.log("render recipient")
-  console.log("profile_picture", profile_picture)
   return (
     <Flex
       zIndex={1}

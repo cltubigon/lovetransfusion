@@ -13,7 +13,7 @@ import Link from "next/link"
 import HugButton from "./hugButton/HugButton"
 
 const HugMessageShare = ({ parameters }) => {
-  const { id, firstName, hugs } = parameters
+  const { id, firstName, hugs, package_image, sub_title } = parameters
   const buttonStyle = {
     borderRadius: "10px",
     boxShadow: "3px 3px 3px 0px rgba(47, 142, 221, 0.32)",
@@ -51,7 +51,7 @@ const HugMessageShare = ({ parameters }) => {
               </Flex>
             </Flex>
           </Link>
-          <ShareModal buttonStyle={buttonStyle} />
+          <ShareModal parameters={{buttonStyle, firstName, package_image, sub_title}} />
         </Flex>
       </Flex>
     </Box>
