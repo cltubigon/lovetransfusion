@@ -40,7 +40,7 @@ const ClientAddRecipient = () => {
 
   console.log("files", files)
   const onSubmit = async (data) => {
-    setsubmitFormTrigger(true)
+    // setsubmitFormTrigger(true)
     // if (files?.length === 0) return
     const {
       first_name,
@@ -79,7 +79,7 @@ const ClientAddRecipient = () => {
     }
     if (error) {
       console.log("Error adding recipient details", error.message)
-      setsubmitFormTrigger(false)
+      // setsubmitFormTrigger(false)
     }
   }
   // console.log('recipientFromDatabase', recipientFromDatabase)
