@@ -1,7 +1,7 @@
 import { Flex } from "@chakra-ui/react"
 import Image from "next/image"
 import React, { useEffect } from "react"
-import videoPlaceholder from '../recipient/[first_name]/images/video-placeholder.jpg'
+import videoPlaceholder from '../recipients/[first_name]/images/video-placeholder.jpg'
 
 function WistiaPlayer({ videoId, wrapper }) {
   useEffect(() => {

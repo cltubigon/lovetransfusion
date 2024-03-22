@@ -20,5 +20,5 @@ export const updateHugs = async ({ id, firstName }) => {
     if (data) return data
   }
 
-  revalidatePath(`/recipient/${firstName}`)
+  revalidatePath(`/recipients/${firstName}`)
 }

@@ -1,9 +1,10 @@
 import React from "react"
-import ClientAddRecipient from "./clientAddRecipient.js"
+import ClientAddRecipient from "./ClientAddRecipient.js"
 import { isAuthenticated } from "@/config/supabase/isAuthenticated.js"
 
 const AddRecipient = async () => {
-  await isAuthenticated()
+  const data = await isAuthenticated()
+  console.log("data", data)
   return (
     <div>
       <ClientAddRecipient />

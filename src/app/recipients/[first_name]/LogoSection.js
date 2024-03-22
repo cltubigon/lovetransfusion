@@ -17,7 +17,7 @@ const LogoSection = () => {
         flexWrap={{ phs: "wrap", tll: "nowrap" }}
       >
         <Flex>
-          <Link href={"/recipient"}>
+          <Link href={"/"}>
             <Image
               src={"/images/lt-logo-white.png"}
               priority={true}

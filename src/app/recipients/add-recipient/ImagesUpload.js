@@ -18,7 +18,7 @@ const ImagesUpload = ({
   const updateRecipient = (file) => {
     const myFunction = async (column) => {
       const { data, error } = await supabase
-        .from("recipients")
+        .from("recipients_images")
         .update(column)
         .eq("id", id)
         .select()
@@ -56,7 +56,7 @@ const ImagesUpload = ({
   const handleUpload = async (file) => {
     console.log("file", file)
     const { data, error } = await supabase.storage
-      .from(`recipients_images`)
+      .from(`TestBucket`)
       .upload(`${id}/${file.name}`, file, {
         upsert: true,
       })
@@ -85,7 +85,7 @@ const ImagesUpload = ({
           // setuploads(uploadedFiles)
           console.log("uploadedFiles", uploadedFiles)
           console.log("plaiceholders", plaiceholders)
-          route.push(`/recipient`)
+          route.push(`/`)
           // return uploadedFiles
         } catch (error) {
           console.log("error during upload", error.message)
