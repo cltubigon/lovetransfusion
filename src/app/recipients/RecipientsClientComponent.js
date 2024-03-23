@@ -12,8 +12,6 @@ import multipleUseQuery from "@/hooks/useQuery/multipleUseQuery"
 import { useQuery } from "@tanstack/react-query"
 import { createClient } from "@/config/supabase/supabaseClient"
 import Image from "next/image"
-import ProfilePic from "./benny-profile-picture-1.jpg"
-import ProfilePic2 from "./adley-profile-picture.jpg"
 import imgPlaceholder from "./[first_name]/images/profile-pic-placeholder2.png"
 import { useRouter } from "next/navigation"
 
@@ -39,18 +37,6 @@ const RecipientsClientComponent = ({ data }) => {
     e.preventDefault()
     router.push(`/recipients/${first_name}`)
   }
-  const testData = [
-    { image: ProfilePic, first_name: "Rico Puno" },
-    { image: null, first_name: "Danny Garcia" },
-    { image: ProfilePic2, first_name: "Gabby Conception" },
-    { image: null, first_name: "Eddi Garcia" },
-    { image: ProfilePic, first_name: "Rico Puno" },
-    { image: null, first_name: "Danny Garcia" },
-    { image: ProfilePic2, first_name: "Gabby Conception" },
-    { image: null, first_name: "Eddi Garcia" },
-    { image: null, first_name: "Eddi Garcia" },
-    { image: null, first_name: "Eddi Garcia" },
-  ]
   return (
     <Flex
       sx={containerPadding}
@@ -72,7 +58,7 @@ const RecipientsClientComponent = ({ data }) => {
         <Flex justifyContent={"space-between"} w={"100%"} alignItems={"center"}>
           <Flex py={6} flexDir={"column"} gap={1} px={{ phs: 0, tls: 2 }}>
             <Heading color={lightBlue}>List of Recipients</Heading>
-            <Text>v0.0.13</Text>
+            <Text>v0.0.13 - Added Cloudinary</Text>
           </Flex>
           {data?.user && (
             <Link href={"/recipients/add-recipient"}>
