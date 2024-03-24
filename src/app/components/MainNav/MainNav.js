@@ -11,13 +11,13 @@ import React from "react"
 import logo from "./image/main-logo.png"
 import Link from "next/link"
 // import { isAuthenticated } from "@/config/supabase/isAuthenticated"
-import { logout } from "@/app/_privates/actions"
-import { createClient } from "@/config/supabase/supabaseServer"
 import { GiHamburgerMenu } from "react-icons/gi"
 import ClientMainNav from "./ClientMainNav"
+import { createServer } from "@/config/supabase/supabaseServer"
+import { logout } from "@/app/auth/signOut/actions"
 
 const MainNav = async () => {
-  const supabase = createClient()
+  const supabase = createServer()
   const { data, error } = await supabase.auth.getUser()
   const menu = [
     { name: "Home" },

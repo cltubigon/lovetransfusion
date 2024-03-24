@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from "next/server"
 
-import { createClient } from "@/config/supabase/supabaseServer"
+import { createServer } from "@/config/supabase/supabaseServer"
 
 // Creating a handler to a GET request to route /auth/confirm
 export async function GET(request) {
@@ -16,7 +16,7 @@ export async function GET(request) {
   redirectTo.searchParams.delete("type")
 
   if (token_hash && type) {
-    const supabase = createClient()
+    const supabase = createServer()
     const { error } = await supabase.auth.verifyOtp({
       type,
       token_hash,

@@ -9,9 +9,9 @@ import Image from "next/image"
 import React, { useState } from "react"
 import logo from "./image/main-logo.png"
 import Link from "next/link"
-import { logout } from "@/app/_privates/actions"
 import { GiHamburgerMenu } from "react-icons/gi"
 import { easeInOut, motion } from "framer-motion"
+import { logout } from "@/app/auth/signOut/actions"
 
 const ClientMainNav = ({ parameters: { menu, data } }) => {
   const [isOpen, setisOpen] = useState(false)
@@ -113,7 +113,7 @@ const ClientMainNav = ({ parameters: { menu, data } }) => {
                 type="submit"
                 formAction={logout}
               >
-                Logout
+                Logout Client
               </Button>
             </form>
           )}
@@ -130,7 +130,7 @@ const ClientMainNav = ({ parameters: { menu, data } }) => {
           <GiHamburgerMenu fontSize={"32px"} />
         </Flex>
         <Link href={"/"}>
-          <Flex pr={{tll:16}}>
+          <Flex pr={{ tll: 16 }}>
             <Image
               priority={true}
               src={logo}

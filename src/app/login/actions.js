@@ -1,12 +1,11 @@
 "use server"
 
+import { createServer } from "@/config/supabase/supabaseServer"
 import { revalidatePath } from "next/cache"
 import { redirect } from "next/navigation"
 
-import { createClient } from "@/config/supabase/supabaseServer"
-
 export async function login(formData) {
-  const supabase = createClient()
+  const supabase = createServer()
   // type-casting here for convenience
   // in practice, you should validate your inputs
   const data = {
@@ -21,11 +20,11 @@ export async function login(formData) {
   }
 
   revalidatePath("/", "layout")
-  redirect("/account")
+  redirect("/")
 }
 
 export async function signup(formData) {
-  const supabase = createClient()
+  const supabase = createServer()
   // const data = {
   //   email: formData.get("email"),
   //   password: formData.get("password"),
