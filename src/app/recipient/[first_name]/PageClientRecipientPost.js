@@ -1,4 +1,5 @@
 "use client"
+import { supabase } from "@/config/supabase/supabase"
 import React from "react"
 import LogoSection from "./LogoSection"
 import TitleSection from "./TitleSection"
@@ -16,10 +17,8 @@ import { notFound } from "next/navigation"
 import singleUseQuery from "@/hooks/useQuery/singleUseQuery"
 import { Box } from "@chakra-ui/react"
 import { useQuery } from "@tanstack/react-query"
-import { createClient } from "@/config/supabase/supabaseClient"
 
 const PageClientRecipientPost = ({ params }) => {
-  const supabase = createClient()
   const { data: recipient } = useQuery(
     singleUseQuery({
       queryKey: [`recipient - ${params}`],
@@ -51,6 +50,9 @@ const PageClientRecipientPost = ({ params }) => {
     package_image,
     poster_image,
   } = recipient[0]
+  
+  console.log("profile_picture", profile_picture)
+  console.log("recipient", recipient)
 
   return (
     <Box minH={"5200px"}>
@@ -65,9 +67,7 @@ const PageClientRecipientPost = ({ params }) => {
           gender,
         }}
       />
-      <HugMessageShare
-        parameters={{ id, firstName, hugs, package_image, sub_title }}
-      />
+      <HugMessageShare parameters={{ id, firstName, hugs, package_image, sub_title }} />
       <PackageSection
         parameters={{ id, firstName, condition, poster_image, package_image }}
       />

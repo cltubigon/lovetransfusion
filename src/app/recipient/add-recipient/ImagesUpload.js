@@ -1,9 +1,9 @@
 "use client"
 import CltDropzone from "../../components/Dropzone"
 import { useEffect } from "react"
+import { supabase } from "@/config/supabase/supabase"
 import { generatePlaceholderRemote } from "@/utilities/globalActions"
 import { useRouter } from "next/navigation"
-import { createClient } from "@/config/supabase/supabaseClient"
 
 const ImagesUpload = ({
   id,
@@ -12,13 +12,12 @@ const ImagesUpload = ({
   submitFormTrigger,
   setsubmitFormTrigger,
 }) => {
-  const supabase = createClient()
   const route = useRouter()
 
   const updateRecipient = (file) => {
     const myFunction = async (column) => {
       const { data, error } = await supabase
-        .from("recipients_images")
+        .from("recipients")
         .update(column)
         .eq("id", id)
         .select()
@@ -56,7 +55,7 @@ const ImagesUpload = ({
   const handleUpload = async (file) => {
     console.log("file", file)
     const { data, error } = await supabase.storage
-      .from(`TestBucket`)
+      .from(`recipients_images`)
       .upload(`${id}/${file.name}`, file, {
         upsert: true,
       })
@@ -85,7 +84,7 @@ const ImagesUpload = ({
           // setuploads(uploadedFiles)
           console.log("uploadedFiles", uploadedFiles)
           console.log("plaiceholders", plaiceholders)
-          route.push(`/`)
+          route.push(`/recipient`)
           // return uploadedFiles
         } catch (error) {
           console.log("error during upload", error.message)
@@ -94,7 +93,7 @@ const ImagesUpload = ({
       }
       uploadToSupabase()
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [id])
 
   return (

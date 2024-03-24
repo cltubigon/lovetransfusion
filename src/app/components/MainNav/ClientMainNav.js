@@ -9,7 +9,7 @@ import Image from "next/image"
 import React, { useState } from "react"
 import logo from "./image/main-logo.png"
 import Link from "next/link"
-import { logout } from "@/app/privates/actions"
+import { logout } from "@/app/_privates/actions"
 import { GiHamburgerMenu } from "react-icons/gi"
 import { easeInOut, motion } from "framer-motion"
 

@@ -10,6 +10,7 @@ import RecipientImage from "./RecipientImage"
 import CommentForm from "./CommentForm"
 
 const CommentSection = ({ parameters: { profile_picture } }) => {
+  console.log('profile_picture', profile_picture)
   return (
     <div id="comment-section">
       <Flex className="comment-section" pt={5} bgColor={"#E0F3FF"}>

@@ -17,6 +17,7 @@ import ContributeButtonFallback from "./ContributeButtonFallback"
 
 const PackageSection = ({ parameters }) => {
   const { id, firstName, condition, poster_image, package_image } = parameters
+  console.log("poster_image", poster_image)
   const capitalizeFirstName = capitalize(firstName)
   const timeContainer = {
     bgColor: lightBlue,

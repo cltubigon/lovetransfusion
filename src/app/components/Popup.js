@@ -4,10 +4,10 @@ import React from "react"
 import { IoMdClose } from "react-icons/io"
 import { useStore } from "zustand"
 import utilityStore from "@/utilities/store/store"
-import MultiStepForm from "../recipients/[first_name]/MultiStepForm/MultiStepForm"
-import VideoPopup from "../recipients/[first_name]/VideoPopup/VideoPopup"
+import MultiStepForm from "../recipient/[first_name]/MultiStepForm/MultiStepForm"
+import VideoPopup from "../recipient/[first_name]/VideoPopup/VideoPopup"
 import { motion } from "framer-motion"
-import PaymentReceipt from "../recipients/[first_name]/MultiStepForm/PaymentReceipt"
+import PaymentReceipt from "../recipient/[first_name]/MultiStepForm/PaymentReceipt"
 
 const Popup = () => {
   const { popup, setPopup } = useStore(utilityStore)

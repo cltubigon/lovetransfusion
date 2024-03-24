@@ -1,1 +1,3 @@
-git push -u origin lovetransfusion
+git push -u origin <branch>
+git clone -b <branch>  https://github.com/cltubigon/lovetransfusion.git
+git switch <branch>

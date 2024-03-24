@@ -167,7 +167,7 @@ const ShareModal = ({
               {/* **************FacebookShareButton ************** */}
               <FacebookShareButton
                 hashtag="#testing"
-                url={`${process.env.NEXT_PUBLIC_ROOT_DOMAIN}/recipients/${firstName}`}
+                url={`${process.env.NEXT_PUBLIC_ROOT_DOMAIN}/recipient/${firstName}`}
               >
                 <Box
                   cursor={"pointer"}
@@ -186,7 +186,7 @@ const ShareModal = ({
               {/* **************TwitterShareButton ************** */}
               <TwitterShareButton
                 title={sub_title}
-                url={`${process.env.NEXT_PUBLIC_ROOT_DOMAIN}/recipients/${firstName}`}
+                url={`${process.env.NEXT_PUBLIC_ROOT_DOMAIN}/recipient/${firstName}`}
               >
                 <Box
                   cursor={"pointer"}
@@ -205,7 +205,7 @@ const ShareModal = ({
               {/* ************** PinterestShareButton ************** */}
               <PinterestShareButton
                 media={packageImage}
-                url={`${process.env.NEXT_PUBLIC_ROOT_DOMAIN}/recipients/${firstName}`}
+                url={`${process.env.NEXT_PUBLIC_ROOT_DOMAIN}/recipient/${firstName}`}
               >
                 <Box
                   cursor={"pointer"}
@@ -225,7 +225,7 @@ const ShareModal = ({
               <LinkedinShareButton
                 hashtag="#testing"
                 title={sub_title}
-                url={`${process.env.NEXT_PUBLIC_ROOT_DOMAIN}/recipients/${firstName}`}
+                url={`${process.env.NEXT_PUBLIC_ROOT_DOMAIN}/recipient/${firstName}`}
               >
                 <Box
                   cursor={"pointer"}

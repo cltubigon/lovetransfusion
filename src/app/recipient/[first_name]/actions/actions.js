@@ -1,10 +1,9 @@
 "use server"
 
-import { createClient } from "@/config/supabase/supabaseClient"
+import { supabase } from "@/config/supabase/supabase"
 import { revalidatePath } from "next/cache"
 
 export const updateHugs = async ({ id, firstName }) => {
-  const supabase = createClient()
   const { data: currHugs } = await supabase
     .from("recipients")
     .select("hugs, first_name")
@@ -20,5 +19,5 @@ export const updateHugs = async ({ id, firstName }) => {
     if (data) return data
   }
 
-  revalidatePath(`/recipients/${firstName}`)
+  revalidatePath(`/recipient/${firstName}`)
 }

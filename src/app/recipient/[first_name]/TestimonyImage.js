@@ -1,7 +1,7 @@
 'use client'
 import Image from "next/image"
 import React from "react"
-import TestimonyImageDesktop from "./images/video-thumbnail.png"
+import TestimonyImageDesktop from "./images/family-proper-desktop.png"
 import { useStore } from "zustand"
 import utilityStore from "@/utilities/store/store"
 

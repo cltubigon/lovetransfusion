@@ -38,10 +38,8 @@ const RecipientImage = ({
         placeholder={"blur"}
         alt="Picture of the recipient"
         loading="eager"
-        width={250}
-        height={260}
+        fill
         style={{
-          objectFit: 'cover',
           borderRadius: "200px",
           border: `${borderW || "7px"} solid ${lightBlue}`,
           outline: `${outlineW || "5px"} solid #fff`,

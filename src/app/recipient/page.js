@@ -6,13 +6,11 @@ import {
   QueryClient,
   dehydrate,
 } from "@tanstack/react-query"
-import { createClient } from "@/config/supabase/supabaseServer"
+import { supabase } from "@/config/supabase/supabase"
 
 export const revalidate = 5
 
 const RecipientsPage = async () => {
-  const supabase = createClient()
-  const { data, error } = await supabase.auth.getUser()
   console.log("recipient rendered")
   const queryClient = new QueryClient()
 
@@ -21,13 +19,13 @@ const RecipientsPage = async () => {
       supabase: supabase,
       queryKey: ["recipients"],
       table: "recipients",
-      select: "first_name, profile_picture",
+      select: "first_name",
     })
   )
   return (
     <div>
       <HydrationBoundary state={dehydrate(queryClient)}>
-        <RecipientsClientComponent data={data} />
+        <RecipientsClientComponent />
       </HydrationBoundary>
     </div>
   )

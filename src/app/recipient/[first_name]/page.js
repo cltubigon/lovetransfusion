@@ -5,8 +5,7 @@ import {
 } from "@tanstack/react-query"
 import singleUseQuery from "@/hooks/useQuery/singleUseQuery"
 import PageClientRecipientPost from "./PageClientRecipientPost"
-import { createClient } from "@/config/supabase/supabaseClient"
-import { isAuthenticated } from "@/config/supabase/isAuthenticated"
+import { supabase } from "@/config/supabase/supabase"
 
 // export const dynamicParams = true
 export const revalidate = 5
@@ -18,13 +17,11 @@ export const metadata = {
 }
 
 export async function generateStaticParams() {
-  const supabase = createClient()
   const { data: recipients } = supabase.from("recipients").select()
   return recipients || []
 }
 
 const RecipientsPage = async ({ params: { first_name } }) => {
-  const supabase = createClient()
   console.log("recipient rendered")
   const queryClient = new QueryClient()
 

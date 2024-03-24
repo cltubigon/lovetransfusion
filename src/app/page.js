@@ -1,21 +1,20 @@
-import { Button, Flex, Heading, Text } from "@chakra-ui/react"
+import { Flex, Heading, Text } from "@chakra-ui/react"
 import Link from "next/link"
-import {
-  buttonColor,
-  lightBlue,
-  buttonColorHover,
-  containerPadding,
-  containerInner,
-} from "./globalStyle"
-import MainNav from "./components/MainNav/MainNav"
-import RecipientsPage from "./recipients/page"
+import { lightBlue } from "./globalStyle"
 
 const HomePage = async () => {
   return (
-    <div>
-      <MainNav />
-      <RecipientsPage />
-    </div>
+    <Flex
+      w={"100%"}
+      h={"100vh"}
+      alignItems={"center"}
+      justifyContent={"center"}
+    >
+      <Link href={"/recipient"}>
+        <Text fontSize={"22px"}>Goto</Text>
+        <Heading color={lightBlue}>Recipient Page</Heading>
+      </Link>
+    </Flex>
   )
 }
 
