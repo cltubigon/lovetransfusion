@@ -1,12 +1,19 @@
-import { franklinMedium, lightBlue } from "@/app/globalStyle"
+import {
+  buttonColor,
+  buttonColorHover,
+  franklinMedium,
+  lightBlue,
+} from "@/app/globalStyle"
+import { isAuthenticated } from "@/config/supabase/isAuthenticated"
 import { createServer } from "@/config/supabase/supabaseServer"
-import { Flex, Heading, Text } from "@chakra-ui/react"
+import { Button, Flex, Heading, Text } from "@chakra-ui/react"
 import Link from "next/link"
 import React from "react"
 
 export const dynamic = "force-dynamic"
 
 const Recipients = async () => {
+  await isAuthenticated("/login?next=dashboard/recipients")
   const supabase = createServer()
   //   const { data, error } = await supabase.auth.getUser()
   const { data, error } = await supabase.from("recipients").select()
@@ -53,7 +60,9 @@ const Recipients = async () => {
               justifyContent={"space-around"}
             >
               <Flex sx={innerCell}>
-                <Link href={`${process.env.NEXT_PUBLIC_ROOT_DOMAIN}/recipients/${first_name}`}>
+                <Link
+                  href={`${process.env.NEXT_PUBLIC_ROOT_DOMAIN}/recipients/${first_name}`}
+                >
                   <Text>{first_name}</Text>
                 </Link>
               </Flex>
@@ -69,6 +78,16 @@ const Recipients = async () => {
             </Flex>
           )
         })}
+      <Link href={"/recipients/add-recipient"}>
+        <Button
+          color={"white"}
+          mt={4}
+          bgColor={buttonColor}
+          _hover={{ bgColor: buttonColorHover }}
+        >
+          Add Recipient
+        </Button>
+      </Link>
     </Flex>
   )
 }

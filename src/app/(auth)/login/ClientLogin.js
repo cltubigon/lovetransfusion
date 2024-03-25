@@ -21,6 +21,7 @@ import {
   containerInner,
   containerPadding,
 } from "@/app/globalStyle"
+import { useParams, useSearchParams } from "next/navigation"
 
 export default function ClientLogin() {
   const toast = useToast()
@@ -31,10 +32,10 @@ export default function ClientLogin() {
     bgColor: "white",
     borderColor: "#ccc",
   }
+  const params = useSearchParams().get('next')
   const onSubmit = (data) => {
-    console.log("data", data)
     const initiateLogin = async () => {
-      const error = await login(data)
+      const error = await login({ data, redirectTo: params })
       if (error) {
         toast({
           description: error,

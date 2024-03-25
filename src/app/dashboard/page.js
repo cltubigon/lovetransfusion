@@ -5,8 +5,7 @@ import { isAuthenticated } from "@/config/supabase/isAuthenticated"
 export const dynamic = "force-dynamic"
 
 const Dashboard = async ({}) => {
-  await isAuthenticated("/login")
-
+  await isAuthenticated("/login?next=dashboard")
   return (
     <div>
       <Text>Dashboard content</Text>

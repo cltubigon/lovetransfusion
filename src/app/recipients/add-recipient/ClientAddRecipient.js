@@ -35,14 +35,14 @@ const ClientAddRecipient = () => {
   } = useStore(utilityStore)
   const { register, handleSubmit, formState, watch } = useForm()
   const { errors } = formState
-  const [files, setfiles] = useState([])
+  // const [files, setfiles] = useState([])
   const [submitFormTrigger, setsubmitFormTrigger] = useState(null)
   const [recipientFromDatabase, setrecipientFromDatabase] = useState(false)
 
-  console.log("files", files)
+  // console.log("files", files)
   const onSubmit = async (data) => {
-    setsubmitFormTrigger(true)
-    if (files?.length === 0) return
+    // setsubmitFormTrigger(true)
+    // if (files?.length === 0) return
     const {
       first_name,
       category,
@@ -77,8 +77,8 @@ const ClientAddRecipient = () => {
       .select()
     if (recipient) {
       console.log("recipient", recipient)
-      setrecipientFromDatabase(recipient[0].id)
-      // router.push(`/recipients/${recipient[0].first_name}`)
+      // setrecipientFromDatabase(recipient[0].id)
+      router.push(`/recipients/${recipient[0].first_name}`)
     }
     if (error) {
       console.log("Error adding recipient details", error.message)
@@ -96,7 +96,7 @@ const ClientAddRecipient = () => {
     <Flex sx={containerPadding} pt={"40px"} pb={"100px"}>
       {submitFormTrigger && <Loader />}
       <Flex sx={containerInner} flexDir={"column"}>
-        <Link href={"/recipients"}>
+        <Link href={"/dashboard/recipients"}>
           <Flex mb={6}>
             <Image src={logo} quality={100} priority={true} alt="logo" />
           </Flex>
@@ -272,13 +272,13 @@ const ClientAddRecipient = () => {
               </FormControl>
             </Flex>
             {/*********** Upload Images ***********/}
-            <ImagesUpload
+            {/* <ImagesUpload
               files={files}
               setfiles={setfiles}
               id={recipientFromDatabase}
               submitFormTrigger={submitFormTrigger}
               setsubmitFormTrigger={setsubmitFormTrigger}
-            />
+            /> */}
             {/*********** End of Inputs ***********/}
             <Button
               fontSize={"18px"}

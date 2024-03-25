@@ -4,18 +4,15 @@ import { createServer } from "@/config/supabase/supabaseServer"
 import { revalidatePath } from "next/cache"
 import { redirect } from "next/navigation"
 
-export async function login(data) {
+export async function login({ data, redirectTo }) {
   const { email, password } = data
   const supabase = createServer()
-
   const { error } = await supabase.auth.signInWithPassword({ email, password })
-
   if (error) {
     return error.message
   }
-
   revalidatePath("/", "layout")
-  redirect("/dashboard/recipients")
+  redirect(redirectTo ? `/${redirectTo}` : "/dashboard/recipients")
 }
 
 export async function signup(data) {

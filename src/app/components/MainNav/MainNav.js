@@ -68,7 +68,6 @@ const MainNav = async () => {
                 bgColor={buttonColor}
                 _hover={{ bgColor: buttonColorHover }}
                 color={"white"}
-                letterSpacing={"1px"}
                 type="submit"
                 formAction={logout}
               >

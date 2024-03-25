@@ -6,8 +6,6 @@ import { isAuthenticated } from "@/config/supabase/isAuthenticated"
 import DashboardNavigation from "./DashboardNavigation"
 
 const Dashboard = async ({ children }) => {
-  await isAuthenticated("/login")
-
   return (
     <div>
       <MainNav />

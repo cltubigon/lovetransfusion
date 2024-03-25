@@ -2,21 +2,19 @@
 import { Button } from "@chakra-ui/react"
 import { CldUploadWidget } from "next-cloudinary"
 
-const CltUploadWidget = ({
-  parameters: { tags, maxFiles, resourceType, folder },
-}) => {
+const CltUploadWidget = ({ parameters }) => {
   return (
     <div>
       <CldUploadWidget
         signatureEndpoint={
-          process.env.NEXT_PUBLIC_ROOT_DOMAIN + "/cloudinary/api"
+          process.env.NEXT_PUBLIC_ROOT_DOMAIN + "/components/cloudinary/api"
         }
         apiKey={process.env.NEXT_PUBLIC_CLOUDINARY_API_KEY}
         options={{
-          maxFiles: maxFiles || null,
-          folder: folder || null,
-          tags: tags || null,
-          resourceType: resourceType || "auto",
+          maxFiles: parameters?.maxFiles || null,
+          folder: parameters?.folder || null,
+          tags: parameters?.tags || null,
+          resourceType: parameters?.resourceType || "auto",
         }}
       >
         {({ open }) => {

@@ -97,7 +97,6 @@ const ClientMainNav = ({ parameters: { menu, data } }) => {
                 bgColor={buttonColor}
                 _hover={{ bgColor: buttonColorHover }}
                 color={"white"}
-                letterSpacing={"1px"}
               >
                 Login
               </Button>
