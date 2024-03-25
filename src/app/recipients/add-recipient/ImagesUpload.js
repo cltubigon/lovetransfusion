@@ -84,7 +84,7 @@ const ImagesUpload = ({
           // setuploads(uploadedFiles)
           console.log("uploadedFiles", uploadedFiles)
           console.log("plaiceholders", plaiceholders)
-          route.push(`/recipient`)
+          route.push(`/recipients`)
           // return uploadedFiles
         } catch (error) {
           console.log("error during upload", error.message)

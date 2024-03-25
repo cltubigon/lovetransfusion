@@ -11,7 +11,7 @@ import {
 } from "@chakra-ui/react"
 import { login } from "./actions"
 import { useForm } from "react-hook-form"
-import logo from "@/app/recipient/[first_name]/MultiStepForm/images/full-color-logo.png"
+import logo from "@/app/recipients/[first_name]/MultiStepForm/images/full-color-logo.png"
 import Link from "next/link"
 import Image from "next/image"
 import { useState } from "react"

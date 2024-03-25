@@ -15,7 +15,7 @@ export async function login(data) {
   }
 
   revalidatePath("/", "layout")
-  redirect("/")
+  redirect("/dashboard/recipients")
 }
 
 export async function signup(data) {

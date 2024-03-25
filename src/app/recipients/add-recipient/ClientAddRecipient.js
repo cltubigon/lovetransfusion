@@ -23,7 +23,7 @@ import logo from "../[first_name]/MultiStepForm/images/full-color-logo.png"
 import { useRouter } from "next/navigation"
 import { supabase } from "@/config/supabase/supabase"
 import Link from "next/link"
-import ImagesUpload from "@/app/recipient/add-recipient/ImagesUpload"
+import ImagesUpload from "@/app/recipients/add-recipient/ImagesUpload"
 import { useState } from "react"
 import Loader from "./Loader"
 
@@ -78,7 +78,7 @@ const ClientAddRecipient = () => {
     if (recipient) {
       console.log("recipient", recipient)
       setrecipientFromDatabase(recipient[0].id)
-      // router.push(`/recipient/${recipient[0].first_name}`)
+      // router.push(`/recipients/${recipient[0].first_name}`)
     }
     if (error) {
       console.log("Error adding recipient details", error.message)
@@ -96,7 +96,7 @@ const ClientAddRecipient = () => {
     <Flex sx={containerPadding} pt={"40px"} pb={"100px"}>
       {submitFormTrigger && <Loader />}
       <Flex sx={containerInner} flexDir={"column"}>
-        <Link href={"/recipient"}>
+        <Link href={"/recipients"}>
           <Flex mb={6}>
             <Image src={logo} quality={100} priority={true} alt="logo" />
           </Flex>

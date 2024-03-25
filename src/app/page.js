@@ -1,5 +1,5 @@
 import MainNav from "./components/MainNav/MainNav"
-import RecipientsPage from "./recipient/page"
+import RecipientsPage from "./recipients/page"
 
 const HomePage = async () => {
   return (
