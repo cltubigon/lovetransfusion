@@ -14,7 +14,7 @@ import Link from "next/link"
 import { GiHamburgerMenu } from "react-icons/gi"
 import ClientMainNav from "./ClientMainNav"
 import { createServer } from "@/config/supabase/supabaseServer"
-import { logout } from "@/app/auth/signOut/actions"
+import { logout } from "@/app/(auth)/signOut/actions"
 
 const MainNav = async () => {
   const supabase = createServer()

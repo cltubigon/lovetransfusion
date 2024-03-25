@@ -1,4 +1,11 @@
-import { updateSession } from "@/config/supabase/middleware"
+import { NextResponse } from "next/server"
+import { updateSession } from "./config/supabase/middleware"
+
+// export const middleware = () => {
+//   return NextResponse.json({
+//     hello: "middleware",
+//   })
+// }
 
 export async function middleware(request) {
   // update user's auth session

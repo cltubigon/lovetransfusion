@@ -4,27 +4,23 @@ import {
   Flex,
   FormControl,
   FormErrorMessage,
-  FormLabel,
   Input,
   InputGroup,
   InputRightElement,
-  Text,
   useToast,
 } from "@chakra-ui/react"
-import { login, signup } from "./actions"
+import { login } from "./actions"
 import { useForm } from "react-hook-form"
+import logo from "@/app/recipient/[first_name]/MultiStepForm/images/full-color-logo.png"
+import Link from "next/link"
+import Image from "next/image"
+import { useState } from "react"
 import {
   buttonColor,
   buttonColorHover,
   containerInner,
   containerPadding,
-} from "../globalStyle"
-import logo from "../recipients/[first_name]/MultiStepForm/images/full-color-logo.png"
-import Link from "next/link"
-import Image from "next/image"
-import { IoEyeOutline } from "react-icons/io5"
-import { IoEyeOffOutline } from "react-icons/io5"
-import { useState } from "react"
+} from "@/app/globalStyle"
 
 export default function ClientLogin() {
   const toast = useToast()
@@ -62,7 +58,7 @@ export default function ClientLogin() {
         justifyContent={"flex-start"}
         flexDir={"column"}
       >
-        <Link href={"/recipients"}>
+        <Link href={"/"}>
           <Flex mb={6}>
             <Image src={logo} quality={100} priority={true} alt="logo" />
           </Flex>
@@ -128,18 +124,6 @@ export default function ClientLogin() {
                     </Button>
                   </InputRightElement>
 
-                  {/* <Flex onClick={handlePasswordVisibility}>
-                  {!showPassword && (
-                    <Flex pos={"absolute"} bottom={2} right={5}>
-                    <IoEyeOutline fontSize={"24px"} />
-                    </Flex>
-                    )}
-                    {showPassword && (
-                      <Flex pos={"absolute"} bottom={2} right={5}>
-                      <IoEyeOffOutline fontSize={"24px"} />
-                      </Flex>
-                      )}
-                    </Flex> */}
                   <FormErrorMessage>
                     {errors.password && errors.password.message}
                   </FormErrorMessage>

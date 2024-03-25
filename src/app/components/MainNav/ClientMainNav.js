@@ -11,7 +11,7 @@ import logo from "./image/main-logo.png"
 import Link from "next/link"
 import { GiHamburgerMenu } from "react-icons/gi"
 import { easeInOut, motion } from "framer-motion"
-import { logout } from "@/app/auth/signOut/actions"
+import { logout } from "@/app/(auth)/signOut/actions"
 
 const ClientMainNav = ({ parameters: { menu, data } }) => {
   const [isOpen, setisOpen] = useState(false)
