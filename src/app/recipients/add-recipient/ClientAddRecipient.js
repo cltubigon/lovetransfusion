@@ -6,7 +6,7 @@ import {
   FormErrorMessage,
   FormLabel,
   Input,
-  Textarea,
+  Select,
   useToast,
 } from "@chakra-ui/react"
 import {
@@ -24,16 +24,17 @@ import logo from "../[first_name]/MultiStepForm/images/full-color-logo.png"
 import { useRouter } from "next/navigation"
 import { supabase } from "@/config/supabase/supabase"
 import Link from "next/link"
-import { useDeferredValue, useEffect, useState } from "react"
+import { useEffect, useState } from "react"
 import Loader from "./Loader"
 import CltUploadWidget from "@/app/components/cloudinary/CltUploadWidget"
-import { v1, v4 } from "uuid"
+import { v4 } from "uuid"
+import AccordingToparagraph from "./AccordingToParagraph"
 
 const ClientAddRecipient = () => {
   const toast = useToast()
   const router = useRouter()
   const {
-    recipient: { sec_one_paragraph },
+    recipient: { sec_one_paragraph, according_to_paragraph },
   } = useStore(utilityStore)
   const { register, handleSubmit, formState, watch } = useForm()
   const { errors } = formState
@@ -50,18 +51,35 @@ const ClientAddRecipient = () => {
       setfolderName(`${watch("first_name")}-${v4().slice(0, 8)}`)
     }, 1000)
     return () => clearTimeout(timeout)
-  }, [watch("first_name")])
+  }, [watch])
 
+  const theGender = watch("gender")
+  console.log("theGender", theGender)
+
+  const runToast = (message) => {
+    toast({
+      description: message,
+      status: "error",
+      duration: 3000,
+      isClosable: true,
+      position: "top-right",
+    })
+  }
 
   const onSubmit = async (data) => {
+    if (sec_one_paragraph === "" || sec_one_paragraph === "<p><br></p>") {
+      runToast("Section One Paragraph is required")
+      return
+    }
+    if (
+      according_to_paragraph === "" ||
+      according_to_paragraph === "<p><br></p>"
+    ) {
+      runToast("According To Paragraph is required")
+      return
+    }
     if (uploadedFiles?.length === 0) {
-      toast({
-        description: "Images are required",
-        status: "error",
-        duration: 3000,
-        isClosable: true,
-        position: "top-right",
-      })
+      runToast("Images are required")
       return
     }
     setsubmitFormTrigger(true)
@@ -81,11 +99,9 @@ const ClientAddRecipient = () => {
       gender,
       condition,
       sub_title,
-      according_to,
       learn_more_url,
       learn_more_text,
       what_is,
-      according_to_paragraph,
     } = data
 
     const { data: recipient, error } = await supabase
@@ -99,7 +115,6 @@ const ClientAddRecipient = () => {
           condition: condition,
           sub_title: sub_title,
           sec_one_paragraph: sec_one_paragraph,
-          according_to: according_to,
           learn_more_url: learn_more_url,
           according_to_paragraph: according_to_paragraph,
           learn_more_text: learn_more_text,
@@ -174,6 +189,25 @@ const ClientAddRecipient = () => {
               {/*********** Gender ***********/}
               <FormControl isInvalid={errors.gender} isRequired>
                 <FormLabel htmlFor="name">Gender:</FormLabel>
+                <Select
+                  sx={inputStyle}
+                  id="gender"
+                  variant="outline"
+                  placeholder="- Select Gender -"
+                  {...register("gender", {
+                    required: "Gender is required",
+                  })}
+                >
+                  <option value="male">Male</option>
+                  <option value="female">Female</option>
+                </Select>
+                <FormErrorMessage>
+                  {errors.gender && errors.gender.message}
+                </FormErrorMessage>
+              </FormControl>
+              {/*********** Gender ***********/}
+              {/* <FormControl isInvalid={errors.gender} isRequired>
+                <FormLabel htmlFor="name">Gender:</FormLabel>
                 <Input
                   type="text"
                   sx={inputStyle}
@@ -186,7 +220,7 @@ const ClientAddRecipient = () => {
                 <FormErrorMessage>
                   {errors.gender && errors.gender.message}
                 </FormErrorMessage>
-              </FormControl>
+              </FormControl> */}
               {/*********** Condition ***********/}
               <FormControl isInvalid={errors.condition} isRequired>
                 <FormLabel htmlFor="name">Condition:</FormLabel>
@@ -230,46 +264,17 @@ const ClientAddRecipient = () => {
                 sx={inputStyle}
                 id="what_is"
                 placeholder="What is"
+                defaultValue={"What is <TOPIC>?"}
                 {...register("what_is", {
                   required: `"What is" is required`,
                 })}
               />
               <FormErrorMessage>
-                {errors.according_to && errors.according_to.message}
-              </FormErrorMessage>
-            </FormControl>
-            {/*********** According_to ***********/}
-            <FormControl isInvalid={errors.according_to} isRequired>
-              <FormLabel htmlFor="name">According to:</FormLabel>
-              <Input
-                type="text"
-                sx={inputStyle}
-                id="according_to"
-                placeholder="According to"
-                {...register("according_to", {
-                  required: "According to is required",
-                })}
-              />
-              <FormErrorMessage>
-                {errors.according_to && errors.according_to.message}
+                {errors.what_is && errors.what_is.message}
               </FormErrorMessage>
             </FormControl>
             {/*********** According_to_paragraph ***********/}
-            <FormControl isInvalid={errors.according_to_paragraph} isRequired>
-              <FormLabel htmlFor="name">According to Paragraph:</FormLabel>
-              <Textarea
-                sx={inputStyle}
-                id="according_to_paragraph"
-                placeholder="According to paragraph"
-                {...register("according_to_paragraph", {
-                  required: `"According to paragraph" is required`,
-                })}
-              />
-              <FormErrorMessage>
-                {errors.according_to_paragraph &&
-                  errors.according_to_paragraph.message}
-              </FormErrorMessage>
-            </FormControl>
+            <AccordingToparagraph />
             <Flex gap={6}>
               {/*********** Learn_more_text ***********/}
               <FormControl isInvalid={errors.learn_more_text} isRequired>
@@ -305,13 +310,6 @@ const ClientAddRecipient = () => {
               </FormControl>
             </Flex>
             {/*********** Upload Images ***********/}
-            {/* <ImagesUpload
-              files={files}
-              setfiles={setfiles}
-              id={recipientFromDatabase}
-              submitFormTrigger={submitFormTrigger}
-              setsubmitFormTrigger={setsubmitFormTrigger}
-            /> */}
             <CltUploadWidget
               parameters={{
                 ButtonText: "Upload Recipient Images",

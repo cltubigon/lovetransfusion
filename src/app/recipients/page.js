@@ -20,7 +20,7 @@ const RecipientsPage = async () => {
       supabase: supabase,
       queryKey: ["recipients"],
       table: "recipients",
-      select: "first_name",
+      select: "first_name, profile_picture",
     })
   )
   return (

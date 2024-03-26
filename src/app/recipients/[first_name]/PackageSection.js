@@ -17,7 +17,6 @@ import ContributeButtonFallback from "./ContributeButtonFallback"
 
 const PackageSection = ({ parameters }) => {
   const { id, firstName, condition, poster_image, package_image } = parameters
-  console.log("poster_image", poster_image)
   const capitalizeFirstName = capitalize(firstName)
   const timeContainer = {
     bgColor: lightBlue,
@@ -158,11 +157,7 @@ const PackageSection = ({ parameters }) => {
               minH={{ tls: "460px" }}
             >
               <Image
-                src={
-                  poster_image
-                    ? `${process.env.NEXT_PUBLIC_SUPABASE_STORAGE_URL}${poster_image?.fullPath}`
-                    : PackageImage
-                }
+                src={poster_image ? `${poster_image?.url}` : PackageImage}
                 width={380}
                 height={460}
                 quality={100}

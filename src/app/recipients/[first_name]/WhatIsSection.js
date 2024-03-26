@@ -9,6 +9,7 @@ import {
 } from "../../globalStyle"
 import Link from "next/link"
 import Image from "next/image"
+import "./custom.css"
 
 import heart from "./images/heart-proper.png"
 import TestimonyImage from "./TestimonyImage"
@@ -16,7 +17,6 @@ import TestimonyImage from "./TestimonyImage"
 const WhatIsSection = ({
   parameters: {
     what_is,
-    according_to,
     according_to_paragraph,
     learn_more_url,
     learn_more_text,
@@ -34,14 +34,28 @@ const WhatIsSection = ({
               color={lightBlue}
               pb={"4px"}
             >
-              What is {what_is}?
+              {what_is}
             </Text>
-            <Text fontSize={"20px"} lineHeight={"22px"}>
-              According to {according_to}: “{according_to_paragraph}”
-            </Text>
+            <Flex>
+              {/* <Text fontSize={"20px"} lineHeight={"22px"}>
+                {according_to_paragraph}
+              </Text> */}
+              <Box
+                className={'according_to_paragraph'}
+                pr={{ phs: 0, tll: "10px" }}
+                fontSize={"20px"}
+                lineHeight={"22px"}
+                dangerouslySetInnerHTML={{ __html: according_to_paragraph }}
+              ></Box>
+            </Flex>
+
             <Text fontSize={"20px"} lineHeight={"22px"}>
               Learn more:{" "}
-              <Link target="_blank" href={learn_more_url} style={{ color: lightBlue }}>
+              <Link
+                target="_blank"
+                href={learn_more_url}
+                style={{ color: lightBlue }}
+              >
                 {learn_more_text}
               </Link>
             </Text>

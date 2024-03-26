@@ -38,7 +38,6 @@ const PageClientRecipientPost = ({ params }) => {
     category,
     gender,
     sec_one_paragraph,
-    according_to,
     according_to_paragraph,
     learn_more_url,
     learn_more_text,
@@ -50,9 +49,6 @@ const PageClientRecipientPost = ({ params }) => {
     package_image,
     poster_image,
   } = recipient[0]
-  
-  console.log("profile_picture", profile_picture)
-  console.log("recipient", recipient)
 
   return (
     <Box minH={"5200px"}>
@@ -67,7 +63,9 @@ const PageClientRecipientPost = ({ params }) => {
           gender,
         }}
       />
-      <HugMessageShare parameters={{ id, firstName, hugs, package_image, sub_title }} />
+      <HugMessageShare
+        parameters={{ id, firstName, hugs, package_image, sub_title }}
+      />
       <PackageSection
         parameters={{ id, firstName, condition, poster_image, package_image }}
       />
@@ -78,7 +76,6 @@ const PageClientRecipientPost = ({ params }) => {
       <WhatIsSection
         parameters={{
           what_is,
-          according_to,
           according_to_paragraph,
           learn_more_text,
           learn_more_url,

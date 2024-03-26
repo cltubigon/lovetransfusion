@@ -7,10 +7,7 @@ import {
   Input,
   InputGroup,
   InputRightElement,
-  useToast,
 } from "@chakra-ui/react"
-import { login } from "./actions"
-import { useForm } from "react-hook-form"
 import logo from "@/app/recipients/[first_name]/MultiStepForm/images/full-color-logo.png"
 import Link from "next/link"
 import Image from "next/image"
@@ -21,32 +18,12 @@ import {
   containerInner,
   containerPadding,
 } from "@/app/globalStyle"
-import { useSearchParams } from "next/navigation"
 
 export default function ClientLogin() {
-  const toast = useToast()
-  const { register, handleSubmit, formState } = useForm()
-  const { errors } = formState
   const [showPassword, setshowPassword] = useState(false)
   const inputStyle = {
     bgColor: "white",
     borderColor: "#ccc",
-  }
-  const params = useSearchParams().get('next')
-  const onSubmit = (data) => {
-    const initiateLogin = async () => {
-      const error = await login({ data, redirectTo: params })
-      if (error) {
-        toast({
-          description: error,
-          status: "error",
-          duration: 3000,
-          isClosable: true,
-          position: "top-right",
-        })
-      }
-    }
-    initiateLogin()
   }
   const handlePasswordVisibility = () => {
     setshowPassword(() => !showPassword)
@@ -71,14 +48,14 @@ export default function ClientLogin() {
           maxWidth="400px"
           w={"100%"}
         >
-          <form style={{ width: "100%" }} onSubmit={handleSubmit(onSubmit)}>
+          <form style={{width: '100%'}}>
             <Flex
               flexDir={"column"}
               gap={2}
               justifyContent={"flex-start"}
               alignItems={"center"}
             >
-              <FormControl isInvalid={errors.email} isRequired>
+              <FormControl isRequired>
                 {/*********** Email ***********/}
                 {/* <FormLabel htmlFor="name">Email:</FormLabel> */}
                 <Input
@@ -86,23 +63,12 @@ export default function ClientLogin() {
                   sx={inputStyle}
                   id="email"
                   placeholder="Email"
-                  {...register("email", {
-                    required: "Enter your email address",
-                    pattern: {
-                      // eslint-disable-next-line no-useless-escape
-                      value: /^[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+$/i,
-                      message: "Please enter a valid email",
-                    },
-                  })}
                 />
-                <FormErrorMessage>
-                  {errors.email && errors.email.message}
-                </FormErrorMessage>
               </FormControl>
 
               {/*********** Password ***********/}
               <InputGroup>
-                <FormControl isInvalid={errors.password} isRequired>
+                <FormControl isRequired>
                   {/* <FormLabel htmlFor="name">Password:</FormLabel> */}
                   <Input
                     w={"100%"}
@@ -110,9 +76,6 @@ export default function ClientLogin() {
                     sx={inputStyle}
                     id="password"
                     placeholder="Password"
-                    {...register("password", {
-                      required: "Password is required",
-                    })}
                     pos={"relative"}
                   />
                   <InputRightElement width="4.5rem">
@@ -124,10 +87,6 @@ export default function ClientLogin() {
                       {showPassword ? "Hide" : "Show"}
                     </Button>
                   </InputRightElement>
-
-                  <FormErrorMessage>
-                    {errors.password && errors.password.message}
-                  </FormErrorMessage>
                 </FormControl>
               </InputGroup>
             </Flex>
@@ -140,7 +99,6 @@ export default function ClientLogin() {
                 _hover={{ bgColor: buttonColorHover }}
                 color={"white"}
                 letterSpacing={"1px"}
-                type="submit"
               >
                 Login
               </Button>

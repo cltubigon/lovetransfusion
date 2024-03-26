@@ -1,8 +1,7 @@
 import { Flex } from "@chakra-ui/react"
 import React from "react"
-import { containerInner, containerPadding, lightBlue } from "../globalStyle"
+import { containerInner, containerPadding } from "../globalStyle"
 import MainNav from "../components/MainNav/MainNav"
-import { isAuthenticated } from "@/config/supabase/isAuthenticated"
 import DashboardNavigation from "./DashboardNavigation"
 
 const Dashboard = async ({ children }) => {

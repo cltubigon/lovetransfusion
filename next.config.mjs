@@ -18,10 +18,10 @@
 const nextConfig = {
   images: {
     remotePatterns: [
-      {
-        protocol: "https",
-        hostname: "bnsyauupzwhhsloomymu.supabase.co",
-      },
+      // {
+      //   protocol: "https",
+      //   hostname: "bnsyauupzwhhsloomymu.supabase.co",
+      // },
       {
         protocol: "https",
         hostname: "res.cloudinary.com",

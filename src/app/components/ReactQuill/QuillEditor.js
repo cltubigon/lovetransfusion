@@ -40,8 +40,7 @@ const modules = {
 // ]
 const ReactQuill = dynamic(() => import("react-quill"), { ssr: false })
 
-function QuillEditor({setValue}) {
-
+function QuillEditor({ setValue, defaultValue }) {
   const handleChange = (content, delta, source, editor) => {
     // const data = { content, delta, source, editor }  // Available Data
     setValue(content)
@@ -53,7 +52,7 @@ function QuillEditor({setValue}) {
         style={{ height: "100%", width: "100%" }}
         theme="snow"
         modules={modules}
-        // defaultValue={defaultValue}
+        defaultValue={defaultValue}
         onChange={handleChange}
       />
     </Flex>

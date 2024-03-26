@@ -97,9 +97,9 @@ const ShareModal = ({
   }
 
   const packageImage = package_image
-    ? `${process.env.NEXT_PUBLIC_SUPABASE_STORAGE_URL}${package_image?.fullPath}`
+    ? `${package_image?.url}`
     : packageImageTemplate
-    
+
   return (
     <Flex
       sx={buttonStyle}

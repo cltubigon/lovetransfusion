@@ -25,7 +25,9 @@ const VideoSection = ({ firstName }) => {
             lineHeight={"33px"}
             textAlign={"center"}
           >{`Short Video Explains How We Are Raising Awareness Of ${firstName}’s Story`}</Text>
-          <WistiaPlayer videoId="nx9htrqsu9" wrapper="video-1" />
+          <Flex maxW={"960px"} w={'100%'}>
+            <WistiaPlayer videoId="nx9htrqsu9" wrapper="video-1" />
+          </Flex>
           <Link href={"/"}>
             <Flex
               fontFamily={franklinDemiCond}

@@ -10,14 +10,12 @@ import multipleUseQuery from "@/hooks/useQuery/multipleUseQuery"
 import { useQuery } from "@tanstack/react-query"
 import { createClient } from "@/config/supabase/supabaseClient"
 import imgPlaceholder from "./[first_name]/images/profile-pic-placeholder2.png"
-import { useRouter } from "next/navigation"
 import { Image, Link } from "@chakra-ui/next-js"
 
 export const revalidate = 5
 
 const RecipientsClientComponent = () => {
   const supabase = createClient()
-  const router = useRouter()
   const { data: recipients, error } = useQuery(
     multipleUseQuery({
       supabase,
@@ -56,7 +54,7 @@ const RecipientsClientComponent = () => {
         >
           <Flex py={6} flexDir={"column"} gap={1} px={{ phs: 0, tls: 2 }}>
             <Heading color={lightBlue}>List of Recipients</Heading>
-            <Text>v0.0.13 - Added Cloudinary</Text>
+            <Text>v0.0.14 - Image upload feature</Text>
           </Flex>
         </Flex>
         <Flex
@@ -76,15 +74,11 @@ const RecipientsClientComponent = () => {
             })
             .map((recipient, index) => {
               const { first_name, profile_picture } = recipient
-              const picture = profile_picture
-                ? `${process.env.NEXT_PUBLIC_SUPABASE_STORAGE_URL}${profile_picture?.fullPath}`
-                : imgPlaceholder
               return (
                 <Link
                   key={index}
                   href={`recipients/${first_name}`}
                   cursor={"pointer"}
-                  mx={{ phs: 0, tls: 2 }}
                   w={{
                     phs: "100%",
                     tls: "calc(33.3% - 16px)",
@@ -96,20 +90,21 @@ const RecipientsClientComponent = () => {
                   overflow={"hidden"}
                   bgColor={"gray.50"}
                   boxShadow={"sm"}
+                  mx={{ phs: 10, phl: "60px", tls: 2 }}
                 >
                   <Flex w={"100%"} h={"250px"} pos={"relative"}>
                     <Image
-                      src={picture}
+                      src={
+                        profile_picture
+                          ? `${profile_picture?.url}`
+                          : imgPlaceholder
+                      }
                       alt="profile picture"
-                      blurDataURL={profile_picture?.plaiceholders || ""}
-                      placeholder="blur"
-                      // fill
-                      width={{ phs: 336, phl: 390, tls: 297, ltl: 273 }}
+                      width={390}
                       height={250}
                       quality={100}
-                      style={{
-                        objectFit: "cover",
-                      }}
+                      w={{ phs: 336, phl: 390, tls: 297, ltl: 273 }}
+                      h={{ phs: 250 }}
                       backgroundPosition={"cover"}
                     />
                   </Flex>

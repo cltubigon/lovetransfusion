@@ -23,10 +23,10 @@ const RecipientProfile = ({
   console.log("RecipientProfile")
   const capitalizeName = capitalize(firstName)
   const handleOut = () => {
-    console.log('I am out')
+    console.log("I am out")
   }
   return (
-    <Flex sx={containerPadding} pb={"23px"} >
+    <Flex sx={containerPadding} pb={"23px"}>
       <Flex maxW={"984px"} w={"100%"} flexDir={"column"}>
         <Flex
           position={"relative"}
@@ -57,7 +57,9 @@ const RecipientProfile = ({
           gap={"10px"}
           flexWrap={{ phs: "wrap", tls: "nowrap" }}
         >
-          <RecipientImage profile_picture={profile_picture} />
+          <Flex justifyContent={'center'} w={'100%'}>
+            <RecipientImage profile_picture={profile_picture} />
+          </Flex>
           <Flex flexDir={"column"} gap={"22px"} pt={"20px"} pl={"20px"}>
             <Text
               fontSize={"28px"}

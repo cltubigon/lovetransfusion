@@ -13,7 +13,6 @@ import { FiArrowRight } from "react-icons/fi"
 import { FaLock } from "react-icons/fa"
 import { useStore } from "zustand"
 import utilityStore from "@/utilities/store/store"
-import CltImage from "@/app/components/CltImage"
 
 const StepOne = ({ setactiveStep }) => {
   const {
@@ -28,7 +27,7 @@ const StepOne = ({ setactiveStep }) => {
 
   if (!data) return <p>No data to show</p>
 
-  const { firstName, condition, package_image, package_image_blur } = data
+  const { firstName, condition, package_image } = data
   const borderColor = "#dadada"
   const donationColumns = {
     flexDir: "column",
@@ -46,10 +45,6 @@ const StepOne = ({ setactiveStep }) => {
   }
   return (
     <Flex flexDir={"column"} gap={3}>
-      <Flex justifyContent={"center"} pb={"10px"}>
-        {/* <Image src={logo} alt="lovetransfusion-logo" quality={100} /> */}
-        <CltImage />
-      </Flex>
       <Heading
         textAlign={"center"}
         as={"h2"}
@@ -73,11 +68,9 @@ const StepOne = ({ setactiveStep }) => {
       <Flex justifyContent={"center"} mb={5}>
         <Image
           src={package_image || imagePlaceholder}
-          blurDataURL={package_image_blur || ''}
-          placeholder="blur"
           alt="placeholder"
-          width={534}
-          height={289}
+          width={552}
+          height={306}
           quality={100}
         />
       </Flex>

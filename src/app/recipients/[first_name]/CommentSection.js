@@ -10,7 +10,6 @@ import RecipientImage from "./RecipientImage"
 import CommentForm from "./CommentForm"
 
 const CommentSection = ({ parameters: { profile_picture } }) => {
-  console.log('profile_picture', profile_picture)
   return (
     <div id="comment-section">
       <Flex className="comment-section" pt={5} bgColor={"#E0F3FF"}>
@@ -22,18 +21,22 @@ const CommentSection = ({ parameters: { profile_picture } }) => {
         >
           <Flex sx={containerInner} justifyContent={"center"}>
             <Flex maxW={"860px"} w={"100%"} flexDir={"column"}>
-              <RecipientImage
-                maxW={"155px"}
-                minW={"157px"}
-                logoW={68.09}
-                logoH={68.77}
-                borderW={"4px"}
-                outlineW={"4px"}
-                outlineOffset={"-8px"}
-                bottom={"-9px"}
-                right={"-15px"}
-                profile_picture={profile_picture}
-              />
+              <Flex justifyContent={'center'}>
+                <RecipientImage
+                  maxW={"155px"}
+                  minW={"157px"}
+                  logoW={68}
+                  logoH={69}
+                  imgW={139}
+                  imgH={141}
+                  borderW={"4px"}
+                  outlineW={"4px"}
+                  outlineOffset={"-8px"}
+                  bottom={"-9px"}
+                  right={"-15px"}
+                  profile_picture={profile_picture}
+                />
+              </Flex>
               <Flex
                 pos={"relative"}
                 w={"100%"}

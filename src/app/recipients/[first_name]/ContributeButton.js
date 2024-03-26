@@ -43,13 +43,10 @@ const ContributeButton = ({ parameters }) => {
         id,
         firstName,
         condition,
-        package_image: package_image
-          ? `${process.env.NEXT_PUBLIC_SUPABASE_STORAGE_URL}${package_image?.fullPath}`
-          : null,
-        package_image_blur: package_image ? package_image?.plaiceholders : null,
+        package_image: package_image ? `${package_image?.url}` : null,
       },
       content: "MultiStepForm",
-      maxW: "582px",
+      maxW: "600px",
       bgNotClicable: true,
     })
   }
