@@ -10,7 +10,7 @@ const singleUseQuery = ({ supabase, queryKey, table, column, columnValue }) => {
         return data
       }
     },
-    refetchInterval: 60 * 1000,
+    refetchInterval: 30 * 1000,
   }
 }
 

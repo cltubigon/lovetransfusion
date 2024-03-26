@@ -1,6 +1,5 @@
 "use client"
-import { Button, Flex, Text } from "@chakra-ui/react"
-import { containerInner, containerPadding } from "../../globalStyle"
+import { Flex, Text } from "@chakra-ui/react"
 import { useEffect, useState } from "react"
 import QuillEditor from "@/app/components/ReactQuill/QuillEditor"
 import { useStore } from "zustand"
@@ -16,7 +15,7 @@ const AddSectionOneParagraph = () => {
   }, [value])
 
   return (
-    <Flex flexDir={'column'} gap={1}>
+    <Flex flexDir={"column"} gap={1}>
       <Text fontSize={"18px"}>Section One Paragraph:</Text>
       <QuillEditor setValue={setValue} />
     </Flex>

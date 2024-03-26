@@ -7,6 +7,7 @@ import {
   FormLabel,
   Input,
   Textarea,
+  useToast,
 } from "@chakra-ui/react"
 import {
   buttonColor,
@@ -23,26 +24,57 @@ import logo from "../[first_name]/MultiStepForm/images/full-color-logo.png"
 import { useRouter } from "next/navigation"
 import { supabase } from "@/config/supabase/supabase"
 import Link from "next/link"
-import ImagesUpload from "@/app/recipients/add-recipient/ImagesUpload"
-import { useState } from "react"
+import { useDeferredValue, useEffect, useState } from "react"
 import Loader from "./Loader"
+import CltUploadWidget from "@/app/components/cloudinary/CltUploadWidget"
+import { v1, v4 } from "uuid"
 
 const ClientAddRecipient = () => {
-  console.log("")
+  const toast = useToast()
   const router = useRouter()
   const {
     recipient: { sec_one_paragraph },
   } = useStore(utilityStore)
   const { register, handleSubmit, formState, watch } = useForm()
   const { errors } = formState
-  // const [files, setfiles] = useState([])
-  const [submitFormTrigger, setsubmitFormTrigger] = useState(null)
-  const [recipientFromDatabase, setrecipientFromDatabase] = useState(false)
 
-  // console.log("files", files)
+  const [uploadedFiles, setuploadedFiles] = useState([])
+  const [submitFormTrigger, setsubmitFormTrigger] = useState(null)
+
+  console.log("uploadedFiles", uploadedFiles)
+
+  const [folderName, setfolderName] = useState("")
+
+  useEffect(() => {
+    const timeout = setTimeout(() => {
+      setfolderName(`${watch("first_name")}-${v4().slice(0, 8)}`)
+    }, 1000)
+    return () => clearTimeout(timeout)
+  }, [watch("first_name")])
+
+
   const onSubmit = async (data) => {
-    // setsubmitFormTrigger(true)
-    // if (files?.length === 0) return
+    if (uploadedFiles?.length === 0) {
+      toast({
+        description: "Images are required",
+        status: "error",
+        duration: 3000,
+        isClosable: true,
+        position: "top-right",
+      })
+      return
+    }
+    setsubmitFormTrigger(true)
+    const package_image = uploadedFiles?.find((item) => {
+      return item.file_name.includes("care-package")
+    })
+    const profile_picture = uploadedFiles?.find((item) => {
+      return item.file_name.includes("profile-pic")
+    })
+    const poster_image = uploadedFiles?.find((item) => {
+      return item.file_name.includes("poster-package")
+    })
+
     const {
       first_name,
       category,
@@ -72,20 +104,21 @@ const ClientAddRecipient = () => {
           according_to_paragraph: according_to_paragraph,
           learn_more_text: learn_more_text,
           what_is: what_is,
+          poster_image: poster_image,
+          profile_picture: profile_picture,
+          package_image: package_image,
         },
       ])
       .select()
     if (recipient) {
-      console.log("recipient", recipient)
-      // setrecipientFromDatabase(recipient[0].id)
       router.push(`/recipients/${recipient[0].first_name}`)
+      setsubmitFormTrigger(false)
     }
     if (error) {
       console.log("Error adding recipient details", error.message)
       setsubmitFormTrigger(false)
     }
   }
-  // console.log('recipientFromDatabase', recipientFromDatabase)
 
   const inputStyle = {
     bgColor: "white",
@@ -279,6 +312,14 @@ const ClientAddRecipient = () => {
               submitFormTrigger={submitFormTrigger}
               setsubmitFormTrigger={setsubmitFormTrigger}
             /> */}
+            <CltUploadWidget
+              parameters={{
+                ButtonText: "Upload Recipient Images",
+                folder: folderName,
+                maxFiles: 3,
+                setuploadedFiles,
+              }}
+            />
             {/*********** End of Inputs ***********/}
             <Button
               fontSize={"18px"}
