@@ -12,6 +12,7 @@ import {
 } from "../config/fonts"
 import Popup from "./components/Popup"
 import TanstackProvider from "@/config/providers/TanstackProvider"
+import { SupabaseProvider } from "./supabase-context"
 
 export const metadata = {
   title: {
@@ -29,14 +30,16 @@ export default function RootLayout({ children }) {
       className={`${SegoePrint.variable} ${openSans.variable} ${inter.variable} ${franklinGothicBookItalic.variable} ${franklinGothicDemiCond.variable} ${franklinGothicMediumCond.variable} ${franklinGothicBook.variable} ${ArialNarrowBold.variable}`}
     >
       <body>
-        <TanstackProvider>
-          <ChakraProvider theme={theme}>
-            <Popup />
-            <Box overflowY={"auto"} maxH={"100vh"}>
-              {children}
-            </Box>
-          </ChakraProvider>
-        </TanstackProvider>
+        <SupabaseProvider>
+          <TanstackProvider>
+            <ChakraProvider theme={theme}>
+              <Popup />
+              <Box overflowY={"auto"} maxH={"100vh"}>
+                {children}
+              </Box>
+            </ChakraProvider>
+          </TanstackProvider>
+        </SupabaseProvider>
       </body>
     </html>
   )

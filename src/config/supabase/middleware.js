@@ -55,12 +55,7 @@ export async function updateSession(request) {
   )
 
   // refreshing the auth token
-  const { data } = await supabase.auth.getUser()
-  const pathname = request?.nextUrl?.pathname
-  if (data?.user) {
-    if (pathname === ("/login" || "/signup")) {
-      return NextResponse.rewrite(new URL("/", request.url))
-    }
-    return response
-  }
+  await supabase.auth.getUser()
+
+  return response
 }

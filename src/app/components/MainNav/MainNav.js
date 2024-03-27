@@ -1,24 +1,11 @@
-import {
-  buttonColor,
-  buttonColorHover,
-  containerInner,
-  containerPadding,
-  franklinMedium,
-} from "@/app/globalStyle"
-import { Button, Flex, Text } from "@chakra-ui/react"
-import Image from "next/image"
+import { containerInner, containerPadding } from "@/app/globalStyle"
+import { Flex } from "@chakra-ui/react"
 import React from "react"
-import logo from "./image/main-logo.png"
-import Link from "next/link"
 // import { isAuthenticated } from "@/config/supabase/isAuthenticated"
-import { GiHamburgerMenu } from "react-icons/gi"
-import ClientMainNav from "./ClientMainNav"
-import { createServer } from "@/config/supabase/supabaseServer"
-import { logout } from "@/app/(auth)/signOut/actions"
+import ClientMainNav from "./ClientMobileNav"
+import ClientDesktopNav from "./ClientDesktopNav"
 
 const MainNav = async () => {
-  const supabase = createServer()
-  const { data, error } = await supabase.auth.getUser()
   const menu = [
     { name: "Home" },
     { name: "About" },
@@ -36,46 +23,8 @@ const MainNav = async () => {
       zIndex={997}
     >
       <Flex sx={containerInner} justifyContent={"space-between"}>
-        <ClientMainNav parameters={{ menu, data }} />
-        <Flex
-          gap={{ tll: 4, lts: 6, ltl: 8 }}
-          display={{ phs: "none", tll: "flex" }}
-          alignItems={"center"}
-          flexWrap={{ phs: "wrap", tll: "nowrap" }}
-        >
-          {menu.map((item, index) => {
-            return (
-              <Text fontSize={"20px"} fontFamily={franklinMedium} key={index}>
-                {item.name}
-              </Text>
-            )
-          })}
-          {!data?.user && (
-            <Link href={"/login"}>
-              <Button
-                bgColor={buttonColor}
-                _hover={{ bgColor: buttonColorHover }}
-                color={"white"}
-                letterSpacing={"1px"}
-              >
-                Login
-              </Button>
-            </Link>
-          )}
-          {data?.user && (
-            <form>
-              <Button
-                bgColor={buttonColor}
-                _hover={{ bgColor: buttonColorHover }}
-                color={"white"}
-                type="submit"
-                formAction={logout}
-              >
-                Logout
-              </Button>
-            </form>
-          )}
-        </Flex>
+        <ClientMainNav menu={menu} />
+        <ClientDesktopNav menu={menu} />
       </Flex>
     </Flex>
   )

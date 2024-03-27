@@ -1,4 +1,3 @@
-import { NextResponse } from "next/server"
 import { updateSession } from "./config/supabase/middleware"
 
 // export const middleware = () => {

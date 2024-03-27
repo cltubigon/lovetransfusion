@@ -6,14 +6,29 @@ import {
 } from "@/app/globalStyle"
 import { Button, Flex, Text } from "@chakra-ui/react"
 import Image from "next/image"
-import React, { useState } from "react"
+import React, { useEffect, useState } from "react"
 import logo from "./image/main-logo.png"
 import Link from "next/link"
 import { GiHamburgerMenu } from "react-icons/gi"
 import { easeInOut, motion } from "framer-motion"
 import { logout } from "@/app/(auth)/signOut/actions"
+import { useSupabase } from "@/app/supabase-context"
 
-const ClientMainNav = ({ parameters: { menu, data } }) => {
+const ClientMobileNav = ({ menu }) => {
+  const supabase = useSupabase()
+  const [session, setsession] = useState(undefined)
+  const initiate = async () => {
+    const userSession = await supabase.auth.getSession()
+    const {
+      data: { session },
+    } = userSession
+    setsession(session)
+  }
+  console.log("session", session)
+  useEffect(() => {
+    initiate()
+  }, [])
+
   const [isOpen, setisOpen] = useState(false)
   const handleOpen = () => {
     setisOpen(true)
@@ -91,7 +106,7 @@ const ClientMainNav = ({ parameters: { menu, data } }) => {
               </Text>
             )
           })}
-          {!data?.user && (
+          {!session && (
             <Link href={"/login"}>
               <Button
                 bgColor={buttonColor}
@@ -102,7 +117,7 @@ const ClientMainNav = ({ parameters: { menu, data } }) => {
               </Button>
             </Link>
           )}
-          {data?.user && (
+          {session && (
             <form>
               <Button
                 bgColor={buttonColor}
@@ -119,7 +134,6 @@ const ClientMainNav = ({ parameters: { menu, data } }) => {
         </Flex>
         <Flex w={"30%"} onClick={handleClose}></Flex>
       </Flex>
-      {/* )} */}
       <Flex gap={6} alignItems={"center"}>
         <Flex
           cursor={"pointer"}
@@ -143,4 +157,4 @@ const ClientMainNav = ({ parameters: { menu, data } }) => {
   )
 }
 
-export default ClientMainNav
+export default ClientMobileNav
