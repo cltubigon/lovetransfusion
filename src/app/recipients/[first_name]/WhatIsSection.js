@@ -41,7 +41,7 @@ const WhatIsSection = ({
                 {according_to_paragraph}
               </Text> */}
               <Box
-                className={'according_to_paragraph'}
+                className={'style_quill_html'}
                 pr={{ phs: 0, tll: "10px" }}
                 fontSize={"20px"}
                 lineHeight={"22px"}

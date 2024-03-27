@@ -19,7 +19,6 @@ import { useStore } from "zustand"
 import utilityStore from "@/utilities/store/store"
 import AddSectionOneParagraph from "./AddSectionOneParagraph"
 import { useForm } from "react-hook-form"
-import Image from "next/image"
 import logo from "../[first_name]/MultiStepForm/images/full-color-logo.png"
 import { useRouter } from "next/navigation"
 import { supabase } from "@/config/supabase/supabase"
@@ -29,6 +28,7 @@ import Loader from "./Loader"
 import CltUploadWidget from "@/app/components/cloudinary/CltUploadWidget"
 import { v4 } from "uuid"
 import AccordingToparagraph from "./AccordingToParagraph"
+import Image from "next/image"
 
 const ClientAddRecipient = () => {
   const toast = useToast()
@@ -318,6 +318,23 @@ const ClientAddRecipient = () => {
                 setuploadedFiles,
               }}
             />
+            <Flex gap={4}>
+              {uploadedFiles?.map((file, index) => {
+                return (
+                  <Flex w={"150px"} h={"150px"} pos={"relative"} key={index}>
+                    <Image
+                      src={file?.url}
+                      quality={100}
+                      fill
+                      alt="package image"
+                      style={{
+                        objectFit: "contain",
+                      }}
+                    />
+                  </Flex>
+                )
+              })}
+            </Flex>
             {/*********** End of Inputs ***********/}
             <Button
               fontSize={"18px"}

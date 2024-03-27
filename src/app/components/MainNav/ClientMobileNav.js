@@ -24,9 +24,9 @@ const ClientMobileNav = ({ menu }) => {
     } = userSession
     setsession(session)
   }
-  console.log("session", session)
   useEffect(() => {
     initiate()
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   const [isOpen, setisOpen] = useState(false)

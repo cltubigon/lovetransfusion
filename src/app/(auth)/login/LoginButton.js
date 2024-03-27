@@ -17,6 +17,7 @@ const LoginButton = () => {
   }
   useEffect(() => {
     initiate()
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
   return (
     <>

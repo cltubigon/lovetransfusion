@@ -57,7 +57,7 @@ const RecipientProfile = ({
           gap={"10px"}
           flexWrap={{ phs: "wrap", tls: "nowrap" }}
         >
-          <Flex justifyContent={'center'} w={'100%'}>
+          <Flex justifyContent={"center"} w={"100%"}>
             <RecipientImage profile_picture={profile_picture} />
           </Flex>
           <Flex flexDir={"column"} gap={"22px"} pt={"20px"} pl={"20px"}>
@@ -69,6 +69,7 @@ const RecipientProfile = ({
               {sub_title}
             </Text>
             <Box
+              className={"style_quill_html"}
               pr={{ phs: 0, tll: "10px" }}
               fontSize={"20px"}
               lineHeight={"22px"}

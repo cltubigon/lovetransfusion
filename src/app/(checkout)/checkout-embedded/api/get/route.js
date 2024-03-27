@@ -6,12 +6,11 @@ export const POST = async (req) => {
   try {
     const session = await stripe.checkout.sessions.retrieve(sessionId)
 
-    console.log({ session })
     return NextResponse.json({
-        status: session.status,
-        customer_email: session.customer_details.email
-      })
+      status: session.status,
+      customer_email: session.customer_details.email,
+    })
   } catch (err) {
-    return NextResponse.json({err})
+    return NextResponse.json({ err })
   }
 }

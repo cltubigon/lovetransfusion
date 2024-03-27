@@ -54,7 +54,7 @@ const RecipientsClientComponent = () => {
         >
           <Flex py={6} flexDir={"column"} gap={1} px={{ phs: 0, tls: 2 }}>
             <Heading color={lightBlue}>List of Recipients</Heading>
-            <Text>v0.0.14 - Image upload feature</Text>
+            <Text>v0.0.15 - Image upload feature</Text>
           </Flex>
         </Flex>
         <Flex
